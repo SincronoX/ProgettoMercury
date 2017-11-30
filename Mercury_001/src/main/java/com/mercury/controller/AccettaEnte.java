@@ -1,3 +1,5 @@
+// Fabio Savelli
+
 package com.mercury.controller;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class AccettaEnte extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 	}
 
 }
