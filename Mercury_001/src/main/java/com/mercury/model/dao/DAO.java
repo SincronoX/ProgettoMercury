@@ -29,7 +29,7 @@ public class DAO{
          initContext=new InitialContext();
          
          Context envContext = (Context)initContext.lookup("java:/comp/env");
-         ds = (DataSource)envContext.lookup("jdbc/conn");
+         ds = (DataSource)envContext.lookup("jdbc/mercury");
 
          
          }
