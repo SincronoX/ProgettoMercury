@@ -17,17 +17,23 @@
 <%Ente e=(Ente)request.getAttribute("nomeEnte"); %>
 <div class="header"></div>
 <div class="container">
-<h2>Benvenuto,<%out.println("<label name=\"nomeEnte\" value="+ e.getNomeEnte()+"></label>");%></h2>
+	<h2>Benvenuto,<%out.println("<label name=\"nomeEnte\" value="+ e.getNomeEnte()+"></label>");%></h2>
 
-<c:forEach items="${e}" var="item">
-	<c:out value="${item.getNomeEnte()}" /><br>
-	<c:out value="${item.getEmailEnte()}" />
-</c:forEach>
+	<c:forEach items="${e}" var="item">
+		<c:out value="${item.getNomeEnte()}" /><br>
+		<c:out value="${item.getEmailEnte()}" />
+	</c:forEach>
 
-<c:forEach items="${myEvents}" var="item">
-	<c:out value="${item.getEventiByEnte()}" /><br><br>
-</c:forEach>
+	<c:forEach items="${myEvents}" var="item">
+		<form action="ServletEnte" method="post">
+			<c:out value="${item.getEventiByEnte()}" /><br><br>
+			<input type="submit" value="Modifica Evento">
+		</form>	
+	</c:forEach>
 
+	<form action="ServletEnte" method="post">
+		<input type="submit" value="Inserisci nuovo evento">
+	</form>
 
 
 
