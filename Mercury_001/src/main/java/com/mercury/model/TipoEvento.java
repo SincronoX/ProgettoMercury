@@ -20,6 +20,8 @@ public class TipoEvento {
 
 	public TipoEvento() {super();}
 	
+}
+	
 
 
 	

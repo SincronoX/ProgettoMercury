@@ -5,8 +5,8 @@ import com.mercury.model.Evento;
 
 public interface TipoEventoUtil {
 
-	ArrayList <Evento> getEventoAll ();
-	ArrayList <Evento> getEventoCat (String cat);
+	ArrayList <Evento> getEventoCatAll (); // restituisce le categorie esistenti
+	ArrayList <Evento> getEventoCat (String cat); // restituisce gli eventi
 	
 	
 }
