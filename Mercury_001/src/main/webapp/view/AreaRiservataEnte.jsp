@@ -17,7 +17,7 @@
 <%Ente e=(Ente)request.getAttribute("nomeEnte"); %>
 <div class="header"></div>
 <div class="container">
-	<h2>Benvenuto,<%out.println("<label name=\"nomeEnte\" value="+ e.getNomeEnte()+"></label>");%></h2>
+	<h2>Benvenuto,<% out.println(e.getNomeEnte());%></h2>
 
 	<c:forEach items="${e}" var="item">
 		<c:out value="${item.getNomeEnte()}" /><br>
