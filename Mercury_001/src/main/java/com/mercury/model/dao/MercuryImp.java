@@ -24,9 +24,9 @@ public class MercuryImp implements MercuryUtil{
 		
 	}
 	
-	private boolean confronto() {
-		
-		
+	private boolean confronto(TipoEvento a, TipoEvento b) {
+		if() return false;
+		return true;
 	}
 	
 	public ArrayList<Evento> getRicerca(ArrayList<TipoEvento> tipi, Luogo posizione, Calendar data) throws SQLException {
@@ -37,13 +37,14 @@ public class MercuryImp implements MercuryUtil{
         Statement st = conn.createStatement();
         
         TipoEventoImp tei = new TipoEventoImp();
-        ArrayList<TipoEvento> listaTipi = tei.getEventoCatAll();
+        ArrayList<TipoEvento> listaTipiNonScelti = tei.getEventoCatAll();
 
-        for(int i=0; i<listaTipi.size(); i++) {
+        for(int i=0; i<listaTipiNonScelti.size(); i++) {
         	for(int j=0; j<tipi.size(); j++) {
-        		if()
+        		if(confronto(listaTipiNonScelti.get(i), tipi.get(j))) {
+        			listaTipiNonScelti.remove(i);
+        		}
         	}
-        	
         }
         
         
