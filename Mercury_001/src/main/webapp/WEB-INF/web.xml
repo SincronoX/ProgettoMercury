@@ -10,9 +10,19 @@
   	<description></description>
   	<servlet-class>com.mercury.controller.ServletLogin</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletEnte</servlet-name>
+  	<display-name>ServletEnte</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletEnte</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletEnte</servlet-name>
+  	<url-pattern>/ServletEnte</url-pattern>
   </servlet-mapping>
   
   <resource-ref>
