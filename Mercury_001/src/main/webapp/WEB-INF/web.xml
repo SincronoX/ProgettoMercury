@@ -16,6 +16,36 @@
   	<description></description>
   	<servlet-class>com.mercury.controller.ServletEnte</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletAdmin</servlet-name>
+  	<display-name>ServletAdmin</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletReg</servlet-name>
+  	<display-name>ServletReg</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletReg</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletMail</servlet-name>
+  	<display-name>ServletMail</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletMail</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletRicerca</servlet-name>
+  	<display-name>ServletRicerca</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletRicerca</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AccettaEnte</servlet-name>
+  	<display-name>AccettaEnte</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.AccettaEnte</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
@@ -23,6 +53,26 @@
   <servlet-mapping>
   	<servlet-name>ServletEnte</servlet-name>
   	<url-pattern>/ServletEnte</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletAdmin</servlet-name>
+  	<url-pattern>/ServletAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletReg</servlet-name>
+  	<url-pattern>/ServletReg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletMail</servlet-name>
+  	<url-pattern>/ServletMail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletRicerca</servlet-name>
+  	<url-pattern>/ServletRicerca</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AccettaEnte</servlet-name>
+  	<url-pattern>/AccettaEnte</url-pattern>
   </servlet-mapping>
   
   <resource-ref>
