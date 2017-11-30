@@ -24,7 +24,10 @@ public class MercuryImp implements MercuryUtil{
 		
 	}
 	
-	private boolean confronto() {}
+	private boolean confronto() {
+		
+		
+	}
 	
 	public ArrayList<Evento> getRicerca(ArrayList<TipoEvento> tipi, Luogo posizione, Calendar data) throws SQLException {
 		// TODO Auto-generated method stub
