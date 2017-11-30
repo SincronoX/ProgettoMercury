@@ -2,15 +2,15 @@
 
 package com.mercury.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Evento {
 	private int idEvento;
 	private String nomeEvento;
 	private String descEvento;
 	private int idTipoEvento;
-	private Date dataInizio; 
-	private Date dataFine;
+	private Calendar dataInizio; 
+	private Calendar dataFine;
 	private boolean check;
 	
 	
@@ -41,16 +41,16 @@ public class Evento {
 	public void setIdTipoEvento(int idTipoEvento) {
 		this.idTipoEvento = idTipoEvento;
 	}
-	public Date getDataInizio() {
+	public Calendar getDataInizio() {
 		return dataInizio;
 	}
-	public void setDataInizio(Date dataInizio) {
+	public void setDataInizio(Calendar dataInizio) {
 		this.dataInizio = dataInizio;
 	}
-	public Date getDataFine() {
+	public Calendar getDataFine() {
 		return dataFine;
 	}
-	public void setDataFine(Date dataFine) {
+	public void setDataFine(Calendar dataFine) {
 		this.dataFine = dataFine;
 	}
 	public boolean isCheck() {
