@@ -25,7 +25,6 @@
 <%--@elvariable id="workspace" type="java.lang.String"--%>
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
-<%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 
 <%--<template:include view="hidden.header"/> --%>
