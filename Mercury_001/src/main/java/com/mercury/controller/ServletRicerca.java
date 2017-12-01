@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mercury.model.EventoPrevisto;
 import com.mercury.model.TipoEvento;
 import com.mercury.model.dao.MercuryImp;
+import com.mercury.model.dao.TipoEventoImp;
 
 /**
  * Servlet implementation class ServletRicerca
@@ -42,8 +43,25 @@ public class ServletRicerca extends HttpServlet {
 		
 		MercuryImp m = new MercuryImp();
 		
-		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
-		
+		TipoEvento att = new TipoEvento();
+		TipoEventoImp tipi = new TipoEventoImp();
+		ArrayList<TipoEvento> t = tipi.getEventoCatAll();
+		if(request.getParameter("tipo1") == null) {
+			att = tipi.getTipoById(1);
+			t.remove(att);
+		}
+		if(request.getParameter("tipo2") == null) {
+			att = tipi.getTipoById(2);
+			t.remove(att);
+		}
+		if(request.getParameter("tipo3") == null) {
+			att = tipi.getTipoById(3);
+			t.remove(att);
+		}
+		if(request.getParameter("tipo4") == null) {
+			att = tipi.getTipoById(4);
+			t.remove(att);
+		}
 		
 		String comune = request.getParameter("comune");
 		
