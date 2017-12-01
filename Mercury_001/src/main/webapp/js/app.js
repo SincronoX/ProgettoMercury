@@ -26,4 +26,4 @@ function toggle (elements, specifiedDisplay) {
   }
   
 }
-//FINE MODALITA HIDE E SHOW
+//FINE MODALITA HIDE E SHOW-->
