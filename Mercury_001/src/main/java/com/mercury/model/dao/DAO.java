@@ -18,8 +18,6 @@ public class DAO{
 
      private static DAO dao=null;
 
-
-
      private static DataSource ds = null;
      
      private DAO(){

@@ -15,7 +15,7 @@ public class EventoPrevisto {
 	private Calendar dataFine;
 	private boolean check;
 	
-	
+	 
 	public EventoPrevisto() {
 		super();
 	}

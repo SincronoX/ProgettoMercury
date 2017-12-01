@@ -1,6 +1,12 @@
 package com.mercury.model.dao;
+import com.mercury.model.dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.servlet.ServletException;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
@@ -8,6 +14,41 @@ import com.mercury.model.EventoPrevisto;
 
 public class AmministratoreImp  implements AmministratoreUtil {
 	
+	Connection conn=null;
+	
+	public AmministratoreImp() {
+		super();
+		conn=DAO.getConnection();
+	}
+	
+	public int getId(String email, String password) throws SQLException{
+        if(conn==null) conn=DAO.getConnection();
+        Statement st = conn.createStatement();
+        int id=0;
+        
+        ResultSet rs = st.executeQuery("select idAdmin from amministratore where emailAdmin='"+email+"' and pswAdmin='"+password+"'");
+        
+        if(!rs.first()) {
+        	return -1;
+        }
+        id=Integer.parseInt(rs.getString("idAdmin"));
+        return id;
+    }
+	
+	public String getEmailAdmin(int idAdmin) throws SQLException{
+        if(conn==null) conn=(Connection) DAO.getConnection();
+        Statement st = conn.createStatement();
+        String email = "";
+        
+        ResultSet rs = st.executeQuery("select emailAdmin from amministratore where idAdmin="+idAdmin);
+        try {
+        	rs.first();
+        	email=rs.getString("email");
+        }catch(SQLException e) {
+        	return "";
+        }
+        return email;
+    }
 	
 	
 	public void InvioMailAbilitaEnte(Ente en) {
@@ -36,5 +77,7 @@ String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non 
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 }
