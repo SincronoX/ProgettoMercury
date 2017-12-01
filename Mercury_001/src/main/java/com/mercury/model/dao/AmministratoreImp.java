@@ -15,42 +15,8 @@ import com.mercury.model.EventoPrevisto;
 
 public class AmministratoreImp  implements AmministratoreUtil {
 	
-	/*Connection conn=null;
+	protected String mitt = " mercury.sincronoX@gmail.com";
 	
-	public AmministratoreImp() {
-		super();
-		conn=DAO.getConnection();
-	}
-	
-	public int getId(String email, String password) throws SQLException{
-        if(conn==null) conn=DAO.getConnection();
-        Statement st = conn.createStatement();
-        int id=0;
-        
-        ResultSet rs = st.executeQuery("select idAdmin from amministratore where emailAdmin='"+email+"' and pswAdmin='"+password+"'");
-        
-        if(!rs.first()) {
-        	return -1;
-        }
-        id=Integer.parseInt(rs.getString("idAdmin"));
-        return id;
-    }
-	
-	public String getEmailAdmin(int idAdmin) throws SQLException{
-        if(conn==null) conn=(Connection) DAO.getConnection();
-        Statement st = conn.createStatement();
-        String email = "";
-        
-        ResultSet rs = st.executeQuery("select emailAdmin from amministratore where idAdmin="+idAdmin);
-        try {
-        	rs.first();
-        	email=rs.getString("email");
-        }catch(SQLException e) {
-        	return "";
-        }
-        return email;
-    }
-	*/
 	
 	public boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
@@ -67,7 +33,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	
 	public void InvioMailAbilitaEnte(Ente en) {
 	
-	String mitt = " mercury.sincronoX@gmail.com";
+	
     String dest = en.getEmailEnte();
     String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
     String testo1 = "l'admin ha confermato la registrazione dell'ente" +en.getNomeEnte() + " con id numero "+ en.getIdEnte() ;
@@ -97,6 +63,9 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		if(ok==false) //se l'evento va bene niente, altrimenti entra nell'if
 		{
 			 int idEnte = ep.getIdEnte(); // mi serve per avere i dati di ente
+			 EnteImp x = new EnteImp();
+			 Ente ente = new Ente();
+			 ente = x.getEnteById(idEnte);
 			 
 			 
 		}
@@ -129,5 +98,60 @@ public class AmministratoreImp  implements AmministratoreUtil {
 
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Connection conn=null;
+
+public AmministratoreImp() {
+	super();
+	conn=DAO.getConnection();
+}
+
+public int getId(String email, String password) throws SQLException{
+    if(conn==null) conn=DAO.getConnection();
+    Statement st = conn.createStatement();
+    int id=0;
+    
+    ResultSet rs = st.executeQuery("select idAdmin from amministratore where emailAdmin='"+email+"' and pswAdmin='"+password+"'");
+    
+    if(!rs.first()) {
+    	return -1;
+    }
+    id=Integer.parseInt(rs.getString("idAdmin"));
+    return id;
+}
+
+public String getEmailAdmin(int idAdmin) throws SQLException{
+    if(conn==null) conn=(Connection) DAO.getConnection();
+    Statement st = conn.createStatement();
+    String email = "";
+    
+    ResultSet rs = st.executeQuery("select emailAdmin from amministratore where idAdmin="+idAdmin);
+    try {
+    	rs.first();
+    	email=rs.getString("email");
+    }catch(SQLException e) {
+    	return "";
+    }
+    return email;
+}
+*/
 
 
