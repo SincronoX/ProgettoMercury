@@ -3,6 +3,7 @@
 <%@ page import="com.mercury.model.EventoPrevisto"%>
 <%@ page import="com.mercury.model.Amministratore"%>
 <%@ page import="com.mercury.model.Ente"%>
+<%@ page import="com.mercury.model.dao.EnteImp"%>
 <%@ page import="com.mercury.model.dao.MercuryImp"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -19,7 +20,7 @@ EnteImp ei = new EnteImp();%>
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
 ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 %>
-<%//Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
+<%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	
 	<!--<h2>Benvenuto, ciccio<% //out.println(a.getEmailAdmin());%></h2>-->
@@ -29,10 +30,10 @@ ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 		out.print("<form action='ServletAdmin' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
-		//out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
-		//out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
-		//request.setAttribute("evento", eventiNotCheck.get(i));
-		//request.setAttribute("idEnte", eventiNotCheck.get(i).getIdEnte());
+		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
+		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
+		request.setAttribute("evento", eventiNotCheck.get(i));
+		request.setAttribute("check", eventiNotCheck.get(i).isCheck());
 		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input  type='hidden' name='pagina' value='AR'></form>");
 	}
 	
@@ -44,6 +45,7 @@ ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 		out.print("<form action='ServletAccettaEnte' method='post'>");
 		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
+		request.setAttribute("enteInAttesa", entiInAttesa.get(i));
 		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input type='hidden' name='pagina' value='AR'></form>");
 	}
 	
