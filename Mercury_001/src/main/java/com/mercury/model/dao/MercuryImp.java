@@ -23,7 +23,7 @@ public class MercuryImp implements MercuryUtil{
 	public Calendar stringToDate(String s) {
 		String[] aux = s.split(" - ");
 		int anno = Integer.parseInt(aux[0]);
-		int mese = Integer.parseInt(aux[1]) - 1;
+		int mese = Integer.parseInt(aux[1]) - 1; 
 		int giorno = Integer.parseInt(aux[2]);
 		Calendar ret = new GregorianCalendar(anno, mese, giorno);
 		return ret;
