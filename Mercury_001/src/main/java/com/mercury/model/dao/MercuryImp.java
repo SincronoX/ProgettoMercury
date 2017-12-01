@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -19,7 +20,7 @@ public class MercuryImp implements MercuryUtil{
 
 	Connection conn=null;
 	
-	private Calendar stringToDate(String s) {
+	public Calendar stringToDate(String s) {
 		String[] aux = s.split(" - ");
 		int anno = Integer.parseInt(aux[0]);
 		int mese = Integer.parseInt(aux[1]) - 1;
@@ -27,9 +28,9 @@ public class MercuryImp implements MercuryUtil{
 		Calendar ret = new GregorianCalendar(anno, mese, giorno);
 		return ret;
 	}
-	private String dateToString(Calendar c) {
-		String ret = "";
-		
+	public String dateToString(Calendar c) {
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy - MM - dd");
+		String ret = format1.format(c.getTime());
 		return ret;
 	}
 
@@ -74,7 +75,7 @@ public class MercuryImp implements MercuryUtil{
         
         // controllo sulla data
         String s = dateToString(data);
-        query += (" AND dataInizio=" + s);
+        query += (" AND dataInizio = " + s);
         
         // esegui query
         ResultSet rs = st.executeQuery(query);
