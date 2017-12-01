@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mercury.model.Evento;
+import com.mercury.model.EventoPrevisto;
 import com.mercury.model.Luogo;
 import com.mercury.model.TipoEvento;
 import com.mercury.model.dao.MercuryImp;
@@ -35,7 +35,7 @@ public class ServletRicerca extends HttpServlet {
 		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
 		
 		MercuryImp m = new MercuryImp();
-		ArrayList<Evento> ret = new ArrayList<Evento>();
+		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		try {
 			ret = m.getRicerca(t, l, d);
