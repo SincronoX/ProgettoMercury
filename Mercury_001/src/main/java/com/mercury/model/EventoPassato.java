@@ -1,19 +1,36 @@
+// Fabio Savelli
+
 package com.mercury.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
-public class Evento {
+public class EventoPassato {
 	private int idEvento;
+	private int idTipoEvento;
+	private int idEnte;	
+	private String idComune;
 	private String nomeEvento;
 	private String descEvento;
-	private int idTipoEvento;
-	private Date dataInizio; 
-	private Date dataFine;
+	private Calendar dataInizio; 
+	private Calendar dataFine;
 	private boolean check;
+
 	
-	
-	public Evento() {
+	public EventoPassato() {
 		super();
+	}
+
+	public int getIdEnte() {
+		return idEnte;
+	}
+	public void setIdEnte(int idEnte) {
+		this.idEnte = idEnte;
+	}
+	public String getIdComune() {
+		return idComune;
+	}
+	public void setIdComune(String idComune) {
+		this.idComune = idComune;
 	}
 	public int getIdEvento() {
 		return idEvento;
@@ -39,16 +56,16 @@ public class Evento {
 	public void setIdTipoEvento(int idTipoEvento) {
 		this.idTipoEvento = idTipoEvento;
 	}
-	public Date getDataInizio() {
+	public Calendar getDataInizio() {
 		return dataInizio;
 	}
-	public void setDataInizio(Date dataInizio) {
+	public void setDataInizio(Calendar dataInizio) {
 		this.dataInizio = dataInizio;
 	}
-	public Date getDataFine() {
+	public Calendar getDataFine() {
 		return dataFine;
 	}
-	public void setDataFine(Date dataFine) {
+	public void setDataFine(Calendar dataFine) {
 		this.dataFine = dataFine;
 	}
 	public boolean isCheck() {

@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login Administrator</title>
+<link href="../css/Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+          
+<form class=loginform action="LoginAdmin.jsp">
 
+    <input class=input type="text" placeholder="Username" name="emailAdmin" required>
+    <input class=input type="password" placeholder="Password" name="pswAdmin" required>
+    <button class=loginbtn type="submit">Login</button>
+
+</form>
 </body>
 </html>
