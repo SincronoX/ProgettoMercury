@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.sql.Date;
 
 import com.mercury.model.Evento;
 import com.mercury.model.TipoEvento;
@@ -37,19 +39,26 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 	
 	public ArrayList<Evento> getEventoCat(String cat) {
-		ArrayList<Evento> lista=null;
+		ArrayList<Evento> lista= new ArrayList<Evento>();
+		Evento x = null;
 		Connection conn = DAO.getConnection();		
 		String query="select e.* from evento e, tipoevento te where e.idTipoEvento= te.idTipoEvento and te.catEvento = "+cat+";" ;
 		ResultSet rs;
 		try {
 			rs = DAO.execute_Query(conn, query );
 			while(rs.next()==true) 
-			{
-				/*	nomeEvento
-					dataInizio
-					dataFine
-					descrizione
-				 */
+			{	x= new Evento();
+				x.setIdEvento(rs.getInt("idEvento"));
+				x.setDataInizio(rs.getCalendar("dataInizio"));
+				x.setDataFine(rs.getCalendar("dataFine"));
+				x.setNomeEvento(rs.getString("nomeEvento"));
+				(rs.getCalendar("dataInizio"));
+				(rs.getInt("dataFine"));
+				(rs.getInt("descEvento"));
+				(rs.getInt("checked"));
+				(rs.getInt("idTipoEvento"));
+
+
 
 			}
 		} catch (SQLException e) {
