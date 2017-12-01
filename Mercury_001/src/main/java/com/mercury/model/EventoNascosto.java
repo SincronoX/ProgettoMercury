@@ -7,8 +7,8 @@ import java.util.Calendar;
 public class EventoNascosto {
 	private int idEvento;
 	private int idTipoEvento;
-	private int idComune;
 	private int idEnte;	
+	private String idComune;
 	private String nomeEvento;
 	private String descEvento;
 	private Calendar dataInizio; 
@@ -26,10 +26,10 @@ public class EventoNascosto {
 	public void setIdEnte(int idEnte) {
 		this.idEnte = idEnte;
 	}
-	public int getIdComune() {
+	public String getIdComune() {
 		return idComune;
 	}
-	public void setIdComune(int idComune) {
+	public void setIdComune(String idComune) {
 		this.idComune = idComune;
 	}
 	public int getIdEvento() {

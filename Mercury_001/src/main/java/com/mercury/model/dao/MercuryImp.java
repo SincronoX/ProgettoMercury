@@ -86,6 +86,8 @@ public class MercuryImp implements MercuryUtil{
         		
         		int idTipoEvento =     rs.getInt("idTipoEvento");
         		int idEvento =         rs.getInt("idEvento");
+        		int idEnte =		   rs.getInt("idEnte");
+        		String idComune =      rs.getString("idComune");
         		String nomeEvento =    rs.getString("nomeEvento");
         		String descEvento =    rs.getString("descEvento");
         		String dataInizioAUX = rs.getString("dataInizio"); 
@@ -93,14 +95,16 @@ public class MercuryImp implements MercuryUtil{
         		boolean check = 	   rs.getBoolean("check");
         		Calendar dataInizio = stringToDate(dataInizioAUX);
         		Calendar dataFine   = stringToDate(dataFineAUX);
-        		
-        		nuovo.setCheck(check);
+
+        		nuovo.setIdEvento(idEvento);
+        		nuovo.setIdTipoEvento(idTipoEvento);
+        		nuovo.setIdComune(idComune);
+        		nuovo.setIdEnte(idEnte);
+        		nuovo.setNomeEvento(nomeEvento);
+        		nuovo.setDescEvento(descEvento);
         		nuovo.setDataFine(dataFine);
         		nuovo.setDataInizio(dataInizio);
-        		nuovo.setDescEvento(descEvento);
-        		nuovo.setIdEvento(idEvento);
-        		nuovo.setNomeEvento(nomeEvento);
-        		nuovo.setIdTipoEvento(idTipoEvento);
+        		nuovo.setCheck(check);
         		
         		ret.add(nuovo);
         	}        
@@ -127,6 +131,8 @@ public class MercuryImp implements MercuryUtil{
         		
         		int idTipoEvento =     rs.getInt("idTipoEvento");
         		int idEvento =         rs.getInt("idEvento");
+        		int idEnte =		   rs.getInt("idEnte");
+        		String idComune =      rs.getString("idComune");
         		String nomeEvento =    rs.getString("nomeEvento");
         		String descEvento =    rs.getString("descEvento");
         		String dataInizioAUX = rs.getString("dataInizio"); 
@@ -134,14 +140,16 @@ public class MercuryImp implements MercuryUtil{
         		boolean check = 	   rs.getBoolean("check");
         		Calendar dataInizio = stringToDate(dataInizioAUX);
         		Calendar dataFine   = stringToDate(dataFineAUX);
-        		
-        		nuovo.setCheck(check);
+
+        		nuovo.setIdEvento(idEvento);
+        		nuovo.setIdTipoEvento(idTipoEvento);
+        		nuovo.setIdComune(idComune);
+        		nuovo.setIdEnte(idEnte);
+        		nuovo.setNomeEvento(nomeEvento);
+        		nuovo.setDescEvento(descEvento);
         		nuovo.setDataFine(dataFine);
         		nuovo.setDataInizio(dataInizio);
-        		nuovo.setDescEvento(descEvento);
-        		nuovo.setIdEvento(idEvento);
-        		nuovo.setNomeEvento(nomeEvento);
-        		nuovo.setIdTipoEvento(idTipoEvento);
+        		nuovo.setCheck(check);
         		
         		ret.add(nuovo);
         	}        
