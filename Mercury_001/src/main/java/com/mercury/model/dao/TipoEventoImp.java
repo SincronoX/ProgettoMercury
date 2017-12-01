@@ -58,13 +58,13 @@ public class TipoEventoImp implements TipoEventoUtil {
 				x.setDescEvento(rs.getString("descEvento"));
 				x.setCheck(rs.getBoolean("checked"));
 				x.setIdTipoEvento(rs.getInt("idTipoEvento"));
+				x.setIdEnte(rs.getInt("idEnte"));
+				x.setIdComune(rs.getString("idComune"));
 				lista.add(x);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
 
 		return lista;
 
