@@ -6,10 +6,14 @@ import com.mercury.model.EventoPrevisto;
 public interface AmministratoreUtil {
 	
 
-	//l'amministratore abilità l'iscrizione dell'Ente
+	//l'amministratore abilità l'iscrizione dell'Ente 
 	public void abilitaEnte(String email, String nome);
+	/* prende mail e nome i8nserito in fase di registrazione dall'ente
+	 * controlla se tale nome ed email già esiste nel database rifiuta la registrazione
+	 * altrimenti cambio status dell?Ente da "attesa" a "attivo" dopo chiama il metodo
+	 * conferma mail e gli manda lapassword generata automaticamente via mail */
 
-	//  ??
+	//  manda la password random all'Ente via Mail
 	public void confermaMail();
 	
 	//l'amministratore controlla l'evento ed eventualmente lo banna
