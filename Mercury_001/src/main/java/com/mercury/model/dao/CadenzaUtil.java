@@ -8,6 +8,6 @@ import com.mercury.model.Cadenza;
 
 public interface CadenzaUtil {
 
-	public Cadenza getCadenzaById(int id);
+	public Cadenza getCadenzaById(int id) throws SQLException;
 	
 }
