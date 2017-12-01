@@ -36,6 +36,7 @@ public class ServletReg extends HttpServlet {
 			else 
 			{
 				messaggio= "richiesta di registrazione effettuata, attendi email di conferma"; // alert!!
+				//devo aggiungere l'ente con il metodo addente
 				disp=request.getRequestDispatcher("HomePage.jsp");	
 				request.setAttribute("inAttesa", messaggio);
 				disp.forward(request, response);
