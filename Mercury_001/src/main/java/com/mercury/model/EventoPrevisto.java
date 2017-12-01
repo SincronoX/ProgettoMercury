@@ -12,6 +12,7 @@ public class EventoPrevisto {
 	private Calendar dataInizio; 
 	private Calendar dataFine;
 	private boolean check;
+	
 	public int getIdEvento() {
 		return idEvento;
 	}
