@@ -44,6 +44,7 @@ public class ServletRicerca extends HttpServlet {
 		
 		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
 		
+		
 		String comune = request.getParameter("comune");
 		
 		String data = request.getParameter("data");
