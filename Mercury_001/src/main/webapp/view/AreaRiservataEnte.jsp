@@ -13,7 +13,7 @@
 <title>Area Riservata Ente</title>
 </head>
 <body>
-<% ArrayList<Evento> myEvents = new ArrayList<Evento>(); %>
+<% ArrayList<Evento> myEvents = getEventiByEnte();%>
 <%Ente e=(Ente)request.getAttribute("nomeEnte"); %>
 <div class="header"></div>
 <div class="container">
@@ -26,7 +26,10 @@
 	<div class="ricerca">
 	<c:forEach items="${myEvents}" var="item">
 		<form action="ServletEnte" method="post">
-			<c:out value="${item.getEventiByEnte()}" /><br><br>
+			<c:out value="${item.getNomeEvento()}" /><br>
+			<c:out value="${item.getDescEvento()}" /><br>
+			<c:out value="${item.getDataInizio()}" /><br>
+			<c:out value="${item.getDataFine()}" /><br><br>
 			<input type="submit" value="Modifica Evento">
 		</form>	
 	</c:forEach>
@@ -35,12 +38,6 @@
 	<form action="ServletEnte" method="post">
 		<input type="submit" value="Inserisci nuovo evento">
 	</form>
-
-
-
-
-
-
 </div>
 <div class="footer"></div>
 
