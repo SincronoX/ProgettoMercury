@@ -6,7 +6,7 @@ public class Ente {
 	private String  emailEnte 	= 	null;
 	private String 	pswEnte 	= 	null;
 	private int 	nBan 		= 	0;
-	private String 	status		= "attesa";
+	private String 	status		=   "attesa";
 	
 	
 	public int getIdEnte() {
