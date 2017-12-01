@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.sql.Date;
 
-import com.mercury.model.Evento;
+import com.mercury.model.EventoPrevisto;
 import com.mercury.model.TipoEvento;
 
 
@@ -38,28 +38,27 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 
 	
-	public ArrayList<Evento> getEventoCat(String cat) {
-		ArrayList<Evento> lista= new ArrayList<Evento>();
-		Evento x = null;
+	public ArrayList<EventoPrevisto> getEventoCatPrevisto(String cat) {
+		ArrayList<EventoPrevisto> lista= new ArrayList<EventoPrevisto>();
+		EventoPrevisto x = null;
 		Connection conn = DAO.getConnection();		
 		String query="select e.* from evento e, tipoevento te where e.idTipoEvento= te.idTipoEvento and te.catEvento = "+cat+";" ;
 		ResultSet rs;
+		MercuryImp conv = null;
 		try {
 			rs = DAO.execute_Query(conn, query );
 			while(rs.next()==true) 
-			{	x= new Evento();
+			{	x= new EventoPrevisto();
 				x.setIdEvento(rs.getInt("idEvento"));
-				x.setDataInizio(rs.getCalendar("dataInizio"));
-				x.setDataFine(rs.getCalendar("dataFine"));
+				String LADataInizio=(rs.getString("dataInizio"));
+				String LADataFine=(rs.getString("dataFine"));
+				x.setDataInizio(conv.stringToDate(LADataInizio));
+				x.setDataFine(conv.stringToDate(LADataFine));
 				x.setNomeEvento(rs.getString("nomeEvento"));
-				(rs.getCalendar("dataInizio"));
-				(rs.getInt("dataFine"));
-				(rs.getInt("descEvento"));
-				(rs.getInt("checked"));
-				(rs.getInt("idTipoEvento"));
-
-
-
+				x.setDescEvento(rs.getString("descEvento"));
+				x.setCheck(rs.getBoolean("checked"));
+				x.setIdTipoEvento(rs.getInt("idTipoEvento"));
+				lista.add(x);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,10 +70,6 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 
 	}
-
-
-
-
 
 
 
