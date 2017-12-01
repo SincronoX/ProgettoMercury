@@ -8,6 +8,10 @@ public class TipoEvento {
 	public int getIdTipoEvento() {
 		return idTipoEvento;
 	}
+	
+	public void setIdTipoEvento(int x) {
+		this.idTipoEvento = x;
+	}
 
 
 	public String getCatEvento() {
