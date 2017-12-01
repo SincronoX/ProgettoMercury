@@ -178,6 +178,13 @@ public class EnteImp implements EnteUtil {
 		
 	}
 	
+	public Ente getEnteById(int id) {
+		Ente e = new Ente();
+		return e;
+		
+	}
+	
+	
 	
 
 }
