@@ -15,7 +15,10 @@
 </head>
 <body> 
 <%MercuryImp m = new MercuryImp(); %> 
-<%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();%>
+<%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
+ArrayList<
+
+%>
 <%//Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	

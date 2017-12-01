@@ -22,8 +22,7 @@ Ente e = (Ente)request.getAttribute("ente");
 String mailEnte = e.getEmailEnte();
 myEvents = ei.getEventiByEnte(mailEnte);
 %>
-<div class="header"></div>
-<div class="container">
+
 	<h2>Benvenuto,<% out.println(e.getNomeEnte());%></h2>
 	
 		<c:out value="${item.getNomeEnte()}" /><br>
@@ -38,11 +37,14 @@ myEvents = ei.getEventiByEnte(mailEnte);
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
 	out.print(m.dateToString(myEvents.get(i).getDataFine()));
 	request.setAttribute("evento", myEvents.get(i));
-	out.print("<input type='submit' value='Inserisci nuovo evento'>");
+	out.print("<input type='submit' value='Modifica Evento'>");
 	out.print("</form>");
 	}
 	%>
-
+	
+	<form action="ServletEnte" method="post">
+	<input type="submit" value="Inserisci nuovo Evento">
+	</form>
 
 
 </body>
