@@ -3,10 +3,8 @@
 package com.mercury.model;
 
 import java.util.Calendar;
-import java.sql.Date;
-import java.util.Calendar;
 
-public class Evento {
+public class EventoPrevisto {
 	private int idEvento;
 	private String nomeEvento;
 	private String descEvento;
@@ -56,5 +54,5 @@ public class Evento {
 	public void setCheck(boolean check) {
 		this.check = check;
 	}
-	
+
 }

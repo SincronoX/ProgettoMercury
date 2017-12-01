@@ -1,8 +1,6 @@
-// Fabio Savelli
-
 package com.mercury.model.dao;
 
-public class EventoImp implements EventoUtil {
+public class EventoPassatoImp implements EventoPassatoutil {
 
 	public String toString(String nomeEvento, int idEvento) {
 		// TODO Auto-generated method stub
