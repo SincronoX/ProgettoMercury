@@ -180,6 +180,27 @@ public class EnteImp implements EnteUtil {
 	
 	public Ente getEnteById(int id) {
 		Ente e = new Ente();
+		Connection conn=DAO.getConnection();
+		String query="select * from ente where idEnte=?";
+		PreparedStatement psId=null;
+		try {
+			psId = conn.prepareStatement(query);
+			psId.setInt(1,id);
+			ResultSet rst=psId.executeQuery();
+			while(rst.first()) {
+				
+				e.setNomeEnte(rst.getString("nomeEnte"));
+				e.setEmailEnte(rst.getString("emailEnte"));
+				e.setPswEnte(rst.getString("pswEnte"));
+				e.setStatus(rst.getString("status"));
+				e.setnBan(rst.getInt("nBan"));
+			}
+		}
+		catch(SQLException exc)
+		{
+			exc.printStackTrace();
+		}
+						
 		return e;
 		
 	}
