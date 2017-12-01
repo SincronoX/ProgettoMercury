@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,16 @@ public class ServletRicerca extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	private Calendar stringToData(String s) {
+		String[] aux = s.split("-");
+		int anno = Integer.parseInt(aux[0]);
+		int mese = Integer.parseInt(aux[1]); 
+		int giorno = Integer.parseInt(aux[2]);
+		Calendar ret = new GregorianCalendar(anno, mese, giorno);
+		return ret;
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -36,10 +47,7 @@ public class ServletRicerca extends HttpServlet {
 		String comune = request.getParameter("comune");
 		
 		String data = request.getParameter("data");
-		Calendar d = m.stringToDate(data);
-				
-		
-		
+		Calendar d = stringToData(data);
 		
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
@@ -50,7 +58,7 @@ public class ServletRicerca extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher disp=request.getRequestDispatcher("/scheda_utente.jsp");
+		RequestDispatcher disp=request.getRequestDispatcher("/RisultatoRicerca.jsp");
 		request.setAttribute("risultatoRicerca", ret);
 		disp.forward(request,response);
 		
