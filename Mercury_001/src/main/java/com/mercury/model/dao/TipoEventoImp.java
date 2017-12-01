@@ -11,7 +11,7 @@ import com.mercury.model.Evento;
 
 public class TipoEventoImp implements TipoEventoUtil {
 
-	public ArrayList<Evento> getEventoCat(String cat) {
+	public ArrayList<Evento> getEventoCatAll(String cat) {
 		ArrayList<Evento> lista=null;
 		Connection conn = DAO.getConnection();		
 		String query="select e.* from evento e, tipoevento te where e.idTipoEvento= te.idTipoEvento and te.catEvento = "+cat+";" ;
@@ -25,7 +25,7 @@ public class TipoEventoImp implements TipoEventoUtil {
 					dataInizio
 					dataFine
 					descrizione
-					*/int x ;
+					*/
 
 			}
 		} catch (SQLException e) {
@@ -34,19 +34,18 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 
 
-
-
-
 		return lista;
 	}
 
 	
-	
-	public ArrayList<Evento> getEventoAll() {
+	public ArrayList<Evento> getEventoCat() {
 			return null;
 	}
 
-	
+
+
+
+
 	
 	
 }
