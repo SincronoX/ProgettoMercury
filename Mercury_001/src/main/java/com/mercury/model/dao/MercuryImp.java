@@ -1,6 +1,6 @@
 // Fabio Savelli
 
-package com.mercury.model.dao;
+package com.mercury.model.dao; 
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import com.mercury.model.Evento;
+import com.mercury.model.EventoPrevisto;
 import com.mercury.model.Luogo;
 import com.mercury.model.TipoEvento;
 import com.mercury.model.dao.DAO;
@@ -45,9 +45,9 @@ public class MercuryImp implements MercuryUtil{
 		
 	}
 	
-	public ArrayList<Evento> getRicerca(ArrayList<TipoEvento> tipi, Luogo posizione, Calendar data) throws SQLException {
+	public ArrayList<EventoPrevisto> getRicerca(ArrayList<TipoEvento> tipi, Luogo posizione, Calendar data) throws SQLException {
 		// TODO Auto-generated method stub
-		ArrayList<Evento> ret = new ArrayList<Evento>();
+		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
@@ -82,7 +82,7 @@ public class MercuryImp implements MercuryUtil{
         
         try {
         	while(rs.next()) {
-        		Evento nuovo =         new Evento();
+        		EventoPrevisto nuovo = new EventoPrevisto();
         		
         		int idTipoEvento =     rs.getInt("idTipoEvento");
         		int idEvento =         rs.getInt("idEvento");
@@ -106,16 +106,16 @@ public class MercuryImp implements MercuryUtil{
         	}        
         }
         catch(SQLException e) {
-        	return new ArrayList<Evento>();
+        	return new ArrayList<EventoPrevisto>();
         }
         
         return ret;
 	}
 
 	
-	public ArrayList<Evento> getEventiNotCheck() throws SQLException {
+	public ArrayList<EventoPrevisto> getEventiNotCheck() throws SQLException {
 		// TODO Auto-generated method stub
-		ArrayList<Evento> ret = new ArrayList<Evento>();
+		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
@@ -123,7 +123,7 @@ public class MercuryImp implements MercuryUtil{
         ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where checked=0");
         try {
         	while(rs.next()) {
-        		Evento nuovo =         new Evento();
+        		EventoPrevisto nuovo = new EventoPrevisto();
         		
         		int idTipoEvento =     rs.getInt("idTipoEvento");
         		int idEvento =         rs.getInt("idEvento");
@@ -147,7 +147,7 @@ public class MercuryImp implements MercuryUtil{
         	}        
         }
         catch(SQLException e) {
-        	return new ArrayList<Evento>();
+        	return new ArrayList<EventoPrevisto>();
         }
         
         return ret;
