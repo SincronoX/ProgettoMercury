@@ -5,55 +5,32 @@ import javax.servlet.ServletException;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
 
+
 public class AmministratoreImp  implements AmministratoreUtil {
 	
 	
 	
 	public void InvioMailAbilitaEnte(Ente en) {
+	
 	String mitt = " mercury.sincronoX@gmail.com";
     String dest = en.getEmailEnte();
-    String oggetto = "mail di conferma per accedere come ente a www.mercury.it";
-    String testo = "l'admin ha confermato la tua registrazione, puoi accedere al sito con";
-    
-				
+    String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
+    String testo1 = "l'admin ha confermato la registrazione dell'ente" +en.getNomeEnte() + " con id numero "+ en.getIdEnte() ;
+    String testo2 = "  , puoi accedere al sito con le seguenti credenziali : ";
+    String testo3 = " email : "+en.getEmailEnte()+ " password : "+ en.getPswEnte() ;
+    String testo4 = "  . La avvertiamo che all'inserimento di eventi giudicati inopportuni ricevera' un email di cancellazione ";
+String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non potra' piu accedere nella propria area riservata "  ;
 	}
-	
-/*
-
-    String mitt = request.getParameter("mittente");
-    String dest = request.getParameter("destinatario");
-    String oggetto = request.getParameter("oggetto");
-    String testo = request.getParameter("contenuto");
-
-    response.setContentType("text/html");
-    PrintWriter out = response.getWriter();
-
-    try
+  /*  try
     {
       MailUtility.sendMail(dest, mitt, oggetto, testo);
-      out.println("Invio messaggio OK!");
+
     }
     catch (MessagingException exc)
     {
-      out.println("Invio non riuscito!");
-      log("MessagingException: " + dest);
-      log(exc.toString());
-    }
-  }
-
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException
-  {
-    this.doPost(request, response);
-  }
-}
-	 * 
-	 * 
-	 * */
-
-
-
-
+				
+	}
+	*/
 
 	public void checkEvento(EventoPrevisto ep, int idEnte) {
 		// TODO Auto-generated method stub
