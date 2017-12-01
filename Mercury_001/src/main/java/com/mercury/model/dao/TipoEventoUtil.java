@@ -8,6 +8,6 @@ public interface TipoEventoUtil {
 
 	ArrayList <TipoEvento> getEventoCatAll (); // restituisce i tipi di evento esistenti
 	ArrayList <EventoPrevisto> getEventoCatPrevisto (String cat); // restituisce gli eventi
-	
+	TipoEvento getEventoById(int idEvento); //
 	
 }
