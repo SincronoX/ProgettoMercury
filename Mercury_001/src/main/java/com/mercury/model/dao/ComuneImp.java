@@ -1,3 +1,5 @@
+// Fabio Savelli
+
 package com.mercury.model.dao;
 
 import java.sql.Connection;
@@ -6,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.mercury.model.Comune;
-import com.mercury.model.EventoPassato;
 
 public class ComuneImp implements ComuneUtil {
 
