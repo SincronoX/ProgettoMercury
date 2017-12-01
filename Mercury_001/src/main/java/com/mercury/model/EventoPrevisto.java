@@ -6,12 +6,32 @@ import java.util.Calendar;
 
 public class EventoPrevisto {
 	private int idEvento;
+	private int idTipoEvento;
+	private int idComune;
+	private int idEnte;	
 	private String nomeEvento;
 	private String descEvento;
-	private int idTipoEvento;
 	private Calendar dataInizio; 
 	private Calendar dataFine;
 	private boolean check;
+
+	
+	public EventoPrevisto() {
+		super();
+	}
+
+	public int getIdEnte() {
+		return idEnte;
+	}
+	public void setIdEnte(int idEnte) {
+		this.idEnte = idEnte;
+	}
+	public int getIdComune() {
+		return idComune;
+	}
+	public void setIdComune(int idComune) {
+		this.idComune = idComune;
+	}
 	public int getIdEvento() {
 		return idEvento;
 	}
