@@ -4,11 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Registrazione Ente</title>
+<link href="../css/Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-  <h3> Ciao da Costa</h3>
+<form class=loginform action="RegistrazioneEnte.jsp">
+
+    <input class=input type="text" placeholder="Nome" name="nomeEnte" required>
+    <input class=input type="email" placeholder="Email" name="emailEnte" required>
+    <input class=input type="password" placeholder="Password" name="pswEnte" required/>
+    <button class=registrabtn type="submit">Registrati</button>
+
+</form>
+
+ 
 
 </body>
 </html>
