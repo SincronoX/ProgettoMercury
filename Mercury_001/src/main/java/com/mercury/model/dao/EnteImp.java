@@ -77,16 +77,47 @@ public class EnteImp implements EnteUtil {
 	}
 	
 	public void addEnte(Ente en) {
+		final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		StringBuilder builder = new StringBuilder();
+		for ( int i = 0 ; i < 8 ; i++) {
+			int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
+			builder.append(ALPHA_NUMERIC_STRING.charAt(character));
+		}
+		String pass = builder.toString();
 		Connection conn=DAO.getConnection();
-		String insertUtente="insert into ente (nomeEnte,emailEnte,,email,dataNascita) values (?,?,?,?,?)";
-		PreparedStatement psUtente=null;
-		PreparedStatement psInd=null;
-		PreparedStatement psPass=null;
-		
+		String queryAddEnte="insert into ente (nomeEnte,emailEnte,pswEnte,status,nBan) values (?,?,?,?,?)";
+		PreparedStatement psAddEnte=null;
+		try {
+			psAddEnte = conn.prepareStatement(queryAddEnte);
+			psAddEnte.setString(1, en.getNomeEnte());
+			psAddEnte.setString(2, en.getEmailEnte());
+			psAddEnte.setString(3, pass);
+			psAddEnte.setString(4, "attesa");
+			psAddEnte.setInt(5, 0);
+			psAddEnte.executeUpdate();
+			}
+		catch(SQLException exc){
+			exc.printStackTrace();
+		}
 	}
 	
 	public void inserisciEvento (EventoPrevisto e) {
-		
+		Connection conn = DAO.getConnection();
+		MercuryImp m = new MercuryImp();
+		String queryAddEvento = "insert into eventoprevisto (nomeEvento,dataInizio,dataFine,descrizione,checked) values (?,?,?,?,?)";
+		PreparedStatement psAddEvento = null;
+		try {
+			psAddEvento = conn.prepareStatement(queryAddEvento);
+			psAddEvento.setString(1, e.getNomeEvento());
+			psAddEvento.setString(2, m.dateToString(e.getDataInizio()));
+			psAddEvento.setString(3, m.dateToString(e.getDataFine()));
+			psAddEvento.setString(4, e.getDescEvento());
+			psAddEvento.setBoolean(5, false);
+			psAddEvento.executeUpdate();
+		}
+		catch(SQLException exc){
+			exc.printStackTrace();
+		}
 		
 	}
 	public void modificaEvento (EventoPrevisto e) {

@@ -12,7 +12,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import com.mercury.model.EventoPrevisto;
-import com.mercury.model.Luogo;
 import com.mercury.model.TipoEvento;
 import com.mercury.model.dao.DAO;
 
@@ -45,7 +44,7 @@ public class MercuryImp implements MercuryUtil{
 		
 	}
 	
-	public ArrayList<EventoPrevisto> getRicerca(ArrayList<TipoEvento> tipi, Luogo posizione, Calendar data) throws SQLException {
+	public ArrayList<EventoPrevisto> getRicerca(ArrayList<TipoEvento> tipi, String RicercaidComune, Calendar data) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
@@ -72,13 +71,20 @@ public class MercuryImp implements MercuryUtil{
         }
         
         // controllo sul luogo
+        if(RicercaidComune != null) {
+	        query += (" AND idComune = " + RicercaidComune);
+        }
         
         // controllo sulla data
-        String s = dateToString(data);
-        query += (" AND dataInizio = " + s);
+        if(data != null) {
+	        String s = dateToString(data);
+	        query += (" AND dataInizio = " + s);
+        }
+        
         
         // esegui query
         ResultSet rs = st.executeQuery(query);
+        
         
         try {
         	while(rs.next()) {

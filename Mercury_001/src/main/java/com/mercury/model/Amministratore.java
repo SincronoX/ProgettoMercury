@@ -2,6 +2,7 @@ package com.mercury.model;
 
 public class Amministratore {
 	
+	private int idAdmin =0 ;
 	private String pswAdmin = null;
 	private String emailAdmin = null;
 	
@@ -10,6 +11,16 @@ public class Amministratore {
 	}
 	
 	
+	public int getIdAdmin() {
+		return idAdmin;
+	}
+
+
+	public void setIdAdmin(int idAdmin) {
+		this.idAdmin = idAdmin;
+	}
+
+
 	public String getPswAdmin() {
 		return pswAdmin;
 	}

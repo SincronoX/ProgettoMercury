@@ -25,7 +25,7 @@ public class ServletReg extends HttpServlet {
 			ente=new Ente();
 			ente.setNomeEnte(request.getParameter("nomeEnte"));
 			ente.setEmailEnte(request.getParameter("emailEnte"));
-			boolean trovato = EnteImp.trovaEnte(ente);
+			boolean trovato = ei.trovaEnte(ente);
 			if(trovato==true)
 			{	
 				messaggio = " Impossibile registrarti, il nome o l'email sono gia' presenti nel database";
@@ -36,7 +36,7 @@ public class ServletReg extends HttpServlet {
 			else 
 			{
 				messaggio= "richiesta di registrazione effettuata, attendi email di conferma"; // alert!!
-				//devo aggiungere l'ente con il metodo addEnte
+				ei.addEnte(ente);
 				disp=request.getRequestDispatcher("HomePage.jsp");	
 				request.setAttribute("inAttesa", messaggio);
 				disp.forward(request, response);

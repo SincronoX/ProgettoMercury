@@ -7,20 +7,14 @@ import java.util.Calendar;
 public class EventoPrevisto {
 	private int idEvento;
 	private int idTipoEvento;
-<<<<<<< HEAD
 	private int idEnte;
 	private String idComune;	
-=======
-	private String idComune;
-	private int idEnte;	
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
 	private String nomeEvento;
 	private String descEvento;
 	private Calendar dataInizio; 
 	private Calendar dataFine;
 	private boolean check;
 	
-
 	
 	public EventoPrevisto() {
 		super();
