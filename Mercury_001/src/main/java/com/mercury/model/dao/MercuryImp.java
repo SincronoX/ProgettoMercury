@@ -1,6 +1,6 @@
 // Fabio Savelli
 
-package com.mercury.model.dao;
+package com.mercury.model.dao; 
 
 import java.sql.Connection;
 import java.sql.ResultSet;
