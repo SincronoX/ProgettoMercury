@@ -55,7 +55,7 @@ public class ServletRicerca extends HttpServlet {
 		if(request.getParameter("tipo2") == null) {
 			att = tipi.getTipoById(2);
 			t.remove(att);
-		}
+		} 
 		if(request.getParameter("tipo3") == null) {
 			att = tipi.getTipoById(3);
 			t.remove(att);
