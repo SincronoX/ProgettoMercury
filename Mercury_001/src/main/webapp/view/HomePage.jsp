@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!--COLLEGAMENTO AL CSS BOOTSTRAP-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../Style.css">
+<!-- Fine collegamento css bootstrap -->
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -46,14 +52,13 @@
 	
 	<div class="col-md-3" id="post">
 
-	<button id="toggle-button" class="selRicerca">Ricerca Evento</button>
-	<br>
+	<h3>Ricerca Evento</h3>
 	<br>
 	<div>
     <span id="campiricerca">
 	
 			<label class="selRicerca">Regione
-				<input type="" name="" placeholder="Scegli Regione">
+				<input type="" name="regione" placeholder="Scegli Regione">
 			</label>
 	</span>
 	<br>
@@ -61,7 +66,7 @@
 	<span id="campiricerca">	
 		
 			<label class="selRicerca">Provincia
-				<input type="" name="" placeholder="Scegli Provincia">
+				<input type="" name="provincia" placeholder="Scegli Provincia">
 			</label>
 		
 	</span>
@@ -70,21 +75,21 @@
 	<span id="campiricerca">
 		
 			<label class="selRicerca">Comune
-				<input type="" name="" placeholder="Scegli comune">
+				<input type="" name="comune" placeholder="Scegli comune">
 			</label>
-
+			<input type="date" name="data">
 	</span>
 	<br>
 	<br>
 	<span id="campiricerca">
 		<p class="selRicerca">TipoEvento </p>
 		
-		<select class="selRicerca">
-		  <option value="Teatro">Teatro</option>
-		  <option value="Concerto">Concerto</option>
-		  <option value="Film">Film</option>
-		  <option value="Mostra">Mostra</option>
-		</select>
+		<form class="selRicerca">
+		  <input type="checkbox" name="tipo1" value="Teatro">Teatro</option>
+		  <input  type="checkbox" name="tipo2" value="Concerto">Concerto</option>
+		  <input  type="checkbox" name="tipo3" value="Film">Film</option>
+		  <input  type="checkbox" name="tipo4" value="Mostra">Mostra</option>
+		</form> 
 		<br>
 		<br>
 		<button type="submit" class="selRicerca">Invia</button>	

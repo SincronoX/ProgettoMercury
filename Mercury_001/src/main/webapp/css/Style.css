@@ -1,5 +1,6 @@
 @CHARSET "ISO-8859-1";
 
+<<<<<<< HEAD
 body{
 	background-color: #DCDCDC ;
 	
@@ -42,3 +43,63 @@ body{
 	width: 150px;
 	height: 50px;
 }
+=======
+/* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
+
+/* Bordered form */
+.loginform {    
+    margin: 25%;
+    width: 100%;
+    align: center;
+    position: absolute;
+}
+
+/* Full-width inputs */
+.input[type=text], input[type=password], input[type=email] {
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: list-item;
+    border: 2px solid #ccc;
+    width: 50%;
+}
+
+/* Set a style for login button */
+.loginbtn {	
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    width:50%;
+    margin:5px;
+    margin-left:21px;
+    margin-right:18px;
+}
+/* Add a hover effect for loginbtn */
+.loginbtn:hover{
+    opacity: 0.8;
+}
+
+/* Set a style for registra button */
+.registrabtn {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 20px;
+    border: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    width:50%;
+    margin:5px;    
+    margin-left:21px;
+    margin-right:18px;
+}    
+/* Add a hover effect for registrabtn */
+.registrabtn:hover{
+    opacity: 0.8;
+}
+
+
+
+>>>>>>> e73c55ec58a62a205c19a3655be9205cefa2e215

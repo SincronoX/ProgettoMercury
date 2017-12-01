@@ -18,8 +18,6 @@ public class DAO{
 
      private static DAO dao=null;
 
-
-
      private static DataSource ds = null;
      
      private DAO(){
@@ -29,7 +27,7 @@ public class DAO{
          initContext=new InitialContext();
          
          Context envContext = (Context)initContext.lookup("java:/comp/env");
-         ds = (DataSource)envContext.lookup("jdbc/conn");
+         ds = (DataSource)envContext.lookup("jdbc/mercury");
 
          
          }
