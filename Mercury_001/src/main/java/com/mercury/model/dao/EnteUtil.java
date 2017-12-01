@@ -13,5 +13,6 @@ public interface EnteUtil {
 	public boolean trovaEnte (Ente en);
 	public void eliminaEvento(EventoPrevisto e);
 	public Ente getEnteById(int id);
+	public ArrayList<Ente> getEntiInAttesa();
 
 }
