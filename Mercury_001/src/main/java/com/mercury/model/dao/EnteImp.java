@@ -85,9 +85,11 @@ public class EnteImp implements EnteUtil {
 		
 	}
 	
-	public void inserisciEvento (Evento e) {
+	public void inserisciEvento (EventoPrevisto e) {
 		
 		
+	}
+	public void modificaEvento (EventoPrevisto e) {
 		
 	}
 
