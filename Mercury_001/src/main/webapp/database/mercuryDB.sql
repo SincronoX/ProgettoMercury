@@ -27,7 +27,7 @@ CREATE TABLE `amministratore` (
   `emailAdmin` varchar(50) NOT NULL,
   `pswAdmin` varchar(20) NOT NULL,
   PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `amministratore` (
 
 LOCK TABLES `amministratore` WRITE;
 /*!40000 ALTER TABLE `amministratore` DISABLE KEYS */;
-INSERT INTO `amministratore` VALUES (1,'ciccio@gmail.it','password');
+INSERT INTO `amministratore` VALUES (1,'ciccio@gmail.it','password'),(2,'capo@hotmail.it','123456');
 /*!40000 ALTER TABLE `amministratore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,7 @@ CREATE TABLE `ente` (
   `status` varchar(20) NOT NULL,
   `nBan` int(11) NOT NULL,
   PRIMARY KEY (`idEnte`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `ente` (
 
 LOCK TABLES `ente` WRITE;
 /*!40000 ALTER TABLE `ente` DISABLE KEYS */;
-INSERT INTO `ente` VALUES (1,'Rock in Roma','rockinroma@roma.it','ciaofra','attesa',0);
+INSERT INTO `ente` VALUES (1,'Rock in Roma','rockinroma@roma.it','ciaofra','attesa',0),(2,'Napoli Eventi','napoli@tiscali.it','farfalla','attivo',1),(3,'Sicilia Estate','sicilia@virgilio.it','oscia','attivo',2),(4,'Lombardia Eventi','milano@tiscali.it','testina','attesa',1);
 /*!40000 ALTER TABLE `ente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +143,7 @@ CREATE TABLE `eventonascosto` (
   CONSTRAINT `eventonascosto_ibfk_1` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoEvento`),
   CONSTRAINT `eventonascosto_ibfk_2` FOREIGN KEY (`idEnte`) REFERENCES `ente` (`idEnte`),
   CONSTRAINT `eventonascosto_ibfk_3` FOREIGN KEY (`idComune`) REFERENCES `comune` (`idComune`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +152,7 @@ CREATE TABLE `eventonascosto` (
 
 LOCK TABLES `eventonascosto` WRITE;
 /*!40000 ALTER TABLE `eventonascosto` DISABLE KEYS */;
-INSERT INTO `eventonascosto` VALUES (1,'Concerto di Laura Pausini','2017 - 08 - 24','2017 - 08 - 24','Grande concerto allo Stadio Olimpico',1,1,1,'A045');
+INSERT INTO `eventonascosto` VALUES (1,'Mostra di Van Gogh','2017 - 04 - 12','2017 - 04 - 13','Mostra di un grande artista',1,2,4,'A045'),(2,'Concerto di Laura Pausini','2017 - 08 - 24','2017 - 08 - 24','Grande concerto allo Stadio Olimpico',1,1,1,'A045');
 /*!40000 ALTER TABLE `eventonascosto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +180,7 @@ CREATE TABLE `eventopassato` (
   CONSTRAINT `eventopassato_ibfk_1` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoEvento`),
   CONSTRAINT `eventopassato_ibfk_2` FOREIGN KEY (`idEnte`) REFERENCES `ente` (`idEnte`),
   CONSTRAINT `eventopassato_ibfk_3` FOREIGN KEY (`idComune`) REFERENCES `comune` (`idComune`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -189,7 +189,7 @@ CREATE TABLE `eventopassato` (
 
 LOCK TABLES `eventopassato` WRITE;
 /*!40000 ALTER TABLE `eventopassato` DISABLE KEYS */;
-INSERT INTO `eventopassato` VALUES (1,'Cinema','2016 - 10 - 14','2016 - 10 - 24','Cinema aperto',1,1,2,'H292');
+INSERT INTO `eventopassato` VALUES (1,'Cinema','2012 - 10 - 08','2012 - 10 - 12','I migliori film della seconda guerra mondiale',1,1,2,'H292'),(2,'Concerto Gigi D Alessio','2013 - 08 - 14','2013 - 08 - 14','Uno dei migliori concerti della storia',1,2,1,'A045');
 /*!40000 ALTER TABLE `eventopassato` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +217,7 @@ CREATE TABLE `eventoprevisto` (
   CONSTRAINT `eventoprevisto_ibfk_1` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoEvento`),
   CONSTRAINT `eventoprevisto_ibfk_2` FOREIGN KEY (`idEnte`) REFERENCES `ente` (`idEnte`),
   CONSTRAINT `eventoprevisto_ibfk_3` FOREIGN KEY (`idComune`) REFERENCES `comune` (`idComune`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,7 +226,7 @@ CREATE TABLE `eventoprevisto` (
 
 LOCK TABLES `eventoprevisto` WRITE;
 /*!40000 ALTER TABLE `eventoprevisto` DISABLE KEYS */;
-INSERT INTO `eventoprevisto` VALUES (1,'Concerto di Caparezza','2017 - 11 - 24','2017 - 11 - 24','Grande concerto al Palalottomatica',0,1,1,'H494');
+INSERT INTO `eventoprevisto` VALUES (1,'Concerto di Caparezza','2017 - 11 - 24','2017 - 11 - 24','Grande concerto al Palalottomatica',0,1,1,'H494'),(2,'Concerto per abruzzo','2017 - 09 - 24','2017 - 09 - 24','Grande concerto beneficienza',0,1,1,'I326');
 /*!40000 ALTER TABLE `eventoprevisto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 14:33:13
+-- Dump completed on 2017-12-01 14:59:34
