@@ -142,8 +142,8 @@ public class MercuryImp implements MercuryUtil{
         		String nomeEvento =    rs.getString("nomeEvento");
         		String descEvento =    rs.getString("descEvento");
         		String dataInizioAUX = rs.getString("dataInizio"); 
-        		String dataFineAUX =   rs.getString("dateFine");
-        		boolean check = 	   rs.getBoolean("check");
+        		String dataFineAUX =   rs.getString("dataFine");
+        		boolean checked = 	   rs.getBoolean("checked");
         		Calendar dataInizio = stringToDate(dataInizioAUX);
         		Calendar dataFine   = stringToDate(dataFineAUX);
 
@@ -155,7 +155,7 @@ public class MercuryImp implements MercuryUtil{
         		nuovo.setDescEvento(descEvento);
         		nuovo.setDataFine(dataFine);
         		nuovo.setDataInizio(dataInizio);
-        		nuovo.setCheck(check);
+        		nuovo.setCheck(checked);
         		
         		ret.add(nuovo);
         	}        

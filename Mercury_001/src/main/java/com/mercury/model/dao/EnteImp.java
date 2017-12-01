@@ -14,7 +14,7 @@ import com.mercury.model.dao.MercuryImp;
 
 public class EnteImp implements EnteUtil {
 	
-	public ArrayList <EventoPrevisto> getEventiByEnte (String emailEnte){  //emailEnte verrà definito in servlet 
+	public ArrayList<EventoPrevisto> getEventiByEnte (String emailEnte){  //emailEnte verrà definito in servlet 
 		String nomeEvento = null;
 		String descrizione = null;
 		Calendar dataInizio = null;
