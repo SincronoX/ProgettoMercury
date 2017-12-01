@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login Ente</title>
+<link href="../css/Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+  
+<form class=loginform action="LoginEnte.jsp">
 
+    <input class=input type="text" placeholder="Email" name="emailEnte" required>
+    <input class=input type="password" placeholder="Password" name="pswEnte" required>
+    <button class=loginbtn type="submit">Login</button>
+    <input class=registrabtn type="submit" value="registrati" onclick="RegistrazioneEnte.jsp"/>
+    
+
+</form>
+</div>
 </body>
 </html>
