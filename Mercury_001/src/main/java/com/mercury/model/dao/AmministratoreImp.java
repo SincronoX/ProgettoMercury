@@ -96,14 +96,38 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		ep.setCheck(true);
 		if(ok==false) //se l'evento va bene niente, altrimenti entra nell'if
 		{
-			 int idEnte = ep.getIdEnte();
+			 int idEnte = ep.getIdEnte(); // mi serve per avere i dati di ente
 			 
 			 
 		}
 		
 		
 	}
+
+	public Amministratore getAdminById(int id) {
+	
+		Connection conn = DAO.getConnection();		
+		String query="select * from amministratore a where a.idAdmin = "+ id +" ;" ;
+		ResultSet rs;
+		Amministratore am = new Amministratore();
+		am.setIdAdmin(id);
+		try {
+			rs = DAO.execute_Query(conn, query );
+			if(rs.first()==true) 
+			{ 
+				am.setEmailAdmin(rs.getString("emailAdmin"));
+				am.setPswAdmin(rs.getString("pswAdmin"));
+			}	
+		}catch(SQLException e) {}
+	
+		return am;
+	}
+		
+	
+}
+
+
 	
 	
 
-}
+

@@ -25,7 +25,7 @@ import com.mercury.model.dao.TipoEventoImp;
  */
 public class ServletRicerca extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
+       
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
