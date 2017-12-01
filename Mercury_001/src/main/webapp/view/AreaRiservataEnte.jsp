@@ -45,7 +45,7 @@ myEvents = ei.getEventiByEnte(mailEnte);
 	
 	<form action="ServletEnte" method="post">
 		<input type="submit" value="Inserisci nuovo evento">
-	</form>
+	</form> 
 
 
 
