@@ -1,11 +1,13 @@
 package com.mercury.model.dao;
 
+import com.mercury.model.Amministratore;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
 
 public interface AmministratoreUtil {
 	
 
+	public Amministratore getAdminById(int id);
 	//l'amministratore abilità l'iscrizione dell'Ente 
 	public void InvioMailAbilitaEnte(Ente en);
 	/* prende mail e nome i8nserito in fase di registrazione dall'ente
