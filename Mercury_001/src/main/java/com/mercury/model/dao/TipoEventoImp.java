@@ -73,4 +73,25 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 
 
+	public TipoEvento getEventoById(int idEvento) {
+		TipoEvento x= new TipoEvento();
+		x.setIdTipoEvento(idEvento);
+		Connection conn = DAO.getConnection();		
+		String query="select * from tipoevento t where t.idTipoEvento = "+idEvento +";" ;
+		ResultSet rs;
+		try {
+			rs = DAO.execute_Query(conn, query );
+			if(rs.first()==true) 
+			{		
+				x.setCatEvento(rs.getString("catEvento"));
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return x;
+
+
+
+	}
 }

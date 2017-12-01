@@ -8,7 +8,6 @@ public class Ente {
 	private int 	nBan 		= 	0;
 	private String 	status		=   "attesa";
 	
-	
 	public int getIdEnte() {
 		return idEnte;
 	}
