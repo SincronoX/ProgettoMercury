@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mercury.model.EventoPrevisto;
 import com.mercury.model.TipoEvento;
+import com.mercury.model.dao.ComuneImp;
 import com.mercury.model.dao.MercuryImp;
 import com.mercury.model.dao.TipoEventoImp;
 
@@ -63,7 +64,12 @@ public class ServletRicerca extends HttpServlet {
 			t.remove(att);
 		}
 		
-		String comune = request.getParameter("comune");
+		String comune = 	request.getParameter("comune");
+		String provincia = 	request.getParameter("provincia");
+		String regione =	request.getParameter("regione");
+		
+		ComuneImp comImp= new ComuneImp();
+		String idComune = comImp.getIdComune(regione, provincia, comune);
 		
 		String data = request.getParameter("data");
 		Calendar d = stringToData(data);
@@ -71,7 +77,7 @@ public class ServletRicerca extends HttpServlet {
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		try {
-			ret = m.getRicerca(t, comune, d);
+			ret = m.getRicerca(t, idComune, d);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
