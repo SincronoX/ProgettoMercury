@@ -121,7 +121,71 @@ public class EnteImp implements EnteUtil {
 		
 	}
 	public void modificaEvento (EventoPrevisto e) {
+		Connection conn = DAO.getConnection();
+		MercuryImp m = new MercuryImp();
+		String queryModificaEvento = "update eventoprevisto set nomeEvento = ? , dataInizio = ? , dataFine = ? , descrizione = ? , checked = ? where idEvento = ?";
+		PreparedStatement psModificaEvento = null;
+		try {
+			psModificaEvento = conn.prepareStatement(queryModificaEvento);
+			psModificaEvento.setString(1, e.getNomeEvento());
+			psModificaEvento.setString(2, m.dateToString(e.getDataInizio()));
+			psModificaEvento.setString(3, m.dateToString(e.getDataFine()));
+			psModificaEvento.setString(4, e.getDescEvento());
+			psModificaEvento.setBoolean(5, false);
+			psModificaEvento.setInt(6, e.getIdEvento());
+			psModificaEvento.executeUpdate();
+		}
+		catch(SQLException exc) {
+			exc.printStackTrace();
+		}
+	}
+	
+	public void eliminaEvento(EventoPrevisto e) {
+		Connection conn = DAO.getConnection();
+		MercuryImp m = new MercuryImp();
+		EventoPrevisto ep = new EventoPrevisto();
+		String queryCopiaEvento = " select * from eventoprevisto where idEvento = ?";
+		String queryAddEvento = "insert into eventonascosto (nomeEvento,dataInizio,dataFine,descrizione,checked) values (?,?,?,?,?)";
+		String queryEliminaEvento = "Delete * from eventoprevisto where idEvento = ?";
+		PreparedStatement psCopiaEvento = null;
+		PreparedStatement psAddEvento = null;
+		PreparedStatement psEliminaEvento = null;
+		try {
+			psCopiaEvento = conn.prepareStatement(queryCopiaEvento);
+			psAddEvento = conn.prepareStatement(queryAddEvento);
+			psEliminaEvento = conn.prepareStatement(queryEliminaEvento);
+			psCopiaEvento.setInt(1, ep.getIdEvento());
+			ResultSet rst=psCopiaEvento.executeQuery();
+			if(rst.first()) {
+				ep.setIdEnte(rst.getInt("idUtente"));
+				ep.setNomeEvento(rst.getString("nome"));
+				ep.setDataInizio(m.stringToDate(rst.getString("dataInizio")));
+				ep.setDataFine(m.stringToDate(rst.getString("dataFine")));
+				ep.setDescEvento(rst.getString("descrizione"));
+				ep.setCheck(rst.getBoolean("checked"));
+				psAddEvento.setString(1, ep.getNomeEvento());
+				psAddEvento.setString(2, m.dateToString(ep.getDataInizio()));
+				psAddEvento.setString(3, m.dateToString(ep.getDataFine()));
+				psAddEvento.setString(4, ep.getDescEvento());
+				psAddEvento.setBoolean(5, true);
+				psAddEvento.executeUpdate();
+				psEliminaEvento.executeUpdate();
+			}
+		}
+		catch(SQLException exc) {
+			exc.printStackTrace();
+		}
 		
 	}
+	
+	public Ente getEnteById(int id) {
+		Ente e = new Ente();
+		return e;
+		
+	}
+	
+	
+	
 
 }
+
