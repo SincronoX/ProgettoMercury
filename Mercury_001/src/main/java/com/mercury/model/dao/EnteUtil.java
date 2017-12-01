@@ -11,5 +11,7 @@ public interface EnteUtil {
 	public ArrayList <EventoPrevisto> getEventiByEnte (String nomeEnte);
 	public void addEnte (Ente en);
 	public boolean trovaEnte (Ente en);
+	
+	public Ente getEnteById(int id);
 
 }

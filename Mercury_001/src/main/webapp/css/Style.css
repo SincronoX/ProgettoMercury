@@ -1,6 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 body{
 	background-color: #DCDCDC ;
 	
@@ -44,6 +45,8 @@ body{
 	height: 50px;
 }
 =======
+=======
+>>>>>>> dc694c672927e699b4cc5a8a856945707b27d342
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
 
 /* Bordered form */
@@ -102,4 +105,51 @@ body{
 
 
 
+<<<<<<< HEAD
 >>>>>>> e73c55ec58a62a205c19a3655be9205cefa2e215
+=======
+=======
+body{
+	background-color: #DCDCDC ;
+	
+}
+
+.siderbar{
+	color: black;
+	margin: 50px;
+	margin-right:150px;
+	margin-left:150px; 
+	font-size: 22px;	
+}
+
+.benvenuto{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#eventiHome{
+	border:1px solid ; 
+	padding: 30px;
+	font-size: 18px;
+	background-color:#F5F5F5;
+	
+}
+
+#ricerca{
+	float: right;
+}
+.selRicerca{
+	float: right;
+}
+#post{
+	border:3px solid;
+	float: right;
+	padding:30px; 
+}
+/* logo navbar*/
+.fotoMercury{
+	width: 150px;
+	height: 50px;
+}
+>>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
+>>>>>>> dc694c672927e699b4cc5a8a856945707b27d342

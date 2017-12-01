@@ -6,15 +6,16 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.servlet.ServletException;
+
+import com.mercury.model.Amministratore;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
 
 
 public class AmministratoreImp  implements AmministratoreUtil {
 	
-	Connection conn=null;
+	/*Connection conn=null;
 	
 	public AmministratoreImp() {
 		super();
@@ -49,7 +50,20 @@ public class AmministratoreImp  implements AmministratoreUtil {
         }
         return email;
     }
+	*/
 	
+	public boolean trovaAdmin(String email , String psw){
+		Connection conn = DAO.getConnection();		
+		String query="select * from amministratore a where a.emailAdmin = "+email+ " and a.pswAdmin = "+psw ;
+		ResultSet rs;
+		Amministratore am = new Amministratore();
+		try {
+			rs = DAO.execute_Query(conn, query );
+			if(rs.first()==true) 
+			{ return true ;}	
+		}catch(SQLException e) {}
+		return false ;
+	}
 	
 	public void InvioMailAbilitaEnte(Ente en) {
 	
@@ -60,7 +74,9 @@ public class AmministratoreImp  implements AmministratoreUtil {
     String testo2 = "  , puoi accedere al sito con le seguenti credenziali : ";
     String testo3 = " email : "+en.getEmailEnte()+ " password : "+ en.getPswEnte() ;
     String testo4 = "  . La avvertiamo che all'inserimento di eventi giudicati inopportuni ricevera' un email di cancellazione ";
-String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non potra' piu accedere nella propria area riservata "  ;
+    String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non potra' piu accedere nella propria area riservata "  ;
+    String testo = testo1+testo2+testo3+testo4 ;
+
 	}
   /*  try
     {
@@ -71,12 +87,24 @@ String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non 
     {
 				
 	}
+}
+
+	
 	*/
 
-	public void checkEvento(EventoPrevisto ep, int idEnte) {
-		// TODO Auto-generated method stub
+	public void checkEvento(EventoPrevisto ep,  boolean ok) {
+		ep.setCheck(true);
+		if(ok==false) //se l'evento va bene niente, altrimenti entra nell'if
+		{
+			 int idEnte = ep.getIdEnte(); // mi serve per avere i dati di ente
+			 
+			 
+		}
+		
 		
 	}
+
+
 	
 	
 
