@@ -30,6 +30,8 @@ public class ServletRicerca extends HttpServlet {
 		Calendar d = null;
 		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
 		
+		
+		
 	}
 
 }
