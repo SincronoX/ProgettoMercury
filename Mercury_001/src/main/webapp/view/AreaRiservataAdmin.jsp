@@ -14,10 +14,10 @@
 <title>Area riservata Amministratore</title>
 </head>
 <body> 
-<%MercuryImp m = new MercuryImp(); %> 
+<%MercuryImp m = new MercuryImp(); 
+EnteImp ei = new EnteImp();%> 
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
-ArrayList<
-
+ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 %>
 <%//Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
@@ -25,7 +25,7 @@ ArrayList<
 	<!--<h2>Benvenuto, ciccio<% //out.println(a.getEmailAdmin());%></h2>-->
 	
 	<% 
-	for(int i = 0; i < eventiNotCheck.size(); i++){
+	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<form action='ServletAdmin' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
@@ -36,15 +36,19 @@ ArrayList<
 		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input  type='hidden' name='pagina' value='AR'></form>");
 	}
 	
+	%>
 	
-	for(int i = 0; i < ; i++){
+	<% 
+	for(int i = 0; i < entiInAttesa.size(); i++){
 		//deve stampare la lista degli enti in attesa di approvazione
-		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input  type='hidden' name='pagina' value='AR'></form>");
+		out.print("<form action='ServletAccettaEnte' method='post'>");
+		out.print(entiInAttesa.get(i).getNomeEnte());
+		out.print(entiInAttesa.get(i).getEmailEnte());
+		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input type='hidden' name='pagina' value='AR'></form>");
 	}
 	
-	
-	
 	%>
+
 
 
 </body>
