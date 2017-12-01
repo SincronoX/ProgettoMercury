@@ -20,7 +20,8 @@ public class ServletReg extends HttpServlet {
 		 Ente ente ;
 		 
 		 if(request.getParameter("form").equals("registrazioneEnte")) //campo hidden di RegistrazioneEnte.jsp
-		{	String messaggio=null;
+		{	
+			String messaggio=null;
 			EnteImp ei = new EnteImp();
 			ente=new Ente();
 			ente.setNomeEnte(request.getParameter("nomeEnte"));
