@@ -19,13 +19,28 @@ public class MercuryImp implements MercuryUtil{
 
 	Connection conn=null;
 	
-	public void sendNewsLetter() {
-		// TODO Auto-generated method stub
+	private Calendar stringToDate(String s) {
+		String[] aux = s.split(" - ");
+		int anno = Integer.parseInt(aux[0]);
+		int mese = Integer.parseInt(aux[1]) - 1;
+		int giorno = Integer.parseInt(aux[2]);
+		Calendar ret = new GregorianCalendar(anno, mese, giorno);
+		return ret;
+	}
+	private String dateToString(Calendar c) {
+		String ret = "";
 		
+		return ret;
+	}
+
+	private boolean confrontoTipo(TipoEvento a, TipoEvento b) {
+		if(a.getIdTipoEvento() == b.getIdTipoEvento()) return true;
+		return false;
 	}
 	
-	private boolean confronto() {
-		
+	
+	public void sendNewsLetter() {
+		// TODO Auto-generated method stub
 		
 	}
 	
@@ -36,18 +51,34 @@ public class MercuryImp implements MercuryUtil{
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        TipoEventoImp tei = new TipoEventoImp();
-        ArrayList<TipoEvento> listaTipi = tei.getEventoCatAll();
 
-        for(int i=0; i<listaTipi.size(); i++) {
-        	for(int j=0; j<tipi.size(); j++) {
-        		if()
+        String query="SELECT * FROM mercury.eventoprevisto where checked=1";
+        
+        // controllo sui tipi
+        TipoEventoImp tei = new TipoEventoImp();
+        ArrayList<TipoEvento> listaTipiNonScelti = tei.getEventoCatAll();
+        int n = listaTipiNonScelti.size();
+        int i, j;
+        for(i=0; i<n; i++) {
+        	for(j=0; j<tipi.size(); j++) {
+        		if(confrontoTipo(listaTipiNonScelti.get(i), tipi.get(j))) {
+        			listaTipiNonScelti.remove(i);
+        		}
         	}
-        	
+        }
+        for(i=0; i<listaTipiNonScelti.size(); i++) {
+        	query += (" AND idTipoEvento != "+listaTipiNonScelti.get(i));
         }
         
+        // controllo sul luogo
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where checked=1");
+        // controllo sulla data
+        String s = dateToString(data);
+        query += (" AND dataInizio=" + s);
+        
+        // esegui query
+        ResultSet rs = st.executeQuery(query);
+        
         try {
         	while(rs.next()) {
         		Evento nuovo =         new Evento();
@@ -80,15 +111,6 @@ public class MercuryImp implements MercuryUtil{
         return ret;
 	}
 
-	
-	private Calendar stringToDate(String s) {
-		String[] aux = s.split(" - ");
-		int anno = Integer.parseInt(aux[0]);
-		int mese = Integer.parseInt(aux[1]) - 1;
-		int giorno = Integer.parseInt(aux[2]);
-		Calendar ret = new GregorianCalendar(anno, mese, giorno);
-		return ret;
-	}
 	
 	public ArrayList<Evento> getEventiNotCheck() throws SQLException {
 		// TODO Auto-generated method stub
