@@ -96,13 +96,15 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		ep.setCheck(true);
 		if(ok==false) //se l'evento va bene niente, altrimenti entra nell'if
 		{
-			 int idEnte = ep.getIdEnte();
+			 int idEnte = ep.getIdEnte(); // mi serve per avere i dati di ente
 			 
 			 
 		}
 		
 		
 	}
+
+
 	
 	
 

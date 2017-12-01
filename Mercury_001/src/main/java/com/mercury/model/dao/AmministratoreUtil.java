@@ -16,6 +16,6 @@ public interface AmministratoreUtil {
 
 	
 	//l'amministratore controlla l'evento ed eventualmente lo banna
-	public void checkEvento(EventoPrevisto ep, int idEnte) ;
+	public void checkEvento(EventoPrevisto ep,  boolean ok);
 
 }
