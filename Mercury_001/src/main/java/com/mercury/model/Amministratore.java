@@ -9,20 +9,19 @@ public class Amministratore {
 		super();
 	}
 	
+	//l'amministratore abilità l'iscrizione dell'Ente
 	public void abilitaEnte(String email, String nome) {
 		
 	}
-	
+
 	public void confermaMail() {
 		
 	}
 	
-	public void checkEvento(Evento ev, int idEnte, boolean v) {
+	//l'amministratore controllo l'evento eventualmente lo banna
+	public void checkEvento(EventoPrevisto ep, Ente en) {
 		
-		/*Banna Utente
-		 * Cancella Evento
-		 * Set Check
-		 */
+		
 		
 	}
 	
@@ -39,7 +38,6 @@ public class Amministratore {
 	public void setEmailAdmin(String emailAdmin) {
 		this.emailAdmin = emailAdmin;
 	}
-	
 	
 
 }
