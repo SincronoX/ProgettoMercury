@@ -12,6 +12,7 @@ public class ComuneImp implements ComuneUtil {
 
 	Connection conn = null;
 	
+	
 	public String getIdComune(String regione, String provincia, String comune) {
 		// TODO Auto-generated method stub
 		return "";
