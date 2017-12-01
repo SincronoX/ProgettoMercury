@@ -7,6 +7,7 @@ public class AmministratoreImp implements AmministratoreUtil {
 	
 	
 	public void abilitaEnte(String email, String nome) {
+		Ente x = new Ente();
 		
 	}
 	
