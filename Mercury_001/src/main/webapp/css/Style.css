@@ -1,6 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-<<<<<<< HEAD
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
 
 /* Bordered form */
@@ -11,7 +10,7 @@
     position: absolute;
 }
 
-/* Full-width inputs */
+/* Inputs Style */
 .input[type=text], input[type=password], input[type=email] {
     border-radius: 5px;
     padding: 12px 20px;
@@ -57,9 +56,9 @@
     opacity: 0.8;
 }
 
+/* STILE DANIELE HOMEPAGE*/
 
 
-=======
 body{
 	background-color: #DCDCDC ;
 	
@@ -102,4 +101,4 @@ body{
 	width: 150px;
 	height: 50px;
 }
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
+
