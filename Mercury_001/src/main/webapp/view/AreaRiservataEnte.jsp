@@ -13,33 +13,31 @@
 <title>Area Riservata Ente</title>
 </head>
 <body>
-<% ArrayList myEvents = new ArrayList<Evento>(); %>
+<% ArrayList<Evento> myEvents = getEventiByEnte();%>
 <%Ente e=(Ente)request.getAttribute("nomeEnte"); %>
 <div class="header"></div>
 <div class="container">
 	<h2>Benvenuto,<% out.println(e.getNomeEnte());%></h2>
-
-	<c:forEach items="${e}" var="item">
+	
 		<c:out value="${item.getNomeEnte()}" /><br>
 		<c:out value="${item.getEmailEnte()}" />
-	</c:forEach>
+	
 
+	<div class="ricerca">
 	<c:forEach items="${myEvents}" var="item">
 		<form action="ServletEnte" method="post">
-			<c:out value="${item.getEventiByEnte()}" /><br><br>
+			<c:out value="${item.getNomeEvento()}" /><br>
+			<c:out value="${item.getDescEvento()}" /><br>
+			<c:out value="${item.getDataInizio()}" /><br>
+			<c:out value="${item.getDataFine()}" /><br><br>
 			<input type="submit" value="Modifica Evento">
 		</form>	
 	</c:forEach>
+	</div>
 
 	<form action="ServletEnte" method="post">
 		<input type="submit" value="Inserisci nuovo evento">
 	</form>
-
-
-
-
-
-
 </div>
 <div class="footer"></div>
 

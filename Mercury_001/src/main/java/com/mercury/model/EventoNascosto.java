@@ -3,10 +3,8 @@
 package com.mercury.model;
 
 import java.util.Calendar;
-import java.sql.Date;
-import java.util.Calendar;
 
-public class Evento {
+public class EventoNascosto {
 	private int idEvento;
 	private String nomeEvento;
 	private String descEvento;
