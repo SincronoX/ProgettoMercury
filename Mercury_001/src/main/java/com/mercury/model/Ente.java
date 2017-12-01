@@ -43,6 +43,13 @@ public class Ente {
 	public void setnBan(int nBan) {
 		this.nBan = nBan;
 	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
 	
 }
 
