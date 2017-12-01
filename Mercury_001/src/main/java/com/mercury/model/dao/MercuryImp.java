@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -28,8 +29,8 @@ public class MercuryImp implements MercuryUtil{
 		return ret;
 	}
 	private String dateToString(Calendar c) {
-		String ret = "";
-		
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy - MM - dd");
+		String ret = format1.format(c.getTime());
 		return ret;
 	}
 
