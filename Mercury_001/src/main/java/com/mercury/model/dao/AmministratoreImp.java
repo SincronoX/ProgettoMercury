@@ -1,14 +1,20 @@
 package com.mercury.model.dao;
+import com.mercury.model.dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.servlet.ServletException;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
-import com.mysql.jdbc.Connection;
+
 
 public class AmministratoreImp  implements AmministratoreUtil {
 	
-Connection conn=null;
+	Connection conn=null;
 	
 	public AmministratoreImp() {
 		super();
@@ -30,14 +36,14 @@ Connection conn=null;
     }
 	
 	public String getEmailAdmin(int idAdmin) throws SQLException{
-        if(conn==null) conn=DAO.getConnection();
+        if(conn==null) conn=(Connection) DAO.getConnection();
         Statement st = conn.createStatement();
         String email = "";
         
         ResultSet rs = st.executeQuery("select emailAdmin from amministratore where idAdmin="+idAdmin);
         try {
         	rs.first();
-        	user=rs.getString("email");
+        	email=rs.getString("email");
         }catch(SQLException e) {
         	return "";
         }
