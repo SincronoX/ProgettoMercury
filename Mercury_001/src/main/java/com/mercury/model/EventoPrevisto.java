@@ -1,3 +1,5 @@
+// Fabio Savelli
+
 package com.mercury.model;
 
 import java.util.Calendar;
@@ -5,13 +7,19 @@ import java.util.Calendar;
 public class EventoPrevisto {
 	private int idEvento;
 	private int idTipoEvento;
-	private int idComune;
+<<<<<<< HEAD
+	private int idEnte;
+	private String idComune;	
+=======
+	private String idComune;
 	private int idEnte;	
+>>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
 	private String nomeEvento;
 	private String descEvento;
 	private Calendar dataInizio; 
 	private Calendar dataFine;
 	private boolean check;
+	
 
 	
 	public EventoPrevisto() {
@@ -24,10 +32,10 @@ public class EventoPrevisto {
 	public void setIdEnte(int idEnte) {
 		this.idEnte = idEnte;
 	}
-	public int getIdComune() {
+	public String getIdComune() {
 		return idComune;
 	}
-	public void setIdComune(int idComune) {
+	public void setIdComune(String idComune) {
 		this.idComune = idComune;
 	}
 	public int getIdEvento() {

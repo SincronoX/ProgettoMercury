@@ -9,22 +9,6 @@ public class Amministratore {
 		super();
 	}
 	
-	//l'amministratore abilità l'iscrizione dell'Ente
-	public void abilitaEnte(String email, String nome) {
-		
-	}
-
-	public void confermaMail() {
-		
-	}
-	
-	//l'amministratore controllo l'evento eventualmente lo banna
-	public void checkEvento(EventoPrevisto ep, Ente en) {
-		
-		
-		
-	}
-	
 	
 	public String getPswAdmin() {
 		return pswAdmin;

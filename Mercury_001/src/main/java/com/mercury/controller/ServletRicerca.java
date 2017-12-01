@@ -30,11 +30,31 @@ public class ServletRicerca extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		MercuryImp m = new MercuryImp();
+		Calendar d = m.stringToDate("");
+		
+		
+		
 		Luogo l = new Luogo();
-		Calendar d = null;
+		
+		/*
+		 * Comune c =    new Comune();
+		 * Provincia p = new Provincia();
+		 * Regione r =   new Regione();
+		 * 
+		 * c.set();....
+		 * 
+		 * p.set();....
+		 * 
+		 * r.set();....
+		 * 
+		 * */
+		
+		
+		
 		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
 		
-		MercuryImp m = new MercuryImp();
+		
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		try {
