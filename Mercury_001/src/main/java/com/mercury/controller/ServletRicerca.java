@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mercury.model.EventoPrevisto;
-import com.mercury.model.Luogo;
 import com.mercury.model.TipoEvento;
 import com.mercury.model.dao.MercuryImp;
 
@@ -31,34 +30,21 @@ public class ServletRicerca extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		MercuryImp m = new MercuryImp();
-		Calendar d = m.stringToDate("");
-		
-		
-		
-		Luogo l = new Luogo();
-		
-		/*
-		 * Comune c =    new Comune();
-		 * Provincia p = new Provincia();
-		 * Regione r =   new Regione();
-		 * 
-		 * c.set();....
-		 * 
-		 * p.set();....
-		 * 
-		 * r.set();....
-		 * 
-		 * */
-		
-		
 		
 		ArrayList<TipoEvento> t = new ArrayList<TipoEvento>();
+		
+		String comune = request.getParameter("comune");
+		
+		String data = request.getParameter("data");
+		Calendar d = m.stringToDate(data);
+				
+		
 		
 		
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		try {
-			ret = m.getRicerca(t, l, d);
+			ret = m.getRicerca(t, comune, d);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
