@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mercury.model.Amministratore;
 import com.mercury.model.dao.AmministratoreImp;
@@ -29,10 +30,12 @@ public class ServletAdmin extends HttpServlet {
 			Amministratore admin = new Amministratore();
 			admin.setEmailAdmin(request.getParameter("email"));
 			admin.setPswAdmin(request.getParameter("password"));
+			admin.getEmailAdmin();
+			admin.getPswAdmin();
 
-			admin = AmministratoreImp.trovaAdmin(email, password);
+			boolean esisteAdmin = AmministratoreImp.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
 
-			if (admin.trovaAdmin()) {
+			if (esisteAdmin) {
 
 				HttpSession session = request.getSession(true);	    
 				session.setAttribute("currentSessionUser",admin); 

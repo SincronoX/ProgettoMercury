@@ -18,7 +18,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	protected String mercury = " mercury.sincronoX@gmail.com";
 
 
-	public boolean trovaAdmin(String email , String psw){
+	public static boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
 		String query="select * from amministratore a where a.emailAdmin = "+email+ " and a.pswAdmin = "+psw ;
 		ResultSet rs;
