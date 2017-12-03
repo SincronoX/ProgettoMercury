@@ -25,9 +25,10 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		Amministratore am = new Amministratore();
 		try {
 			rs = DAO.execute_Query(conn, query );
-			if(rs.first()==true) 
-			{ return true ;}	
-		}catch(SQLException e) {}
+			if(rs.first()==true) { 
+				return true ;
+			}	
+		}catch(SQLException e) { }
 		return false ;
 	}
 
@@ -51,10 +52,10 @@ public class AmministratoreImp  implements AmministratoreUtil {
     catch (MessagingException exc)
     {	}
 }
-*/
+	 */
 
 	private void mailBanEvento(Ente en) {
-		
+
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Evento";
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
@@ -67,11 +68,11 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	    catch (MessagingException exc)
 	    {	}
 	}
-	*/
+		 */
 	}
-	
+
 	private void mailBanEnte(Ente en) {
-		
+
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Ente";
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
@@ -84,7 +85,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	    catch (MessagingException exc)
 	    {	}
 	}
-	*/
+		 */
 	}
 
 	public void checkEvento(EventoPrevisto ep,  boolean ok) { //ban evento!
@@ -119,12 +120,11 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		am.setIdAdmin(id);
 		try {
 			rs = DAO.execute_Query(conn, query );
-			if(rs.first()==true) 
-			{ 
+			if(rs.first()==true) { 
 				am.setEmailAdmin(rs.getString("emailAdmin"));
 				am.setPswAdmin(rs.getString("pswAdmin"));
 			}	
-		}catch(SQLException e) {}
+		}catch(SQLException e) { }
 
 		return am;
 	}
