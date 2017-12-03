@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mercury.model.Amministratore;
+import com.mercury.model.dao.AmministratoreImp;
 
 /**
  * Servlet implementation class ServletAdmin
@@ -22,9 +23,6 @@ public class ServletAdmin extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
-		
 		try
 		{	    
 
@@ -32,9 +30,9 @@ public class ServletAdmin extends HttpServlet {
 		     admin.setEmailAdmin(request.getParameter("email"));
 		     admin.setPswAdmin(request.getParameter("password"));
 
-		     admin = adminDAO.login(user);
+		     admin = AmministratoreImp.trovaAdmin(emailAdmin, pswAdmin);
 			   		    
-		     if (user.isValid())
+		     if (admin.trovaAdmin())
 		     {
 			        
 		          HttpSession session = request.getSession(true);	    
@@ -43,7 +41,7 @@ public class ServletAdmin extends HttpServlet {
 		     }
 			        
 		     else 
-		          response.sendRedirect("invalidLogin.jsp"); //error page 
+		          response.sendRedirect("Errore.jsp"); //error page 
 		} 
 				
 				
