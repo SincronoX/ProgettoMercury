@@ -38,8 +38,8 @@ public class ServletAdmin extends HttpServlet {
 		     {
 			        
 		          HttpSession session = request.getSession(true);	    
-		          session.setAttribute("currentSessionUser",user); 
-		          response.sendRedirect("userLogged.jsp"); //logged-in page      		
+		          session.setAttribute("currentSessionUser",admin); 
+		          response.sendRedirect("AreaRiservataAdmin.jsp"); //logged-in page      		
 		     }
 			        
 		     else 
@@ -54,4 +54,4 @@ public class ServletAdmin extends HttpServlet {
 		       }
 	}
 
-}
+
