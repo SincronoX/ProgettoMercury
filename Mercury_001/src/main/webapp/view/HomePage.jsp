@@ -16,7 +16,11 @@
 <!--select eventoPrevisto.nomeEvento,eventoPrevisto.dataInizio,eventoPrev from eventoPrevisto where idTipoEvento=2-->
 </sql:query>
 
+<<<<<<< HEAD
+<title>HOMEPAGE</title>
+=======
 <title>HOME PAGE</title>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
 </head>
 <body>
 <div id="sfondo"></div> 
@@ -35,7 +39,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active" id="navbar"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a id="home">Home <span class="sr-only">(current)</span></a></li>
 	        <li><a id="navbar">Newsletter</a></li>
 	        <li><a id="navbar">Eventi</a></li>
 	        <li><a id="navbar">Chi Siamo</a></li>
@@ -144,8 +148,31 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	
+ 
+=======
+<<<<<<< HEAD
+
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+=======
+  <dl>
+    	<dt>Creato da</dt>
+    	<dt>Gruppo sincrono </dt>
+    	<dd><time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	<dd>
+  </dl>
+>>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
+	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+>>>>>>> 55cb31e7bc2b731b69c4b13b759f3d5ddbb46896
+=======
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
 		<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
 </footer>
 <!-- CHIUSURA FOOTER-->
 
