@@ -15,7 +15,7 @@
 <body>
 <div id="sfondo"></div> 
 
-	<div class="container"> <!--ciao INIZIO CLASSE CONTAINER-->
+	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
 	<div class="row"><!--INIZIO CLASSE ROW-->
 					
 	  <nav class="navbar navbar-inverse">

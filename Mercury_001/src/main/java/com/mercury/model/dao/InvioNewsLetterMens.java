@@ -18,7 +18,7 @@ public class InvioNewsLetterMens extends Thread implements Runnable {
 		while(true) {
 			SendMail s = new SendMail();  
 			try {
-				s.SendMail(3);
+				s.sendEmail(3);
 				Thread.sleep(2629800);
 			}
 			catch (InterruptedException e){

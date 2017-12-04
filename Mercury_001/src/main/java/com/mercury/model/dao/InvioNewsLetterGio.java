@@ -17,7 +17,7 @@ public class InvioNewsLetterGio extends Thread implements Runnable{
 			SendMail s = new SendMail();
 			try {
 				Thread.sleep(86400);
-				s.SendMail(1);
+				s.sendEmail(1);
 
 			}
 			catch (InterruptedException e) {
