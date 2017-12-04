@@ -9,7 +9,7 @@
 </head>
 <body>
           
-<form class=loginform action="LoginAdmin.jsp">
+<form class=loginform action="ServletAdmin.java">
 
     <input class=input type="text" placeholder="Username" name="emailAdmin" required>
     <input class=input type="password" placeholder="Password" name="pswAdmin" required>

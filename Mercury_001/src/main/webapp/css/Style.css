@@ -55,13 +55,12 @@ background-size: cover;
 	text-align: justify;
 }
 
-.footer{
-	position: relative;
+footer{
     opacity: 0.5;
     background-color:black;
     color: white;
     text-align: center;
-    margin-bottom: 0px;
+
 }
 
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
@@ -71,7 +70,16 @@ background-size: cover;
     margin: 25%;
     width: 100%;
     align: center;
-    position: absolute;
+
+}
+
+/* Registra Form */
+.registraform {    
+    margin: 25%;
+    width: 100%;
+    align: center;
+    margin-bottom: 50px;
+
 }
 
 /* Inputs Style */
