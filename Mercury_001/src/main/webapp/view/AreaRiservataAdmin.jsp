@@ -45,7 +45,7 @@
 EnteImp ei = new EnteImp();%> 
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
 ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
-%>
+%>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	

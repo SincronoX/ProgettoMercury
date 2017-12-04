@@ -30,20 +30,21 @@ public class ServletAdmin extends HttpServlet {
 			Amministratore admin = new Amministratore();
 			admin.setEmailAdmin(request.getParameter("email"));
 			admin.setPswAdmin(request.getParameter("password"));
-			admin.getEmailAdmin();
-			admin.getPswAdmin();
+			
+			String emailAdmin = admin.getEmailAdmin();
+			String pswAdmin = admin.getPswAdmin();
 
-			boolean esisteAdmin = AmministratoreImp.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
+			boolean esisteAdmin = AmministratoreImp.trovaAdmin(emailAdmin, pswAdmin);
 
 			if (esisteAdmin) {
 
 				HttpSession session = request.getSession(true);	    
 				session.setAttribute("currentSessionUser",admin); 
-				response.sendRedirect("AreaRiservataAdmin.jsp"); //logged-in page      		
+				response.sendRedirect("AreaRiservataAdmin.jsp"); //logged-in page , mando l'admin nella sua area riservata.     		
 			}
 
 			else 
-				response.sendRedirect("Errore.jsp"); //error page 
+				response.sendRedirect("Errore.jsp"); //error page , amministratore non registrato!
 		} 
 
 
