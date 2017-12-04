@@ -4,31 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<title>Login Ente</title>
-=======
-<<<<<<< HEAD
+
 <title>LOGIN ADMIN</title>
->>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
-=======
-<title>LOGIN ADMIN</title>
->>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
+
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
-<<<<<<< HEAD
-=======
-=======
-<title>Login Administrator</title>
-<link href="..//css/Style.css" rel="stylesheet" type="text/css">
->>>>>>> 55cb31e7bc2b731b69c4b13b759f3d5ddbb46896
->>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
-</head>
-<body>
 
-          
+<link href="..//css/Style.css" rel="stylesheet" type="text/css">
+</head>
+<body>          
+
 <form class=loginform  action="../ServletLogAdmin" method="post">
 
 <div id="sfondo"></div> 
@@ -59,7 +46,6 @@
 <div class="form3">         
 <form class=loginform action="ServletAdmin.java">
 
-
     <input class=input type="text" placeholder="Username" name="emailAdmin" required>
     <input class=input type="password" placeholder="Password" name="pswAdmin" required>
     <button class=loginbtn type="submit">Login</button>
@@ -82,7 +68,4 @@
  	<script type="text/javascript" src="../js/app.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--FINE SCRIPT BOOTSTRAP -->	
-
-
-
 </html>
