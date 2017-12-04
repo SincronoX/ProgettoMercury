@@ -13,6 +13,7 @@ import com.mercury.model.TipoEvento;
 
 public class CadenzaImp implements CadenzaUtil {
 	
+	
 
 	public Cadenza getCadenzaById(int id) {
 		Cadenza x= new Cadenza();
