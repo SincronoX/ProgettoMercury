@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form class=loginform action="RegistrazioneEnte.jsp">
+<form class=loginform action="ServletReg.java">
 
     <input class=input type="text" placeholder="Nome" name="nomeEnte" required>
     <input class=input type="email" placeholder="Email" name="emailEnte" required>
@@ -17,8 +17,5 @@
     <button class=registrabtn type="submit">Registrati</button>
 
 </form>
-
- 
-
 </body>
 </html>
