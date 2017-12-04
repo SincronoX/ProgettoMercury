@@ -21,7 +21,11 @@ public class ServletLogEnte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
+		String pagina = request.getParameter("log");
+=======
 		String pagina = request.getParameter("submit");
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
 		Ente ente = new Ente();
 		EnteImp enteimp = new EnteImp();
 		if(pagina.equals("login")) {

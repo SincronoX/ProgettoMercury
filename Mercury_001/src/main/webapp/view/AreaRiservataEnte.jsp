@@ -56,7 +56,9 @@ myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 </div>
 
 	<h2>Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
-
+	<form action="../ServletLogEnte" method="post">
+	<input type="submit" value="Logout" name="log">
+	</form>
 	
 	<div id="eventiHome" class="col-md-6">
 	<%
@@ -74,7 +76,7 @@ myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 	</div>
 	
 	<form action="../ServletEnte" method="post">
-	<input type="submit" value="Inserisci nuovo Evento">
+	<input type="submit" value="Aggiungi" name="modEv">
 	</form>
 
 </div>
