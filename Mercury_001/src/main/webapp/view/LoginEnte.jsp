@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Ente</title>
+<title>LOGIN ENTE</title>
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
@@ -57,12 +57,10 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
-  <dl>
-    	<dt>Creato da</dt>
-    	<dt>Gruppo sincrono </dt>
-    	<dd><time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	<dd>
-  </dl>
+
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	
+ 
 	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
