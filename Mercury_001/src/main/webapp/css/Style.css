@@ -99,6 +99,18 @@ background-size: cover;
 
 }
 
+/* Registra Form2 */
+.form2 {
+	background-color: rgba(220, 220, 220, 0.4);
+	position: relative;
+    margin: auto;
+    width: 220px;
+    height: 240px;
+    border-radius: 8px;
+    padding: 10px;
+
+}
+
 /* Inputs Style */
 .input[type=text], .input[type=password], .input[type=email] {
     align: center;
