@@ -39,6 +39,7 @@ background-size: cover;
 	padding:30px; 
 	background-color:#F5F5F5;
 }
+
 /* logo navbar*/
 #fotoMercury{
 	width: 50px;
@@ -48,6 +49,9 @@ background-size: cover;
  	font-size:20px;
  }
 
+#home{
+	font-sixe:20px;
+}
 
 .titoloEvento{
 	text-align:center; 
