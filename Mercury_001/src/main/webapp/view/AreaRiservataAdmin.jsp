@@ -8,10 +8,16 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--COLLEGAMENTO AL CSS BOOTSTRAP-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../Style.css">
+<!-- Fine collegamento css bootstrap -->
+
 <title>Area riservata Amministratore</title>
 </head>
 <body> 
@@ -43,13 +49,15 @@
 
 <%MercuryImp m = new MercuryImp(); 
 EnteImp ei = new EnteImp();%> 
+
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
-ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
+request.setAttribute("evento", eventiNotCheck.get(0));
+//ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	
-	<h2>Benvenuto, <% out.println(a.getEmailAdmin());%></h2>
+	<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
 	
 	<div id="eventiHome" class="col-md-8">
 		<form class="testoEventi">
@@ -57,21 +65,24 @@ ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 	<% 
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
-		out.print("<form action='ServletAdmin' method='post'>");
+		out.print("<form action='../MyServlet' method='post' name='"+i+"'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
-		request.setAttribute("evento", eventiNotCheck.get(i));
-		request.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input  type='hidden' name='pagina' value='AR'></form>");
+		session.setAttribute("evento", eventiNotCheck.get(i));
+		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
+		//request.setAttribute("evento", eventiNotCheck.get(i));
+		//request.setAttribute("check", eventiNotCheck.get(i).isCheck());
+		out.print("<input  type='hidden' name='checkok' value='"+eventiNotCheck.get(i).getNomeEvento()+"'>");
+		out.print("<br><input type='submit' value='Accetta' name = 'checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'></form>");
 		out.print("</p>");
-	}
 	
-	%>
 	
-	<% 
-	for(int i = 0; i < entiInAttesa.size(); i++){
+	}%>
+	
+	<%/*
+	for(int i = 0; i < entiInAttesa.size(); i++) {
 		//deve stampare la lista degli enti in attesa di approvazione
 		out.print("<form action='ServletAccettaEnte' method='post'>");
 		out.print(entiInAttesa.get(i).getNomeEnte());
@@ -80,9 +91,8 @@ ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
 		out.print("<input type='submit' value='Accetta'><input type='submit' value='Rifiuta'><br><input type='hidden' name='pagina' value='AR'></form>");
 	}
 	
-	%>
+	*/%>
 
-		</form>
 	</div>
 </body>
 </html>
