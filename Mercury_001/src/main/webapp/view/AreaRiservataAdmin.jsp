@@ -56,7 +56,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 
 	
 <div id="eventiHome" class="col-md-8">
-	<h2>Eventi da approvare</h2>
+	<h2>Eventi da approvare</h2> 
 	
 	
 	<%
