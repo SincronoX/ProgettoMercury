@@ -37,7 +37,7 @@
 	</nav>
 	
 
-  
+<div class="form1">  
 <form class=loginform action="ServletEnte.java">
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
@@ -49,6 +49,7 @@
 <form class=registraform action="RegistrazioneEnte.jsp">
 	<input class=registrabtn type="submit" value="Registrati"/>
 </form>
+</div>
 </div>
 </div>
 

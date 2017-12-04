@@ -98,7 +98,7 @@
 	</resource-ref>
 
 
-<<<<<<< HEAD
+
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
@@ -212,8 +212,6 @@
   </resource-ref>
   
   
-=======
->>>>>>> 67868680740742949f4dd7d270bb56b449785d2a
 </web-app>
 
 
