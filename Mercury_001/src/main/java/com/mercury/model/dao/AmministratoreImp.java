@@ -21,7 +21,7 @@ import com.mercury.model.EventoPrevisto;
 
 
 public class AmministratoreImp  implements AmministratoreUtil {
-
+	protected String host = "mail.tin.it";
 	protected String mercury = " mercury.sincronoX@gmail.com";
 
 
@@ -41,7 +41,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 
 	public void InvioMailAbilitaEnte(Ente en) {
 
-		 String host = "mail.tin.it";
+		
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
@@ -72,6 +72,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	     }
 	}
 
+
 	private void mailBanEvento(Ente en) {
 
 		String dest = en.getEmailEnte();
@@ -79,14 +80,22 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, ti ricordiamo che al 3° ban causato da un evento irregolare verra bannato il tuo ente " ;
 		String testo = testo1+testo2;
-		/*  try
-	    {
-	      MailUtility.sendMail(dest, mercury, oggetto, testo);
-	    }
-	    catch (MessagingException exc)
-	    {	}
-	}
-		 */
+		
+		Properties p = new Properties();
+		p.put("mail.smtp.host", host);
+	     //p.put("port", 25); 
+	     Session sessione = Session.getDefaultInstance(p);
+	     
+	     MimeMessage mail = new MimeMessage(sessione);
+	     try {
+	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	mail.setSubject(oggetto);
+	    	 	mail.setText(testo);
+	    	 	Transport.send(mail);
+	     }catch(Exception e) {
+	    	 	e.printStackTrace();
+	     }
 	}
 
 	private void mailBanEnte(Ente en) {
@@ -96,14 +105,22 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, come ripetuto il tuo ente verra' eliminato " ;
 		String testo = testo1+testo2;
-		/*  try
-	    {
-	      MailUtility.sendMail(dest, mercury, oggetto, testo);
-	    }
-	    catch (MessagingException exc)
-	    {	}
-	}
-		 */
+		
+		Properties p = new Properties();
+		p.put("mail.smtp.host", host);
+	     //p.put("port", 25); 
+	     Session sessione = Session.getDefaultInstance(p);
+	     
+	     MimeMessage mail = new MimeMessage(sessione);
+	     try {
+	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	mail.setSubject(oggetto);
+	    	 	mail.setText(testo);
+	    	 	Transport.send(mail);
+	     }catch(Exception e) {
+	    	 	e.printStackTrace();
+	     }
 	}
 
 	public void checkEvento(EventoPrevisto ep,  boolean ok) { //ban evento!

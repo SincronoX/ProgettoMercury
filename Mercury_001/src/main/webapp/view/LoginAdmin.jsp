@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Administrator</title>
-<link href="../css/Style.css" rel="stylesheet" type="text/css">
+<link href="..//css/Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
           
