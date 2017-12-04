@@ -16,7 +16,7 @@
 <!--select eventoPrevisto.nomeEvento,eventoPrevisto.dataInizio,eventoPrev from eventoPrevisto where idTipoEvento=2-->
 </sql:query>
 
-<<<<<<< HEAD
+
 <title>HOMEPAGE</title>
 
 </head>
@@ -148,7 +148,6 @@
 <footer class="footer">
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
 		<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
-
 </footer>
 <!-- CHIUSURA FOOTER-->
 
