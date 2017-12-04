@@ -112,9 +112,6 @@
 		<url-pattern>/ServletLoginAdminOk</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<url-pattern>/ServletLogAdmin</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>ServletLogAdmin</servlet-name>
 		<url-pattern>/ServletLogAdmin</url-pattern>
 	</servlet-mapping>
