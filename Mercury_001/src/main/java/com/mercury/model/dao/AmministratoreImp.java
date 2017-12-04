@@ -41,7 +41,6 @@ public class AmministratoreImp  implements AmministratoreUtil {
 
 	public void InvioMailAbilitaEnte(Ente en) {
 
-		
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
