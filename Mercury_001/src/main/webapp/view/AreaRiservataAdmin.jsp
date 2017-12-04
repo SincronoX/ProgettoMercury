@@ -51,48 +51,43 @@
 EnteImp ei = new EnteImp();%> 
 
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
-request.setAttribute("evento", eventiNotCheck.get(0));
-//ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
+ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	
-	<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
+<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
 	
-	<div id="eventiHome" class="col-md-8">
-		<form class="testoEventi">
-			<h2>Eventi da approvare</h2>
-	<% 
+<div id="eventiHome" class="col-md-8">
+	<h2>Eventi da approvare</h2>
+	
+	
+	<%
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
-		out.print("<form action='../MyServlet' method='post' name='"+i+"'>");
+		out.print("<form action='../MyServlet' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
 		session.setAttribute("evento", eventiNotCheck.get(i));
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		//request.setAttribute("evento", eventiNotCheck.get(i));
-		//request.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<input  type='hidden' name='checkok' value='"+eventiNotCheck.get(i).getNomeEvento()+"'>");
-		out.print("<br><input type='submit' value='Accetta' name = 'checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'></form>");
+		out.print("<br><input type='submit' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'></form>");
 		out.print("</p>");
-	
-	
 	}%>
 	
-	<%/*
+	<%
 	for(int i = 0; i < entiInAttesa.size(); i++) {
 		//deve stampare la lista degli enti in attesa di approvazione
-		out.print("<form action='ServletAccettaEnte' method='post'>");
+		out.print("<p>");
+		out.print("<form action='../MyServlet' method='post'>");
 		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
-		request.setAttribute("enteInAttesa", entiInAttesa.get(i));
-		out.print("<input type='submit' value='Accetta'><input type='submit' value='Rifiuta'><br><input type='hidden' name='pagina' value='AR'></form>");
-	}
-	
-	*/%>
+		session.setAttribute("enteInAttesa", entiInAttesa.get(i));
+		out.print("<input type='submit' value='Accetta' name='enteOK'><input type='submit' value='Rifiuta' name='enteOK'><br><input type='hidden' name='eia' value='AR'></form>");
+		out.print("<p>");
+	}%>
 
-	</div>
+</div>
 </body>
 </html>
