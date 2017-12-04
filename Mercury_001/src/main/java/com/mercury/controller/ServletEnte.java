@@ -47,8 +47,9 @@ public class ServletEnte extends HttpServlet {
 			if(tipoForm.equals("Inserisci nuovo evento")) {
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento"); //session
-				enteimp.inserisciEvento(ep);
+				//ente.setEmailEnte(request.getParameter("emailEnte"));
+				//ep = (EventoPrevisto) request.getAttribute("evento"); 
+				//enteimp.inserisciEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
 			}
@@ -57,7 +58,7 @@ public class ServletEnte extends HttpServlet {
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
 				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
-				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);//session
+				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
 				enteimp.modificaEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
@@ -67,7 +68,7 @@ public class ServletEnte extends HttpServlet {
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
 				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
-				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);//session
+				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
 				enteimp.eliminaEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
