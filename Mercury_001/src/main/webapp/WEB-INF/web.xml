@@ -3,6 +3,11 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
+	<welcome-file-list>
+	  	<welcome-file>ServletStart</welcome-file>
+  	</welcome-file-list>
+
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>ServletLogin</servlet-name>
@@ -46,6 +51,12 @@
   	<description></description>
   	<servlet-class>com.mercury.controller.AccettaEnte</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletStart</servlet-name>
+  	<display-name>ServletStart</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.ServletStart</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
@@ -74,6 +85,10 @@
   	<servlet-name>AccettaEnte</servlet-name>
   	<url-pattern>/AccettaEnte</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletStart</servlet-name>
+  	<url-pattern>/ServletStart</url-pattern>
+  </servlet-mapping>
   
   <resource-ref>
       <description>DB Connection</description>
@@ -84,3 +99,6 @@
   
   
 </web-app>
+
+
+
