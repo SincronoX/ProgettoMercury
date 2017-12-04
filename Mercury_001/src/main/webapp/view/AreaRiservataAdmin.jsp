@@ -12,6 +12,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <title>Area riservata Amministratore</title>
 </head>
 <body> 
@@ -44,20 +46,14 @@
 <%MercuryImp m = new MercuryImp(); 
 EnteImp ei = new EnteImp();%> 
 <%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
-<<<<<<< HEAD
-ArrayList<Ente> entiInAttesa = ei.getEventiInAttesa();
-=======
+
 ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
+
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
-	
-<<<<<<< HEAD
-	<h2>Benvenuto, <% out.println(a.getEmailAdmin());%></h2>
-=======
-<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
+	<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
+
 	
 <div id="eventiHome" class="col-md-8">
 	<h2>Eventi da approvare</h2>
@@ -66,65 +62,36 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 	<%
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
-<<<<<<< HEAD
-		out.print("<form action='ServletAdmin' method='post'>");
-=======
-<<<<<<< HEAD
-		out.print("<form action='ServletAdmin' method='post'>");
-=======
-		out.print("<form action='../MyServlet' method='post'>");
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
->>>>>>> 67868680740742949f4dd7d270bb56b449785d2a
+		out.print("<form action='../ServletRicerca' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
-<<<<<<< HEAD
-		request.setAttribute("evento", eventiNotCheck.get(i));
-		request.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<input type='submit' value='Accetta'><input type='submit' value='Ban'><br><input  type='hidden' name='pagina' value='AR'></form>");
-=======
-		session.setAttribute("evento", eventiNotCheck.get(i));
+		session.setAttribute("evento" + i, eventiNotCheck.get(i));
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<br><input type='submit' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'></form>");
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
+		out.print("<br><input type='submit' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
+
 		out.print("</p>");
-<<<<<<< HEAD
 	}
 	
 	%>
-	
-	<% 
-	for(int i = 0; i < entiInAttesa.size(); i++){
-=======
-	}%>
-	
 	<%
 	for(int i = 0; i < entiInAttesa.size(); i++) {
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
 		//deve stampare la lista degli enti in attesa di approvazione
 		out.print("<p>");
-		out.print("<form action='ServletAdmin' method='post'>");
+		out.print("<form action='../ServletRicerca' method='post'>");
 		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
-<<<<<<< HEAD
-		request.setAttribute("enteInAttesa", entiInAttesa.get(i));
-		out.print("<input type='submit' value='Accetta'><input type='submit' value='Rifiuta'><br><input type='hidden' name='pagina' value='AR'></form>");
-	}
-	
-	%>
-=======
-		session.setAttribute("enteInAttesa", entiInAttesa.get(i));
-		out.print("<input type='submit' value='Accetta' name='enteOK'><input type='submit' value='Rifiuta' name='enteOK'><br><input type='hidden' name='eia' value='AR'></form>");
+		session.setAttribute("enteInAttesa" + i, entiInAttesa.get(i));
+		out.print("<input type='submit' value='Accetta' name='enteOK'><input type='submit' value='Rifiuta' name='enteOK'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'></form>");
 		out.print("</p>");
 	}%>
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
-
-<<<<<<< HEAD
-		</form>
-	</div>
-=======
 </div>
->>>>>>> branch 'master' of https://github.com/SincronoX/ProgettoMercury.git
 </body>
+ <!--INIZO SCRIPT BOOTSTRAP -->
+ 	<script type="text/javascript" src="..//js/app.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--FINE SCRIPT BOOTSTRAP -->	
+   
+
 </html>
