@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
 
-<title>Insert title here</title>
+<title>HOMEPAGE</title>
 </head>
 <body>
 <div id="sfondo"></div> 
@@ -140,9 +140,7 @@
 <footer class="footer">
 
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	
- 
-	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+    	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
 
