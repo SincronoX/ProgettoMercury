@@ -55,7 +55,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
-	<h2 class="titoloAreaRis">Benvenuto,<% //out.println(a.getEmailAdmin());%></h2>
+	<h2 class="testoGenerale">Benvenuto,<% //out.println(a.getEmailAdmin());%></h2>
 
 	<div class="col-md-1"></div>
 <div id="eventiHome" class="col-md-4">
