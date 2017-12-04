@@ -17,25 +17,28 @@
 <title>Area riservata Amministratore</title>
 </head>
 <body> 
+<div id="sfondo"></div> 
+
 <div class="container"> <!--INIZIO CLASSE CONTAINER-->
 <div class="row"><!--INIZIO CLASSE ROW-->
 
 		
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
+  
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <img class="fotoMercury" src="mercury.png">
+      <img id="fotoMercury" src="../img/nuovoLogo1.png">
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Newsletter</a></li>
-        <li><a href="#">Eventi</a></li>
-        <li><a href="#">Chi Siamo</a></li>
-        <li><a href="#">Area Riservata</a></li>
+        <li class="active"><a id="home">Home <span class="sr-only">(current)</span></a></li>
+        <li><a id="navbar">Newsletter</a></li>
+        <li><a id="navbar">Eventi</a></li>
+        <li><a id="navbar">Chi Siamo</a></li>
+        <li><a id="navbar">Area Riservata</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -52,13 +55,12 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
-	<h2>Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
+	<h2>Benvenuto,<% //out.println(a.getEmailAdmin());%></h2>
 
-	
-<div id="eventiHome" class="col-md-8">
-	<h2>Eventi da approvare</h2>
-	
-	
+	<div class="col-md-1"></div>
+<div id="eventiHome" class="col-md-4">
+	<h3>Eventi da approvare</h3> 
+	<div class="panel panel-info">
 	<%
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
@@ -71,10 +73,17 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
 		out.print("<br><input type='submit' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
 
-		out.print("</p>");
+		out.print("</p>");  
 	}
-	
 	%>
+	</div>
+</div>
+
+<div class="col-md-1"></div>
+
+<div id="eventiHome" class="col-md-4">
+<h3>Enti da approvare</h3>
+	<div class="panel panel-info">
 	<%
 	for(int i = 0; i < entiInAttesa.size(); i++) {
 		//deve stampare la lista degli enti in attesa di approvazione
@@ -86,6 +95,12 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		out.print("<input type='submit' value='Accetta' name='enteOK'><input type='submit' value='Rifiuta' name='enteOK'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'></form>");
 		out.print("</p>");
 	}%>
+	</div>
+</div>
+
+<div class="col-md-1"></div>
+
+</div>
 </div>
 </body>
  <!--INIZO SCRIPT BOOTSTRAP -->

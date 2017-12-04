@@ -42,7 +42,7 @@ public class TipoEventoImp implements TipoEventoUtil {
 		ArrayList<EventoPrevisto> lista= new ArrayList<EventoPrevisto>();
 		EventoPrevisto x = null;
 		Connection conn = DAO.getConnection();		
-		String query="select e.* from evento e, tipoevento te where e.idTipoEvento= te.idTipoEvento and te.catEvento = "+cat+";" ;
+		String query="select e.* from evento e, tipoevento te where e.idTipoEvento= te.idTipoEvento and te.catEvento = '"+cat+"';" ;
 		ResultSet rs;
 		MercuryImp conv = null;
 		try {

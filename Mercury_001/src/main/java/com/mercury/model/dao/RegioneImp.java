@@ -22,7 +22,7 @@ public class RegioneImp implements RegioneUtil {
 		
 		Statement st = conn.createStatement();
 		
-		ResultSet rs = st.executeQuery("select * from mercury.Regione r where r.idRegione = "+ id);
+		ResultSet rs = st.executeQuery("select * from mercury.Regione r where r.idRegione = "+ id+";");
 		
 		try 
 		{
