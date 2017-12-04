@@ -37,10 +37,14 @@ public class ServletLogEnte extends HttpServlet {
 			
 			String emailEnte = request.getParameter("emailEnte");
 			ente = enteimp.getEnteByEmail(emailEnte);
+			HttpSession session = request.getSession(true);	    
+			session.setAttribute("currentSessionUser",ente); 
+			response.sendRedirect("view/AreaRiservataEnte.jsp");
+
+
+			req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");	
 			request.setAttribute("ente", ente);
-			req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
-			req.forward(request, response);
-			response.sendRedirect("AreaRiservataEnte.jsp"); //logged-in page      		
+			req.forward(request, response);      		
 		}
 
 		else 

@@ -41,8 +41,8 @@ public class ServletEnte extends HttpServlet {
 			EnteImp enteimp = new EnteImp();
 			
 			if(tipoForm.equals("Aggiungi")) {
-				String emailEnte = request.getParameter("emailEnte");
-				ente = enteimp.getEnteByEmail(emailEnte);
+				Ente e = new Ente();
+				e = (Ente)request.getAttribute("ente");
 				request.setAttribute("ente", ente);
 				req=request.getRequestDispatcher("view/InserisciEvento.jsp");
 				req.forward(request, response);
