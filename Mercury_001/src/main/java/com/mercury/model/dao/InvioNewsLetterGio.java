@@ -2,6 +2,7 @@ package com.mercury.model.dao;
 
 import java.util.Date;
 
+
 public class InvioNewsLetterGio extends Thread implements Runnable{
 
 	Date now;
@@ -11,7 +12,7 @@ public class InvioNewsLetterGio extends Thread implements Runnable{
 	}
 	
 	public void run () {
-		while (true) {
+		while (true) { 
 			SendMail s = new SendMail();
 			try {
 				Thread.sleep(86400);
