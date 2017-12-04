@@ -16,7 +16,7 @@
 <!--select eventoPrevisto.nomeEvento,eventoPrevisto.dataInizio,eventoPrev from eventoPrevisto where idTipoEvento=2-->
 </sql:query>
 
-<<<<<<< HEAD
+
 <title>HOMEPAGE</title>
 
 </head>
