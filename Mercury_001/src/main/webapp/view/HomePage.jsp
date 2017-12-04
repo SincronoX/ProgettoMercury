@@ -116,14 +116,14 @@
 		<span id="campiricerca">
 			<label>TipoEvento </label>
 			
-			<form>
+			<form action="ServletRicerca.java">
 			  <input type="checkbox" name="tipo1" value="Teatro">Teatro</input>
 			  <input  type="checkbox" name="tipo2" value="Concerto">Concerto</input>
 			  <input  type="checkbox" name="tipo3" value="Film">Film</input>
 			  <input  type="checkbox" name="tipo4" value="Mostra">Mostra</input>
-			</form> 
+			 	<button type="submit" class="btn btn-success">Cerca</button>	
 			
-			<button type="submit" onclick="location.href='risultatoricerca.html'" class="btn btn-success">Cerca</button>	
+			</form>
 		</span>
 		</div>
 		<!-- fine campi ricerca -->
