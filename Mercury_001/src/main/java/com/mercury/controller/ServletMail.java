@@ -38,21 +38,22 @@ public class ServletMail extends HttpServlet {
 			{	
 				u.setIdCadenza(Integer.parseInt(request.getParameter("idCadenza")));
 				u.setIdComune(request.getParameter("idComune"));
-				messaggio = " Impossibile registrarti alla newsletter, l'email e' gia' presenti nel database";
+				messaggio = " Impossibile registrarti alla newsletter, l'email e' gia' presente nel database";
 				disp=request.getRequestDispatcher("view/registrazioneUtente.jsp");	
 				request.setAttribute("giaEsiste", messaggio);
 				disp.forward(request, response);
 			} 
 			else 
 			{
-				messaggio= "registrazione effettuata"; // alert!!
-				ArrayList <Integer> lista = new ArrayList<Integer>();		
-				for(int i = 0 ; i<lista.size() ; i++) 
-				{
-					lista.add(Integer.parseInt(request.getParameter("idPreferenza"+i)));
-				}
+				
 				try 
 				{
+					messaggio= "registrazione effettuata"; // alert!!
+					ArrayList <Integer> lista = new ArrayList<Integer>();		
+					for(int i = 0 ; i<lista.size() ; i++) 
+					{
+						lista.add(Integer.parseInt(request.getParameter("idPreferenza"+i)));
+					}
 					ui.addUtente(u.getEmailUtente(), u.getIdCadenza(), u.getIdComune(), lista);
 					disp=request.getRequestDispatcher("HomePage.jsp");	
 					request.setAttribute("inserito", messaggio);
