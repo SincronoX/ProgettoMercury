@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.corso.model.Utente;
 import com.mercury.model.Amministratore;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
@@ -38,19 +39,12 @@ public class ServletEnte extends HttpServlet {
 
 			Ente ente = new Ente();
 			EnteImp enteimp = new EnteImp();
-			ente.setEmailEnte(request.getParameter("emailEnte"));
-			ente.setPswEnte(request.getParameter("pswEnte"));
 			
-
-		
-			
-			if(tipoForm.equals("Inserisci nuovo evento")) {
-				out=response.getWriter();
-				EventoPrevisto ep = new EventoPrevisto();
-				//ente.setEmailEnte(request.getParameter("emailEnte"));
-				//ep = (EventoPrevisto) request.getAttribute("evento"); 
-				//enteimp.inserisciEvento(ep);
-				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
+			if(tipoForm.equals("Aggiungi")) {
+				String emailEnte = request.getParameter("emailEnte");
+				ente = enteimp.getEnteByEmail(emailEnte);
+				request.setAttribute("ente", ente);
+				req=request.getRequestDispatcher("view/InserisciEvento.jsp");
 				req.forward(request, response);
 			}
 			else if(tipoForm.equals("Modifica"))

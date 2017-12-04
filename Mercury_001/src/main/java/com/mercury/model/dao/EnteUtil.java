@@ -15,5 +15,6 @@ public interface EnteUtil {
 	public Ente getEnteById(int id);
 	public ArrayList<Ente> getEntiInAttesa();
 	public boolean controlloLoginEnte (String email, String psw);
+	public Ente getEnteByEmail(String email);
 
 }
