@@ -4,13 +4,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<<<<<<< HEAD
+<<<<<<< HEAD
 <title>Login Ente</title>
+=======
+<<<<<<< HEAD
+<title>LOGIN ADMIN</title>
+>>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
+=======
+<title>LOGIN ADMIN</title>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
+<<<<<<< HEAD
+=======
+=======
+<title>Login Administrator</title>
+<link href="..//css/Style.css" rel="stylesheet" type="text/css">
+>>>>>>> 55cb31e7bc2b731b69c4b13b759f3d5ddbb46896
+>>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
 </head>
 <body>
+
+          
+<form class=loginform  action="../ServletLogAdmin" method="post">
+
 <div id="sfondo"></div> 
 
 	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
@@ -39,9 +59,11 @@
 <div class="form3">         
 <form class=loginform action="ServletAdmin.java">
 
+
     <input class=input type="text" placeholder="Username" name="emailAdmin" required>
     <input class=input type="password" placeholder="Password" name="pswAdmin" required>
     <button class=loginbtn type="submit">Login</button>
+    <input type="hidden" name ="form" value="LoginAdmin">
 
 </form>
 </div>
@@ -51,9 +73,7 @@
 <footer class="footer">
 
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	
- 
-	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+    	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
 

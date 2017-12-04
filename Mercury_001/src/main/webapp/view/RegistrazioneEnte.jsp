@@ -4,11 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<<<<<<< HEAD
+<<<<<<< HEAD
 <title>Login Ente</title>
+=======
+<<<<<<< HEAD
+<title>REGISTRAZIONE ENTE</title>
+>>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
+=======
+<title>REGISTRAZIONE ENTE</title>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
+<<<<<<< HEAD
+=======
+=======
+<title>Registrazione Ente</title>
+<link href="..//css/Style.css" rel="stylesheet" type="text/css">
+>>>>>>> 55cb31e7bc2b731b69c4b13b759f3d5ddbb46896
+>>>>>>> ba5b129c12298392991b417854aa1cc5c52bd742
 </head>
 <body>
 <div id="sfondo"></div> 
@@ -51,11 +67,8 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
-
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	
- 
-	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+    	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
 

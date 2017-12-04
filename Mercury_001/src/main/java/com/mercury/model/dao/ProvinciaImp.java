@@ -50,7 +50,7 @@ public class ProvinciaImp implements ProvinciaUtil{
 		
 		Statement st = conn.createStatement();
 		
-		ResultSet rs = st.executeQuery("select * from mercury.provincia p where p.idRegione ="+id );
+		ResultSet rs = st.executeQuery("select * from mercury.provincia p where p.idRegione = "+id );
 		
 		ArrayList<Provincia> list = new ArrayList<Provincia>();
 		Provincia x = null;
