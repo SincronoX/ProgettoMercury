@@ -42,7 +42,7 @@
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
     <input class=input type="password" placeholder="Password" name="pswEnte" required>
-    <button class=loginbtn type="submit" value="login">Login</button>
+    <button class=loginbtn type="submit" value="login" value="log">Login</button>
     
 
 </form>
