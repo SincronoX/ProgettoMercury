@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.mercury.model.Comune;
 
@@ -24,7 +25,7 @@ public class ComuneImp implements ComuneUtil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = "+id);
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = '"+id+"'");
         
         Comune nuovo = new Comune();
         
@@ -44,4 +45,33 @@ public class ComuneImp implements ComuneUtil {
         return nuovo;
 	}
 
+	public ArrayList<Comune> getComuniByProvincia (String id) throws SQLException
+	{
+		Connection conn = null;
+		
+		if (conn==null)
+		{
+			conn = DAO.getConnection();
+		}
+		
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery("select * from mercury.comune c where c.idProvincia ='"+id+"'");				
+		ArrayList<Comune> list = null;
+		
+		try
+		{
+			while (rs.next())
+			{
+				Comune c = new Comune();
+				c.setIdComune(rs.getString("idComune"));
+				c.setNomeComune(rs.getString("nomeComune"));
+				list.add(c);				
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return list;
+	}
 }
