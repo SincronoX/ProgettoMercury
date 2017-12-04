@@ -14,6 +14,6 @@ public interface EnteUtil {
 	public void eliminaEvento(EventoPrevisto e);
 	public Ente getEnteById(int id);
 	public ArrayList<Ente> getEntiInAttesa();
-	public static boolean controlloLoginEnte (String email, String psw);
+	public boolean controlloLoginEnte (String email, String psw);
 
 }
