@@ -56,6 +56,7 @@ background-size: cover;
 }
 
 footer{
+	margin-bottom: 0px;
     opacity: 0.5;
     background-color:black;
     color: white;
@@ -70,40 +71,42 @@ footer{
     margin: 25%;
     width: 100%;
     align: center;
+    width:200px;
 
 }
 
 /* Registra Form */
 .registraform {    
-    margin: 25%;
+
     width: 100%;
     align: center;
     margin-bottom: 50px;
+    width:200px;
 
 }
 
 /* Inputs Style */
 .input[type=text], .input[type=password], .input[type=email] {
+    align: center;
     border-radius: 5px;
     padding: 12px 20px;
     margin: 8px 0;
     display: list-item;
     border: 2px solid #ccc;
-    width: 50%;
+    width:200px;
 }
 
 /* Set style to login button */
 .loginbtn {	
+	align:center;
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: 2px;
     border-radius: 5px;
     cursor: pointer;
-    width:50%;
-    margin:5px;
-    margin-left:21px;
-    margin-right:18px;
+    width:200px;
+
 }
 /* Add a hover effect for loginbtn */
 .loginbtn:hover{
@@ -112,6 +115,7 @@ footer{
 
 /* Set style to registrabtn */
 .registrabtn {
+	align:center;
     background-color: #ff0000;
     color: white;
     padding: 12px 20px;
@@ -119,9 +123,7 @@ footer{
     border-radius: 5px;
     cursor: pointer;
     width:50%;
-    margin:5px;    
-    margin-left:21px;
-    margin-right:18px;
+
 }    
 /* Add a hover effect for registrabtn */
 .registrabtn:hover{
