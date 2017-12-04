@@ -10,4 +10,5 @@ public interface CadenzaUtil {
 
 	public Cadenza getCadenzaById(int id) throws SQLException;
 	
+	
 }
