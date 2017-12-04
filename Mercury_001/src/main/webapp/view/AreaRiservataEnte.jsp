@@ -15,6 +15,9 @@
 <title>Area Riservata Ente</title>
 </head>
 <body>
+
+<div id="sfondo"></div> 
+
 <div class="container"> <!--INIZIO CLASSE CONTAINER-->
 <div class="row"><!--INIZIO CLASSE ROW-->
 
@@ -38,6 +41,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+<div id="eventiHome" class="col-md-6" >
 <% 
 MercuryImp m = new MercuryImp();
 ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
@@ -47,11 +53,12 @@ ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
 EnteImp ei = new EnteImp();
 myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 %>
+</div>
 
 	<h2>Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
 
 	
-
+	<div id="eventiHome" class="col-md-6">
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
 	out.print("<form action='../ServletEnte' method='post'>");	
@@ -64,6 +71,7 @@ myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 	out.print("</form>");
 	}
 	%>
+	</div>
 	
 	<form action="../ServletEnte" method="post">
 	<input type="submit" value="Inserisci nuovo Evento">
@@ -71,6 +79,15 @@ myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 
 </div>
 </body>
+
+<!-- APERTURA FOOTER-->
+<footer class="footer">
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+		<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+</footer>
+<!-- CHIUSURA FOOTER-->
+
+
  <!--INIZO SCRIPT BOOTSTRAP -->
  	<script type="text/javascript" src="..//js/app.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
