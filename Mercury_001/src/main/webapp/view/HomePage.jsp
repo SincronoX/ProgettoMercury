@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,8 +12,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
+<sql:query var="concerto" dataSource="jdbc/mercury">
+<!--select eventoPrevisto.nomeEvento,eventoPrevisto.dataInizio,eventoPrev from eventoPrevisto where idTipoEvento=2-->
+</sql:query>
 
-<title>Insert title here</title>
+<title>HOME PAGE</title>
 </head>
 <body>
 <div id="sfondo"></div> 
@@ -29,11 +35,11 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">Newsletter</a></li>
-	        <li><a href="#">Eventi</a></li>
-	        <li><a href="#">Chi Siamo</a></li>
-	        <li><a href="#">Area Riservata</a></li>
+	        <li class="active" id="navbar"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+	        <li><a id="navbar">Newsletter</a></li>
+	        <li><a id="navbar">Eventi</a></li>
+	        <li><a id="navbar">Chi Siamo</a></li>
+	        <li><a id="navbar">Area Riservata</a></li>
 	        
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
@@ -57,7 +63,7 @@
 			<form>
 
 				<div class="panel panel-info">
-				  <h3 class="titoloEvento">Concerto</h3>
+				  <h3 class="titoloEvento">ciao</h3>
 				  <hr class="panel panel-info">
 				  <p class="testoEventi"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 				</div>
@@ -138,11 +144,8 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
-
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	
- 
-	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+		<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
 
