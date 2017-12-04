@@ -17,11 +17,9 @@ public class ServletAdmin extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-
 	public ServletAdmin() {
 		super();
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -47,12 +45,26 @@ public class ServletAdmin extends HttpServlet {
 				response.sendRedirect("Errore.jsp"); //error page , amministratore non registrato!
 		} 
 
-
 		catch (Throwable theException){
 
 			System.out.println(theException); 
 		}
 	}
+	
+	//prova
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "0");
+        
+        HttpSession session = request.getSession();
+        if (session == null) {
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            return;
+        }
+        session.removeAttribute("admin");
+        session.invalidate();
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+    }
 }
-
-
