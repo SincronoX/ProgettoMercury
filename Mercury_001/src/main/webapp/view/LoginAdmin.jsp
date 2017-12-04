@@ -11,6 +11,10 @@
 <!-- Fine collegamento css bootstrap -->
 </head>
 <body>
+
+          
+<form class=loginform  action="../ServletLogAdmin" method="post">
+
 <div id="sfondo"></div> 
 
 	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
@@ -39,9 +43,11 @@
 <div class="form3">         
 <form class=loginform action="ServletAdmin.java">
 
+
     <input class=input type="text" placeholder="Username" name="emailAdmin" required>
     <input class=input type="password" placeholder="Password" name="pswAdmin" required>
     <button class=loginbtn type="submit">Login</button>
+    <input type="hidden" name ="form" value="LoginAdmin">
 
 </form>
 </div>
