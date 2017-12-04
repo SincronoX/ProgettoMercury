@@ -236,7 +236,27 @@ public class EnteImp implements EnteUtil {
 		return enti;
 	}
 		
-		
+	public static boolean controlloLoginEnte (String email, String psw) {
+		boolean trovato = false;
+		Connection conn=DAO.getConnection();
+		Ente en = new Ente();
+		String query="select * from ente where emailEnte = ? and pswEnte = ?";
+		PreparedStatement psControlloLoginEnte=null;
+		try {
+			psControlloLoginEnte = conn.prepareStatement(query);
+			psControlloLoginEnte.setString(1, email);
+			psControlloLoginEnte.setString(2, psw);
+			ResultSet rst=psControlloLoginEnte.executeQuery();
+			if(rst.first()) {
+				trovato = true;
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return trovato;
+	}
 		
 		
 	}
