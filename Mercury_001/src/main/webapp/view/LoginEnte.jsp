@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Ente</title>
-<link href="../css/Style.css" rel="stylesheet" type="text/css">
+<link href="..//css/Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   
-<form class=loginform action="LoginEnte.jsp">
+<form class=loginform action="ServletEnte">
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
     <input class=input type="password" placeholder="Password" name="pswEnte" required>

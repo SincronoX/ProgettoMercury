@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registrazione Ente</title>
-<link href="../css/Style.css" rel="stylesheet" type="text/css">
+<link href="..//Style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
