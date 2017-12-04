@@ -123,7 +123,7 @@
 		<span id="campiricerca">
 			<label>TipoEvento </label>
 			
-			<form action="ServletRicerca.java">
+			<form action="../ServletRicerca">
 			  <input type="checkbox" name="tipo1" value="Teatro">Teatro</input>
 			  <input type="checkbox" name="tipo2" value="Concerto">Concerto</input>
 			  <input type="checkbox" name="tipo3" value="Film">Film</input>
