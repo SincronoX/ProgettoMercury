@@ -321,7 +321,7 @@ CREATE TABLE `tipoevento` (
   `idTipoEvento` int(11) NOT NULL AUTO_INCREMENT,
   `catEvento` varchar(50) NOT NULL,
   PRIMARY KEY (`idTipoEvento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +330,7 @@ CREATE TABLE `tipoevento` (
 
 LOCK TABLES `tipoevento` WRITE;
 /*!40000 ALTER TABLE `tipoevento` DISABLE KEYS */;
-INSERT INTO `tipoevento` VALUES (1,'Concerto'),(2,'Film'),(3,'Teatro'),(4,'Mostra');
+INSERT INTO `tipoevento` VALUES (1,'Concerto'),(2,'Film'),(3,'Teatro'),(4,'Mostra'),(5,'Altro');
 /*!40000 ALTER TABLE `tipoevento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-04 16:06:32
+-- Dump completed on 2017-12-04 16:36:54
