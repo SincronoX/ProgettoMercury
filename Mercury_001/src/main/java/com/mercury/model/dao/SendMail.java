@@ -19,7 +19,7 @@ public class SendMail {
 	 String oggetto = "";
 
 	
-	public void sendEmail(int cadenza) throws SQLException {
+	public void SendMail(int cadenza) throws SQLException {
 		
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
