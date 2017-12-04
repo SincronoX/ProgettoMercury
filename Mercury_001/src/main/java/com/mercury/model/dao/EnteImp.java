@@ -168,8 +168,6 @@ public class EnteImp implements EnteUtil {
 				ep.setDataFine(m.stringToDate(rst.getString("dataFine")));
 				ep.setDescEvento(rst.getString("descrizione"));
 				ep.setCheck(rst.getBoolean("checked"));
-				ep.setIdComune(rst.getString("idComune"));
-				ep.setIdTipoEvento(Integer.parseInt(rst.getString("idTipoEvento")));
 				psAddEvento.setString(1, ep.getNomeEvento());
 				psAddEvento.setString(2, m.dateToString(ep.getDataInizio()));
 				psAddEvento.setString(3, m.dateToString(ep.getDataFine()));
