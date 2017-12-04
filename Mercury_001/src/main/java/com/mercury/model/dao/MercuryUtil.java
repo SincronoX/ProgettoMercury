@@ -11,7 +11,6 @@ import com.mercury.model.TipoEvento;
 
 public interface MercuryUtil {
 	
-	void sendNewsLetter(int cadenza, int idUtente); 
 	ArrayList<EventoPrevisto> getRicerca(ArrayList<TipoEvento> tipi, String RicercaidComune, Calendar data) throws SQLException; 
 	ArrayList<EventoPrevisto> getEventiNotCheck() throws SQLException;
 }
