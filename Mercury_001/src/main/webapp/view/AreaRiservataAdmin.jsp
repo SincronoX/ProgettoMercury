@@ -56,7 +56,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 
 	
 <div id="eventiHome" class="col-md-8">
-	<h2>Eventi da approvare</h2>
+	<h2>Eventi da approvare</h2> 
 	
 	
 	<%
@@ -71,7 +71,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
 		out.print("<br><input type='submit' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
 
-		out.print("</p>");
+		out.print("</p>");  
 	}
 	
 	%>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LOGIN ENTE</title>
+<title>Login Ente</title>
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
@@ -42,7 +42,11 @@
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
     <input class=input type="password" placeholder="Password" name="pswEnte" required>
+<<<<<<< HEAD
+    <button class=loginbtn type="submit" value="login" name="log">Login</button>
+=======
     <button class=loginbtn type="submit" value="login" value="log">Login</button>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
     
 
 </form>
