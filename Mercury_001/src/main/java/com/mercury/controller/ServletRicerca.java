@@ -49,19 +49,19 @@ public class ServletRicerca extends HttpServlet {
 		TipoEventoImp tipi = new TipoEventoImp();
 		ArrayList<TipoEvento> t = tipi.getEventoCatAll();
 		if(request.getParameter("tipo1") == null) {
-			att = tipi.getTipoById(1);
+			att = tipi.getTipoEventoById(1);
 			t.remove(att);
 		}
 		if(request.getParameter("tipo2") == null) {
-			att = tipi.getTipoById(2);
+			att = tipi.getTipoEventoById(2);
 			t.remove(att);
 		} 
 		if(request.getParameter("tipo3") == null) {
-			att = tipi.getTipoById(3);
+			att = tipi.getTipoEventoById(3);
 			t.remove(att);
 		}
 		if(request.getParameter("tipo4") == null) {
-			att = tipi.getTipoById(4);
+			att = tipi.getTipoEventoById(4);
 			t.remove(att);
 		}
 		
