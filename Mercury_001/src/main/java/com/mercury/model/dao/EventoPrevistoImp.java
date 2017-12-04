@@ -41,12 +41,9 @@ public class EventoPrevistoImp implements EventoPrevistoUtil {
 		// TODO Auto-generated method stub
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
-        
-<<<<<<< HEAD
+
         ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idEvento = "+id+";");
-=======
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idEvento = '"+id+"';");
->>>>>>> 96899db7cc225b28d5405a628c6443fe0644d36b
+
         
         EventoPrevisto nuovo = new EventoPrevisto();
         
