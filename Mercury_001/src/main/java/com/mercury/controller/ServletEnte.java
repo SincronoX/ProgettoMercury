@@ -42,17 +42,7 @@ public class ServletEnte extends HttpServlet {
 			ente.setPswEnte(request.getParameter("pswEnte"));
 			
 
-			boolean esisteEnte = enteimp.controlloLoginEnte(ente.getEmailEnte(),ente.getPswEnte());
-
-			if (esisteEnte) {
-
-				HttpSession session = request.getSession(true);	    
-				session.setAttribute("currentSessionUser",ente); 
-				response.sendRedirect("AreaRiservataEnte.jsp"); //logged-in page      		
-			}
-
-			else 
-				response.sendRedirect("Errore.jsp"); //error page 
+		
 			
 			if(tipoForm.equals("Inserisci nuovo evento")) {
 				out=response.getWriter();
