@@ -6,6 +6,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 
 import com.mercury.model.Amministratore;
@@ -14,25 +21,27 @@ import com.mercury.model.EventoPrevisto;
 
 
 public class AmministratoreImp  implements AmministratoreUtil {
-
+	protected String host = "mail.tin.it";
 	protected String mercury = " mercury.sincronoX@gmail.com";
 
 
-	public boolean trovaAdmin(String email , String psw){
+	public static boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
 		String query="select * from amministratore a where a.emailAdmin = "+email+ " and a.pswAdmin = "+psw ;
 		ResultSet rs;
 		Amministratore am = new Amministratore();
 		try {
 			rs = DAO.execute_Query(conn, query );
-			if(rs.first()==true) 
-			{ return true ;}	
-		}catch(SQLException e) {}
+			if(rs.first()==true) { 
+				return true ;
+			}	
+		}catch(SQLException e) { }
 		return false ;
 	}
 
 	public void InvioMailAbilitaEnte(Ente en) {
 
+		
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
@@ -42,49 +51,76 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo4 = "  . La avvertiamo che all'inserimento di eventi giudicati inopportuni ricevera' un email di cancellazione ";
 		String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non potra' piu accedere nella propria area riservata "  ;
 		String testo = testo1+testo2+testo3+testo4 ;
-
+	
+		Properties p = new Properties();
+	     p.put("mail.smtp.host", host);
+	     //p.put("port", 25); 
+	     
+	     Session sessione = Session.getDefaultInstance(p);
+	     
+	     MimeMessage mail = new MimeMessage(sessione);
+	     try {
+	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	
+	    	 	mail.setSubject(oggetto);
+	    	 	mail.setText(testo);
+	    	 	
+	    	 	Transport.send(mail);
+	     }catch(Exception e) {
+	    	 	e.printStackTrace();
+	     }
 	}
-	/*  try
-    {
-      MailUtility.sendMail(dest, mercury, oggetto, testo);
-    }
-    catch (MessagingException exc)
-    {	}
-}
-*/
+
 
 	private void mailBanEvento(Ente en) {
-		
+
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Evento";
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, ti ricordiamo che al 3° ban causato da un evento irregolare verra bannato il tuo ente " ;
 		String testo = testo1+testo2;
-		/*  try
-	    {
-	      MailUtility.sendMail(dest, mercury, oggetto, testo);
-	    }
-	    catch (MessagingException exc)
-	    {	}
-	}
-	*/
-	}
-	
-	private void mailBanEnte(Ente en) {
 		
+		Properties p = new Properties();
+		p.put("mail.smtp.host", host);
+	     //p.put("port", 25); 
+	     Session sessione = Session.getDefaultInstance(p);
+	     
+	     MimeMessage mail = new MimeMessage(sessione);
+	     try {
+	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	mail.setSubject(oggetto);
+	    	 	mail.setText(testo);
+	    	 	Transport.send(mail);
+	     }catch(Exception e) {
+	    	 	e.printStackTrace();
+	     }
+	}
+
+	private void mailBanEnte(Ente en) {
+
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Ente";
 		String testo1 = "l'admin ha individuato un evento non adatto ad essere inserito, l'evento è stato cancellato! "  ;
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, come ripetuto il tuo ente verra' eliminato " ;
 		String testo = testo1+testo2;
-		/*  try
-	    {
-	      MailUtility.sendMail(dest, mercury, oggetto, testo);
-	    }
-	    catch (MessagingException exc)
-	    {	}
-	}
-	*/
+		
+		Properties p = new Properties();
+		p.put("mail.smtp.host", host);
+	     //p.put("port", 25); 
+	     Session sessione = Session.getDefaultInstance(p);
+	     
+	     MimeMessage mail = new MimeMessage(sessione);
+	     try {
+	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	mail.setSubject(oggetto);
+	    	 	mail.setText(testo);
+	    	 	Transport.send(mail);
+	     }catch(Exception e) {
+	    	 	e.printStackTrace();
+	     }
 	}
 
 	public void checkEvento(EventoPrevisto ep,  boolean ok) { //ban evento!
@@ -119,12 +155,11 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		am.setIdAdmin(id);
 		try {
 			rs = DAO.execute_Query(conn, query );
-			if(rs.first()==true) 
-			{ 
+			if(rs.first()==true) { 
 				am.setEmailAdmin(rs.getString("emailAdmin"));
 				am.setPswAdmin(rs.getString("pswAdmin"));
 			}	
-		}catch(SQLException e) {}
+		}catch(SQLException e) { }
 
 		return am;
 	}
