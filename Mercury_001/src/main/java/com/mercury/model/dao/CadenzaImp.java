@@ -19,7 +19,7 @@ public class CadenzaImp implements CadenzaUtil {
 		Cadenza x= new Cadenza();
 		x.setIdCadenza(id);
 		Connection conn = DAO.getConnection();		
-		String query="select * from cadenza c where c.idCadenza = "+id +";" ;
+		String query="select * from cadenza c where c.idCadenza = '"+id +"';" ;
 		ResultSet rs;
 		try {
 			rs = DAO.execute_Query(conn, query );
