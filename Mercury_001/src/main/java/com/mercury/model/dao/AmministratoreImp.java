@@ -9,8 +9,10 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.URLName;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
@@ -22,7 +24,9 @@ import com.mercury.model.EventoPrevisto;
 
 public class AmministratoreImp  implements AmministratoreUtil {
 	protected String host = "mail.tin.it";
-	protected String mercury = " mercury.sincronoX@gmail.com";
+	protected String mittente = "corso.java@sincrono.it(AUT)";
+	private final String user="corso.java@sincrono.it";
+	private final String psw ="c0rs0.java";
 
 
 	public boolean trovaAdmin(String email , String psw){
@@ -51,21 +55,27 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo5 = "evento ed un avvertimento. dopo 3 avvertimenti il suo ente non potra' piu accedere nella propria area riservata "  ;
 		String testo = testo1+testo2+testo3+testo4 ;
 	
-		Properties p = new Properties();
-	     p.put("mail.smtp.host", host);
-	     //p.put("port", 25); 
-	     
-	     Session sessione = Session.getDefaultInstance(p);
-	     
-	     MimeMessage mail = new MimeMessage(sessione);
+		 Properties p = System.getProperties();
+			
+			p.setProperty("mail.smtp.host", this.host);
+		    p.put("mail.smtp.host", this.host);
+		    p.put("mail.debug", "true");
+		    p.put("mail.smtp.auth", "true"); 
+		     
+		    Session sessione = Session.getDefaultInstance(p, new SmtpAutenticazione(user, psw) );
+		    sessione.setPasswordAuthentication(new URLName("smtp", host, 25, "INBOX", user, psw), new PasswordAuthentication(user, psw));
+		     
+		    MimeMessage mail = new MimeMessage(sessione);
+		    
 	     try {
-	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 mail.setFrom(new InternetAddress(mittente));
 	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
 	    	 	
 	    	 	mail.setSubject(oggetto);
 	    	 	mail.setText(testo);
-	    	 	
-	    	 	Transport.send(mail);
+	    	 	Transport tr = sessione.getTransport("smtp");
+				tr.connect(host, user, psw);
+	    	 	Transport.send(mail, mail.getAllRecipients());
 	     }catch(Exception e) {
 	    	 	e.printStackTrace();
 	     }
@@ -80,18 +90,27 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, ti ricordiamo che al 3° ban causato da un evento irregolare verra bannato il tuo ente " ;
 		String testo = testo1+testo2;
 		
-		Properties p = new Properties();
-		p.put("mail.smtp.host", host);
-	     //p.put("port", 25); 
-	     Session sessione = Session.getDefaultInstance(p);
-	     
-	     MimeMessage mail = new MimeMessage(sessione);
+		 Properties p = System.getProperties();
+			
+			p.setProperty("mail.smtp.host", this.host);
+		    p.put("mail.smtp.host", this.host);
+		    p.put("mail.debug", "true");
+		    p.put("mail.smtp.auth", "true"); 
+		     
+		    Session sessione = Session.getDefaultInstance(p, new SmtpAutenticazione(user, psw) );
+		    sessione.setPasswordAuthentication(new URLName("smtp", host, 25, "INBOX", user, psw), new PasswordAuthentication(user, psw));
+		     
+		    MimeMessage mail = new MimeMessage(sessione);
+		    
 	     try {
-	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 mail.setFrom(new InternetAddress(mittente));
 	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	
 	    	 	mail.setSubject(oggetto);
 	    	 	mail.setText(testo);
-	    	 	Transport.send(mail);
+	    	 	Transport tr = sessione.getTransport("smtp");
+				tr.connect(host, user, psw);
+	    	 	Transport.send(mail, mail.getAllRecipients());
 	     }catch(Exception e) {
 	    	 	e.printStackTrace();
 	     }
@@ -105,18 +124,27 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo2 = "questo e' il "+en.getnBan()+"° avvertimento, come ripetuto il tuo ente verra' eliminato " ;
 		String testo = testo1+testo2;
 		
-		Properties p = new Properties();
-		p.put("mail.smtp.host", host);
-	     //p.put("port", 25); 
-	     Session sessione = Session.getDefaultInstance(p);
-	     
-	     MimeMessage mail = new MimeMessage(sessione);
+		 Properties p = System.getProperties();
+			
+			p.setProperty("mail.smtp.host", this.host);
+		    p.put("mail.smtp.host", this.host);
+		    p.put("mail.debug", "true");
+		    p.put("mail.smtp.auth", "true"); 
+		     
+		    Session sessione = Session.getDefaultInstance(p, new SmtpAutenticazione(user, psw) );
+		    sessione.setPasswordAuthentication(new URLName("smtp", host, 25, "INBOX", user, psw), new PasswordAuthentication(user, psw));
+		     
+		    MimeMessage mail = new MimeMessage(sessione);
+		    
 	     try {
-	    	 	mail.setFrom(new InternetAddress(mercury));
+	    	 mail.setFrom(new InternetAddress(mittente));
 	    	 	mail.addRecipients(Message.RecipientType.TO, dest);
+	    	 	
 	    	 	mail.setSubject(oggetto);
 	    	 	mail.setText(testo);
-	    	 	Transport.send(mail);
+	    	 	Transport tr = sessione.getTransport("smtp");
+				tr.connect(host, user, psw);
+	    	 	Transport.send(mail, mail.getAllRecipients());
 	     }catch(Exception e) {
 	    	 	e.printStackTrace();
 	     }
