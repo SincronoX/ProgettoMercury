@@ -56,13 +56,15 @@ background-size: cover;
 }
 
 .footer{
-	position: relative;
-    opacity: 0.5;
-    background-color:black;
-    color: white;
-    text-align: center;
-    margin-bottom: 0px;
-}
+	position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   opacity:0.5px;
+   color: white;
+   text-align: center;
+
 
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
 
@@ -119,3 +121,13 @@ background-size: cover;
 .registrabtn:hover{
     opacity: 0.8;
 }
+
+
+
+
+
+
+
+
+
+
