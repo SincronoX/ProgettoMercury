@@ -54,7 +54,7 @@ myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
-	out.print("<form action='../ServletRicerca' method='post'>");	
+	out.print("<form action='../ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
 	out.print(myEvents.get(i).getDescEvento());
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
