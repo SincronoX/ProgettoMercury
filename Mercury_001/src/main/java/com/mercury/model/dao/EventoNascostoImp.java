@@ -33,7 +33,7 @@ public class EventoNascostoImp implements EventoNascostoUtil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventonascosto where idEvento = '"+id+"';");
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventonascosto where idEvento = "+id+";");
         
         EventoNascosto nuovo = new EventoNascosto();
         
