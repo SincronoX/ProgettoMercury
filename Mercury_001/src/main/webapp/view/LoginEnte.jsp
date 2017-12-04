@@ -42,7 +42,11 @@
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
     <input class=input type="password" placeholder="Password" name="pswEnte" required>
-    <button class=loginbtn type="submit" value="login">Login</button>
+<<<<<<< HEAD
+    <button class=loginbtn type="submit" value="login" name="log">Login</button>
+=======
+    <button class=loginbtn type="submit" value="login" value="log">Login</button>
+>>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
     
 
 </form>
@@ -57,13 +61,8 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
-  <dl>
-    	<dt>Creato da</dt>
-    	<dt>Gruppo sincrono </dt>
-    	<dd><time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	<dd>
-  </dl>
-	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+ 		<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
 

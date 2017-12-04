@@ -23,7 +23,7 @@ public class ServletEnte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public ServletEnte() {
-		super();
+		super(); 
 	}
    
 
@@ -32,7 +32,7 @@ public class ServletEnte extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=null;
-		String tipoForm = request.getParameter("submit");
+		String tipoForm = request.getParameter("modEv");
 		RequestDispatcher req=null;
 		try{	    
 
@@ -42,42 +42,35 @@ public class ServletEnte extends HttpServlet {
 			ente.setPswEnte(request.getParameter("pswEnte"));
 			
 
-			boolean esisteEnte = enteimp.controlloLoginEnte(ente.getEmailEnte(),ente.getPswEnte());
-
-			if (esisteEnte) {
-
-				HttpSession session = request.getSession(true);	    
-				session.setAttribute("currentSessionUser",ente); 
-				response.sendRedirect("AreaRiservataEnte.jsp"); //logged-in page      		
-			}
-
-			else 
-				response.sendRedirect("Errore.jsp"); //error page 
+		
 			
 			if(tipoForm.equals("Inserisci nuovo evento")) {
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
-				enteimp.inserisciEvento(ep);
+				//ente.setEmailEnte(request.getParameter("emailEnte"));
+				//ep = (EventoPrevisto) request.getAttribute("evento"); 
+				//enteimp.inserisciEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
 			}
-			else if(tipoForm.equals("Modifica Evento"))
+			else if(tipoForm.equals("Modifica"))
 			{
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
+				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
+				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
 				enteimp.modificaEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
 			}
-			else if(tipoForm.equals("Elimina Evento"))
+			else if(tipoForm.equals("Elimina"))
 			{
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
+				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
+				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
 				enteimp.eliminaEvento(ep);
-				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
+				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
 		} 

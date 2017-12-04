@@ -27,7 +27,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 
 	public boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
-		String query="select * from amministratore a where a.emailAdmin = "+email+ " and a.pswAdmin = "+psw ;
+		String query="select * from amministratore a where a.emailAdmin = '"+email+ "' and a.pswAdmin = '"+psw+"';" ;
 		ResultSet rs;
 		Amministratore am = new Amministratore();
 		try {
