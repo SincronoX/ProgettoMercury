@@ -56,7 +56,7 @@
 </body>
 
 <!-- APERTURA FOOTER-->
-<footer class"footer">
+<footer class="footer">
   <dl>
     	<dt>Creato da</dt>
     	<dt>Gruppo sincrono </dt>
