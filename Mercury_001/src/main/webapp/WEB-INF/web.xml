@@ -97,6 +97,7 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 
+<<<<<<< HEAD
 
 
 <web-app>
@@ -212,6 +213,8 @@
   </resource-ref>
   
   
+=======
+>>>>>>> 82d8f28a19537755689ca24f3111b884fb9e4f74
 </web-app>
 
 

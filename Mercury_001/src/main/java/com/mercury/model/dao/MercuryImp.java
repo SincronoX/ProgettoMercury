@@ -89,7 +89,7 @@ public class MercuryImp implements MercuryUtil{
         		int idEnte =		   rs.getInt("idEnte");
         		String idComune =      rs.getString("idComune");
         		String nomeEvento =    rs.getString("nomeEvento");
-        		String descEvento =    rs.getString("descEvento");
+        		String descEvento =    rs.getString("descrizione");
         		String dataInizioAUX = rs.getString("dataInizio"); 
         		String dataFineAUX =   rs.getString("dataFine");
         		boolean checked = 	   rs.getBoolean("checked");
