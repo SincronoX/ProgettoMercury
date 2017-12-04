@@ -10,8 +10,6 @@ public class InvioNewsLetterSett extends Thread implements Runnable{
 	
 	public InvioNewsLetterSett() {
 		super();
-
-
 	}
 	
 	public void run() {
@@ -19,7 +17,7 @@ public class InvioNewsLetterSett extends Thread implements Runnable{
 			SendMail s = new SendMail();
 			try {
 				s.sendEmail(2);
-				Thread.sleep(604800);
+				Thread.sleep(604800);// secondi di una settimana
 			}
 			catch (InterruptedException e){
 				e.printStackTrace();
