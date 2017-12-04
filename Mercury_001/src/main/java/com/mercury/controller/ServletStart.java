@@ -1,3 +1,5 @@
+// Fabio Savelli
+
 package com.mercury.controller;
 
 import java.io.IOException;
@@ -32,8 +34,6 @@ public class ServletStart extends HttpServlet {
 		  
 		  InvioNewsLetterMens mens = new InvioNewsLetterMens();
 		  mens.start(); 
-		  
-		  
 
 		  RequestDispatcher disp=request.getRequestDispatcher("/index.jsp");
 		  disp.forward(request,response);
