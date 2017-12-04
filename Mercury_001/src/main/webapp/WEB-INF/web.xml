@@ -65,6 +65,12 @@
 		<description></description>
 		<servlet-class>com.mercury.controller.ServletLoginAdminOk</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ServletLogAdmin</servlet-name>
+		<display-name>ServletLogAdmin</display-name>
+		<description></description>
+		<servlet-class>com.mercury.controller.ServletLogAdmin</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>ServletLogin</servlet-name>
 		<url-pattern>/ServletLogin</url-pattern>
@@ -104,6 +110,9 @@
 	<servlet-mapping>
 		<servlet-name>ServletLoginAdminOk</servlet-name>
 		<url-pattern>/ServletLoginAdminOk</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/ServletLogAdmin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ServletLogAdmin</servlet-name>
