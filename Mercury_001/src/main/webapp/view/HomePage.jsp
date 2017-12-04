@@ -18,9 +18,7 @@
 
 <<<<<<< HEAD
 <title>HOMEPAGE</title>
-=======
-<title>HOME PAGE</title>
->>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
+
 </head>
 <body>
 <div id="sfondo"></div> 
