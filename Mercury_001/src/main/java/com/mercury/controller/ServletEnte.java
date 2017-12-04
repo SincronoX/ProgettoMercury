@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.corso.model.Utente;
+import com.mercury.model.Utente;
 import com.mercury.model.Amministratore;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
@@ -34,6 +34,7 @@ public class ServletEnte extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=null;
 		String tipoForm = request.getParameter("modEv");
+		String newEvento = request.getParameter("nuovoEvento");
 		RequestDispatcher req=null;
 		try{	    
 
@@ -67,6 +68,7 @@ public class ServletEnte extends HttpServlet {
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
+			else if(newEvento.equals("Inserisci"))
 		} 
 		
 
