@@ -25,7 +25,7 @@ public class ComuneImp implements ComuneUtil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = '"+id+"'");
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = '"+id+"';");
         
         Comune nuovo = new Comune();
         
