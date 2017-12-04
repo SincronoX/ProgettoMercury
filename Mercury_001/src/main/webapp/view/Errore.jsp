@@ -16,7 +16,7 @@
 	
       <body>
          <center>
-            <a href"view/LoginAdmin.jsp"> Siamo spiacenti , non siete registrati prova a registrarti prima.
+            <a href="LoginAdmin.jsp"> Siamo spiacenti , non sei registrato, prova a registrarti prima.
             </a>
          </center>
       </body>

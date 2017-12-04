@@ -29,6 +29,7 @@ public class ServletMail extends HttpServlet {
 			String messaggio=null;
 			UtenteImp ui = new UtenteImp();
 			u=new Utente();
+			
 			u.setEmailUtente(request.getParameter("emailUtente"));	
 
 

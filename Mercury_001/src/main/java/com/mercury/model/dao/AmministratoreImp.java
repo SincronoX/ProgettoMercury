@@ -25,9 +25,9 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	protected String mercury = " mercury.sincronoX@gmail.com";
 
 
-	public static boolean trovaAdmin(String email , String psw){
+	public boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
-		String query="select * from amministratore a where a.emailAdmin = "+email+ " and a.pswAdmin = "+psw ;
+		String query="select * from amministratore a where a.emailAdmin = '"+email+ "' and a.pswAdmin = '"+psw+"';" ;
 		ResultSet rs;
 		Amministratore am = new Amministratore();
 		try {
@@ -41,7 +41,6 @@ public class AmministratoreImp  implements AmministratoreUtil {
 
 	public void InvioMailAbilitaEnte(Ente en) {
 
-		
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail di conferma per accedere all'area riservata Ente al sito www.mercury.it";
@@ -73,7 +72,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	}
 
 
-	private void mailBanEvento(Ente en) {
+	public void mailBanEvento(Ente en) {
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Evento";
@@ -98,7 +97,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	     }
 	}
 
-	private void mailBanEnte(Ente en) {
+	public void mailBanEnte(Ente en) {
 
 		String dest = en.getEmailEnte();
 		String oggetto = "mail Ban Ente";

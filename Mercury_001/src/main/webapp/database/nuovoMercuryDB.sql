@@ -106,7 +106,7 @@ CREATE TABLE `ente` (
   `status` varchar(20) NOT NULL,
   `nBan` int(11) NOT NULL,
   PRIMARY KEY (`idEnte`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `ente` (
 
 LOCK TABLES `ente` WRITE;
 /*!40000 ALTER TABLE `ente` DISABLE KEYS */;
-INSERT INTO `ente` VALUES (1,'Rock in Roma','rockinroma@roma.it','ciaofra','attesa',0),(2,'Napoli Eventi','napoli@tiscali.it','farfalla','attivo',1),(3,'Sicilia Estate','sicilia@virgilio.it','oscia','attivo',2),(4,'Lombardia Eventi','milano@tiscali.it','testina','attesa',1);
+INSERT INTO `ente` VALUES (1,'Rock in Roma','rockinroma@roma.it','ciaofra','attesa',0),(2,'Napoli Eventi','napoli@tiscali.it','farfalla','attivo',1),(3,'Sicilia Estate','sicilia@virgilio.it','oscia','attivo',2),(4,'Lombardia Eventi','milano@tiscali.it','testina','attesa',1),(5,'Roma Teatri','romateatri@hotmail.com','roma','attivo',0),(6,'Eventi estero','estero@gmail.com','estero','attivo',0);
 /*!40000 ALTER TABLE `ente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +217,7 @@ CREATE TABLE `eventoprevisto` (
   CONSTRAINT `eventoprevisto_ibfk_1` FOREIGN KEY (`idTipoEvento`) REFERENCES `tipoevento` (`idTipoEvento`),
   CONSTRAINT `eventoprevisto_ibfk_2` FOREIGN KEY (`idEnte`) REFERENCES `ente` (`idEnte`),
   CONSTRAINT `eventoprevisto_ibfk_3` FOREIGN KEY (`idComune`) REFERENCES `comune` (`idComune`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,7 +226,7 @@ CREATE TABLE `eventoprevisto` (
 
 LOCK TABLES `eventoprevisto` WRITE;
 /*!40000 ALTER TABLE `eventoprevisto` DISABLE KEYS */;
-INSERT INTO `eventoprevisto` VALUES (1,'Concerto di Caparezza','2017 - 11 - 24','2017 - 11 - 24','Grande concerto al Palalottomatica',0,1,1,'H494'),(2,'Concerto per abruzzo','2017 - 09 - 24','2017 - 09 - 24','Grande concerto beneficienza',0,1,1,'I326');
+INSERT INTO `eventoprevisto` VALUES (1,'Concerto di Caparezza','2017 - 11 - 24','2017 - 11 - 24','Grande concerto al Palalottomatica',0,1,1,'H494'),(2,'Concerto per abruzzo','2017 - 09 - 24','2017 - 09 - 24','Grande concerto beneficienza',0,1,1,'I326'),(3,'Gigi Proietti a teatro','2018 - 01 - 10','2018 - 01 - 20','Il grande Gigi',1,5,3,'A401'),(4,'Mostra Caravaggio','2018 - 12 - 10','2018 - 02 - 18','Le opere di Caravaggio',1,4,4,'A001'),(5,'Star Wars 8','2017 - 12 - 15','2017 - 12 - 20','Ultimo film di Star Wars',1,3,2,'A314'),(6,'Concerto di Zucchero','2016 - 10 - 15','2016 - 10 - 15','Grande concerto allo Ziggo Dome',1,6,1,'E795'),(7,'Concerto dei Red Hot Chili Peppers','2017 - 07 - 21','2017 - 07 - 21','Grande concerto a Capannelle',1,1,1,'M297'),(8,'Musei Vaticani','2015 - 01 - 14','2016 - 12 - 14','I Musei Vaticani aprono al pubblico',1,4,4,'A006'),(9,'Mostra di Giotto','2017 - 11 - 24','2017 - 11 - 24','Mostra del famosissimo Giotto',0,2,4,'G965'),(10,'Tour guidato scavi Ostia Antica','2017 - 09 - 01','2017 - 09 - 03','Giro guidato agli scavi di Ostia Antica',0,3,4,'G811'),(11,'Quasi Amici','2015 - 04 - 11','2015 - 05 - 11','Proiezione del film',1,2,2,'H188'),(12,'This is it','2012 - 05 - 06','2012 - 07 - 06','Il film sulla vita di Micheal Jackson',0,2,2,'H188'),(13,'Batman Begins','2012 - 05 - 06','2012 - 07 - 06','Primo film della nuova trilogia di Batman',0,3,2,'L658'),(14,'Aldo, Giovanni e Giacomo','2018 - 02 - 10','2019 - 02 - 12','Due giorni di risate',1,5,3,'F559'),(15,'Lillo e Greg','2017 - 12 - 31','2017 - 12 - 31','Un capodanno pieno di risate',0,5,3,'F354'),(16,'Teo Teocoli','2017 - 12 - 14','2017 - 12 - 14','Un grande comico',0,2,3,'A550');
 /*!40000 ALTER TABLE `eventoprevisto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 14:59:34
+-- Dump completed on 2017-12-04 16:06:32

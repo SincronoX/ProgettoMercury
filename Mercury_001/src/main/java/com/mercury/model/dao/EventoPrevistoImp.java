@@ -42,7 +42,7 @@ public class EventoPrevistoImp implements EventoPrevistoUtil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idEvento = "+id);
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idEvento = '"+id+"';");
         
         EventoPrevisto nuovo = new EventoPrevisto();
         
