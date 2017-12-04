@@ -138,9 +138,19 @@
 
 <!-- APERTURA FOOTER-->
 <footer class="footer">
+<<<<<<< HEAD
 
     	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
     	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+=======
+  <dl>
+    	<dt>Creato da</dt>
+    	<dt>Gruppo sincrono </dt>
+    	<dd><time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	<dd>
+  </dl>
+	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
+>>>>>>> 55cb31e7bc2b731b69c4b13b759f3d5ddbb46896
 </footer>
 <!-- CHIUSURA FOOTER-->
 
