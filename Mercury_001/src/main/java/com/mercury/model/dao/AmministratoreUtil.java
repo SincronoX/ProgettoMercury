@@ -1,5 +1,7 @@
 package com.mercury.model.dao;
 
+//
+
 import com.mercury.model.Amministratore;
 import com.mercury.model.Ente;
 import com.mercury.model.EventoPrevisto;
