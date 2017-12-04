@@ -42,22 +42,12 @@ public class ServletEnte extends HttpServlet {
 			ente.setPswEnte(request.getParameter("pswEnte"));
 			
 
-			boolean esisteEnte = enteimp.controlloLoginEnte(ente.getEmailEnte(),ente.getPswEnte());
-
-			if (esisteEnte) {
-
-				HttpSession session = request.getSession(true);	    
-				session.setAttribute("currentSessionUser",ente); 
-				response.sendRedirect("AreaRiservataEnte.jsp"); //logged-in page      		
-			}
-
-			else 
-				response.sendRedirect("Errore.jsp"); //error page 
+		
 			
 			if(tipoForm.equals("Inserisci nuovo evento")) {
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
+				ep = (EventoPrevisto) request.getAttribute("evento"); //session
 				enteimp.inserisciEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
@@ -66,7 +56,7 @@ public class ServletEnte extends HttpServlet {
 			{
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
+				ep = (EventoPrevisto) request.getAttribute("evento");//session
 				enteimp.modificaEvento(ep);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);
@@ -75,9 +65,9 @@ public class ServletEnte extends HttpServlet {
 			{
 				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
-				ep = (EventoPrevisto) request.getAttribute("evento");
+				ep = (EventoPrevisto) request.getAttribute("evento");//session
 				enteimp.eliminaEvento(ep);
-				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
+				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
 		} 

@@ -37,7 +37,7 @@
 	</nav>
 	
 
-  
+<div class="form1">  
 <form class=loginform action="ServletEnte.java">
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
@@ -51,17 +51,16 @@
 </form>
 </div>
 </div>
+</div>
 
 </body>
 
 <!-- APERTURA FOOTER-->
-<footer class"footer">
-  <dl>
-    	<dt>Creato da</dt>
-    	<dt>Gruppo sincrono </dt>
-    	<dd><time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
-    	<dd>
-  </dl>
+<footer class="footer">
+
+    	<dd> Creato da: Gruppo SINCRONO - <time datetime="2010-11-23" pubdate>Lunedi 4 Dicembre</time></dd>
+    	
+ 
 	<small>Tutti i contenuti sono prottetti dalla licenza creative commons</small>
 </footer>
 <!-- CHIUSURA FOOTER-->
