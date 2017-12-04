@@ -13,6 +13,7 @@ public class InvioNewsLetterGio extends Thread implements Runnable{
 	public void run () {
 		while (true) {
 			SendMail s = new SendMail();
+			s.SendMail(1);
 			try {
 				Thread.sleep(86400);
 			}
