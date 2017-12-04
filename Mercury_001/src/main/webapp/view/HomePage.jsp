@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
 
-<title>Insert title here</title>
+<title>HOME PAGE</title>
 </head>
 <body>
 <div id="sfondo"></div> 
