@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mercury.model.TipoEvento;
+import com.mercury.model.Utente;
+
 public class UtenteImp implements UtenteUtil {
 	
 	Connection conn = null;
@@ -77,6 +80,52 @@ public class UtenteImp implements UtenteUtil {
 		
 
 	}
+
+
+	public Utente getUtenteById(int idUtente) {
+		Utente x= new Utente();
+		x.setIdUtente(idUtente);
+		Connection conn = DAO.getConnection();		
+		String query="select * from utente u where u.idUtente = "+idUtente +";" ;
+		ResultSet rs;
+		try {
+			rs = DAO.execute_Query(conn, query );
+			if(rs.first()==true) 
+			{		
+				x.setEmailUtente(rs.getString("emailUtente"));
+				x.setIdCadenza(Integer.parseInt(rs.getString("idCadenza")));
+				x.setIdComune(rs.getString("idComune"));
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return x;
+	}
+
+
+	public boolean trovaUtente(String email) {
+		boolean x = false ;
+		Connection conn = DAO.getConnection();		
+		String query="select * from utente u where u.emailUtente = "+email +";" ;
+		ResultSet rs;
+		try {
+			rs = DAO.execute_Query(conn, query );
+			if(rs.first()==true) 
+			{		
+				x= true;
+			}
+			else 
+			{
+				x= false ;
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return x;
+	}
+	
 				
 	
 				

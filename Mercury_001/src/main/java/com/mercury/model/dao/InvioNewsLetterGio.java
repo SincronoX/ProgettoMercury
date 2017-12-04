@@ -1,6 +1,8 @@
 package com.mercury.model.dao;
 
+import java.sql.SQLException;
 import java.util.Date;
+
 
 public class InvioNewsLetterGio extends Thread implements Runnable{
 
@@ -11,15 +13,19 @@ public class InvioNewsLetterGio extends Thread implements Runnable{
 	}
 	
 	public void run () {
-		while (true) {
+		while (true) { 
 			SendMail s = new SendMail();
 			try {
 				Thread.sleep(86400);
+				s.SendMail(1);
+
 			}
 			catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
-			
 	}
 }
