@@ -16,7 +16,7 @@ public class InvioNewsLetterSett extends Thread implements Runnable{
 	public void run() {
 		while(true) {
 			SendMail s = new SendMail();
-	
+			s.SendMail(2);
 			try {
 				Thread.sleep(604800);
 			}
