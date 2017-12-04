@@ -44,14 +44,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 		String testo = testo1+testo2+testo3+testo4 ;
 
 	}
-	/*  try
-    {
-      MailUtility.sendMail(dest, mercury, oggetto, testo);
-    }
-    catch (MessagingException exc)
-    {	}
-}
-*/
+
 
 	private void mailBanEvento(Ente en) {
 		
