@@ -6,8 +6,8 @@ import com.mercury.model.TipoEvento;
 
 public interface TipoEventoUtil {
 
-	ArrayList <TipoEvento> getEventoCatAll (); // restituisce i tipi di evento esistenti
-	ArrayList <EventoPrevisto> getEventoCatPrevisto (String cat); // restituisce gli eventi
-	TipoEvento getTipoEventoById(int idEvento); //
+	public ArrayList <TipoEvento> getEventoCatAll (); // restituisce i tipi di evento esistenti
+	public ArrayList <EventoPrevisto> getEventoCatPrevisto (String cat); // restituisce gli eventi
+	public TipoEvento getTipoEventoById(int idEvento); //
 	
 }
