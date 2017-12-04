@@ -10,6 +10,9 @@
 <sql:query var="rs" dataSource="jdbc/mercury">
 SELECT idRegione, nomeRegione from mercury.regione 
 </sql:query>
+<sql:query var="tipo" dataSource="jdbc/mercury">
+SELECT idTipoEvento, catEvento from mercury.tipoevento
+</sql:query>
 <html>
 <head>
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
@@ -126,7 +129,7 @@ SELECT idRegione, nomeRegione from mercury.regione
 
 			<td>
 				<p class="testoGenerale">
-					Seleziona comune: <select id="comuni" name="comuni" >
+					Seleziona comune: <select id="comuni" name="idComune" >
 						
 					</select>
 				</p>
@@ -136,11 +139,23 @@ SELECT idRegione, nomeRegione from mercury.regione
 
 
 		<h2 class="testoGenerale">Scegli la tua preferenza di ricezione dell'e-mail :</h2>
-		<input type="radio" name="id" value="1">Giornaliera<BR>
-		<input type="radio" name="id" value="2">Settimanale<BR>
-		<input type="radio" name="id" value="3">Mensile<BR>
-		<BR> </br> </br> Inserisci il
-		tuo indirizzo email: <input type="text" name="last_name" /> <input
+		<input type="radio" name="idCadenza" value="1">Giornaliera<BR>
+		<input type="radio" name="idCadenza" value="2">Settimanale<BR>
+		<input type="radio" name="idCadenza" value="3">Mensile<BR>
+		<BR> <br> <br> Inserisci il
+		tuo indirizzo email: <input type="text" name="emailUtente" /> <br>
+		<p>
+		Scegli le tue preferenze
+		<br>
+		<input type="checkbox" name="idPreferenza1" value="1">Concerto<BR>
+		<input type="checkbox" name="idPreferenza2" value="2">Film<BR>
+		<input type="checkbox" name="idPreferenza3" value="3">Teatro<BR>
+		<input type="checkbox" name="idPreferenza4" value="4">Mostra<BR>
+		<input type="checkbox" name="idPreferenza5" value="5">Altro<BR>
+		</p>
+		<br>
+		<input type="hidden" value="newsletter"/>
+		<input
 			type="submit" value="Submit" class="btn btn-success" />
 	</form>
 </body>
