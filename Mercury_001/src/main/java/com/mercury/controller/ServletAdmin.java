@@ -31,8 +31,8 @@ public class ServletAdmin extends HttpServlet {
 			
 			//String emailAdmin = admin.getEmailAdmin();
 			//String pswAdmin = admin.getPswAdmin();
-
-			boolean esisteAdmin = AmministratoreImp.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
+			AmministratoreImp ai = new AmministratoreImp();
+			boolean esisteAdmin = ai.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
 
 			if (esisteAdmin) {
 

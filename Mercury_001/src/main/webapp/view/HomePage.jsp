@@ -38,7 +38,7 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a id="home">Home <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#" id="navbar">Newsletter</a></li>
+	        <li><a onclick href="#" id="navbar">Newsletter</a></li>
 	        <li><a href="#" id="navbar">Eventi</a></li>
 	        <li><a href="#" id="navbar">Chi Siamo</a></li>
 	        <li><a href="#" id="navbar">Area Riservata</a></li>
