@@ -10,9 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Timer;
 
 import com.mercury.model.EventoPrevisto;
 import com.mercury.model.TipoEvento;
+import com.mercury.model.dao.InvioNewsLetter;
 import com.mercury.model.dao.DAO;
 
 public class MercuryImp implements MercuryUtil{
@@ -39,9 +41,18 @@ public class MercuryImp implements MercuryUtil{
 	}
 	
 	
-	public void sendNewsLetter() {
+	public void sendNewsLetter(int cadenza, int idUtente) {
 		// TODO Auto-generated method stub
+		int giorni = 0;
+		if(cadenza == 1) { giorni = 1; }
+		if(cadenza == 2) { giorni = 7; }
+		if(cadenza == 3) { giorni = 30; }
 		
+		Timer time = new Timer();
+		InvioNewsLetter inl = new InvioNewsLetter(idUtente);
+		while(true) {
+			time.schedule(inl, 0, (86400000 * giorni)); // ogni giorno
+		}
 	}
 	
 	public ArrayList<EventoPrevisto> getRicerca(ArrayList<TipoEvento> tipi, String RicercaidComune, Calendar data) throws SQLException {

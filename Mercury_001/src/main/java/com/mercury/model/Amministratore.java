@@ -3,8 +3,9 @@ package com.mercury.model;
 public class Amministratore {
 	
 	private int idAdmin =0 ;
-	private String pswAdmin = null;
 	private String emailAdmin = null;
+	private String pswAdmin = null;
+	
 	
 	public Amministratore () {
 		super();
