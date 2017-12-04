@@ -60,6 +60,12 @@
   	<description></description>
   	<servlet-class>com.mercury.controller.ServletLuogo</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MyServlet2</servlet-name>
+  	<display-name>MyServlet2</display-name>
+  	<description></description>
+  	<servlet-class>com.mercury.controller.MyServlet2</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
@@ -95,6 +101,10 @@
   <servlet-mapping>
   	<servlet-name>ServletLuogo</servlet-name>
   	<url-pattern>/ServletLuogo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyServlet2</servlet-name>
+  	<url-pattern>/MyServlet2</url-pattern>
   </servlet-mapping>
   	<welcome-file-list>
 	  	<welcome-file>ServletStart</welcome-file>

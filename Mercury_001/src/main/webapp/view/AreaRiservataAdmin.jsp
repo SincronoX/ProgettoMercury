@@ -65,7 +65,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 	<%
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
-		out.print("<form action='../MyServlet' method='post'>");
+		out.print("<form action='ServletAdmin' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
@@ -80,12 +80,12 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 	for(int i = 0; i < entiInAttesa.size(); i++) {
 		//deve stampare la lista degli enti in attesa di approvazione
 		out.print("<p>");
-		out.print("<form action='../MyServlet' method='post'>");
+		out.print("<form action='ServletAdmin' method='post'>");
 		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
 		session.setAttribute("enteInAttesa", entiInAttesa.get(i));
 		out.print("<input type='submit' value='Accetta' name='enteOK'><input type='submit' value='Rifiuta' name='enteOK'><br><input type='hidden' name='eia' value='AR'></form>");
-		out.print("<p>");
+		out.print("</p>");
 	}%>
 
 </div>
