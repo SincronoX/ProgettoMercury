@@ -55,6 +55,7 @@ background-size: cover;
 	text-align: justify;
 }
 
+<<<<<<< HEAD
 footer{
 	margin-bottom: 0px;
     opacity: 0.5;
@@ -63,6 +64,18 @@ footer{
     text-align: center;
 
 }
+=======
+.footer{
+	position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   opacity:0.5;
+   color: white;
+   text-align: center;
+
+>>>>>>> 3a89350a735576168a6330bf8dfafabee7d87ccf
 
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
 
@@ -129,3 +142,13 @@ footer{
 .registrabtn:hover{
     opacity: 0.8;
 }
+
+
+
+
+
+
+
+
+
+
