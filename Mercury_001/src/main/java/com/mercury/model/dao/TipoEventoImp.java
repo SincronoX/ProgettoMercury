@@ -73,7 +73,7 @@ public class TipoEventoImp implements TipoEventoUtil {
 
 
 
-	public TipoEvento getEventoById(int idEvento) {
+	public TipoEvento getTipoEventoById(int idEvento) {
 		TipoEvento x= new TipoEvento();
 		x.setIdTipoEvento(idEvento);
 		Connection conn = DAO.getConnection();		
