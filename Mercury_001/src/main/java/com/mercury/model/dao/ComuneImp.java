@@ -55,8 +55,8 @@ public class ComuneImp implements ComuneUtil {
 		}
 		
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select * from mercury.comune c where c.idProvincia ='"+id+"'");				
-		ArrayList<Comune> list = null;
+		ResultSet rs = st.executeQuery("select * from mercury.comune c where c.idProvincia = '"+id+"'");				
+		ArrayList<Comune> list = new ArrayList<Comune>();
 		
 		try
 		{
