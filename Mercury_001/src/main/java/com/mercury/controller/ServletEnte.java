@@ -67,7 +67,7 @@ public class ServletEnte extends HttpServlet {
 				EventoPrevisto ep = new EventoPrevisto();
 				ep = (EventoPrevisto) request.getAttribute("evento");
 				enteimp.eliminaEvento(ep);
-				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
+				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
 		} 
