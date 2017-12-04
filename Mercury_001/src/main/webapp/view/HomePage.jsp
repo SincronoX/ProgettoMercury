@@ -15,12 +15,12 @@
 <body>
 <div id="sfondo"></div> 
 
-	<div class="container"> <!--ciao INIZIO CLASSE CONTAINER-->
+	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
 	<div class="row"><!--INIZIO CLASSE ROW-->
-
-			
-	<nav class="navbar navbar-inverse">
+					
+	  <nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
+	  
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <img id="fotoMercury" src="../img/nuovoLogo1.png">
@@ -34,6 +34,7 @@
 	        <li><a href="#">Eventi</a></li>
 	        <li><a href="#">Chi Siamo</a></li>
 	        <li><a href="#">Area Riservata</a></li>
+	        
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -118,9 +119,9 @@
 			
 			<form action="ServletRicerca.java">
 			  <input type="checkbox" name="tipo1" value="Teatro">Teatro</input>
-			  <input  type="checkbox" name="tipo2" value="Concerto">Concerto</input>
-			  <input  type="checkbox" name="tipo3" value="Film">Film</input>
-			  <input  type="checkbox" name="tipo4" value="Mostra">Mostra</input>
+			  <input type="checkbox" name="tipo2" value="Concerto">Concerto</input>
+			  <input type="checkbox" name="tipo3" value="Film">Film</input>
+			  <input type="checkbox" name="tipo4" value="Mostra">Mostra</input>
 			 	<button type="submit" class="btn btn-success">Cerca</button>	
 			
 			</form>
@@ -152,7 +153,7 @@
 
 
  <!--INIZO SCRIPT BOOTSTRAP -->
- 	<script type="text/javascript" src="..//app.js"></script>
+ 	<script type="text/javascript" src="..//js/app.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--FINE SCRIPT BOOTSTRAP -->	
    

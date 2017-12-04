@@ -7,35 +7,45 @@ import java.sql.Statement;
 import java.util.Properties;
 
 import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.URLName;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.mercury.model.dao.SmtpAutenticazione;
+
 public class SendMail {
 	Connection conn = null;
-	String host = "smtp.fastwebnet.it";
-    String mittente = "mercury@gmail.com";
-	 String oggetto = "";
+	String host = "smtp.sincrono.it";
+    String mittente = "corso.java@sincrono.it(AUT)";
+	String oggetto = "";
+	private final String user="corso.java@sincrono.it";
+	private final String psw ="c0rs0.java";
 
 	
-	public void SendMail(int cadenza) throws SQLException {
+	public void sendEmail(int cadenza) throws SQLException {
 		
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        Properties p = new Properties();
-	    p.put("mail.smtp.host", host);
-	    //p.put("port", 25); 
+        Properties p = System.getProperties();
+	
+		p.setProperty("mail.smtp.host", this.host);
+	    p.put("mail.smtp.host", this.host);
+	    p.put("mail.debug", "true");
+	    p.put("mail.smtp.auth", "true"); 
 	     
-	    Session sessione = Session.getDefaultInstance(p);
+	    Session sessione = Session.getDefaultInstance(p, new SmtpAutenticazione(user, psw) );
+	    sessione.setPasswordAuthentication(new URLName("smtp", host, 25, "INBOX", user, psw), new PasswordAuthentication(user, psw));
 	     
 	    MimeMessage mail = new MimeMessage(sessione);
 	    
 
         String query="SELECT * FROM mercury.utente where idCadenza = " + cadenza;	
 
-        // esegui query
+        // esegui query 
         ResultSet rs = st.executeQuery(query);
 		
 		if(cadenza==1) { oggetto = "Invio newsLetter giornaliera Mercury"; }
@@ -70,7 +80,9 @@ public class SendMail {
 	    	 	mail.setSubject(oggetto);
 	    	 	mail.setText(testo+testoEventi);
 	    	 	
-	    	 	Transport.send(mail);
+	    	 	Transport tr = sessione.getTransport("smtp");
+				tr.connect(host, user, psw);
+	    	 	Transport.send(mail, mail.getAllRecipients());
 	    	 }	
 	     }catch(Exception e) {
 	    	 	e.printStackTrace();

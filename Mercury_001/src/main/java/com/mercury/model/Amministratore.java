@@ -1,6 +1,7 @@
 package com.mercury.model;
 
 public class Amministratore {
+	// o
 	
 	private int idAdmin =0 ;
 	private String emailAdmin = null;
