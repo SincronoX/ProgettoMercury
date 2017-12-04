@@ -33,7 +33,7 @@ public class EventoPassatoImp implements EventoPassatoutil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventopassato where idEvento = "+id);
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventopassato where idEvento = '"+id+"';");
         
         EventoPassato nuovo = new EventoPassato();
         
