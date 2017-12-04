@@ -9,7 +9,7 @@
 </head>
 <body>
   
-<form class=loginform action="LoginEnte.jsp">
+<form class=loginform action="ServletEnte">
 
     <input class=input type="text" placeholder="Email" name="emailEnte" required>
     <input class=input type="password" placeholder="Password" name="pswEnte" required>
