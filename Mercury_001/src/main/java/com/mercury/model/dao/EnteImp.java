@@ -176,7 +176,7 @@ public class EnteImp implements EnteUtil {
 			exc.printStackTrace();
 		}
 		
-	}
+	}   
 	
 	public Ente getEnteById(int id) {
 		Ente e = new Ente();
