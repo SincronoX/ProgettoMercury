@@ -45,7 +45,7 @@ body{
 
 /* STILE CONSTANTIN LoginEnte, LoginAdmin, RegistrazioneEnte*/
 
-/* Bordered form */
+/* Login Form */
 .loginform {    
     margin: 25%;
     width: 100%;
@@ -63,7 +63,7 @@ body{
     width: 50%;
 }
 
-/* Set a style for login button */
+/* Set style to login button */
 .loginbtn {	
     background-color: #4CAF50;
     color: white;
@@ -81,7 +81,7 @@ body{
     opacity: 0.8;
 }
 
-/* Set a style for registra button */
+/* Set style to registrabtn */
 .registrabtn {
     background-color: #ff0000;
     color: white;
