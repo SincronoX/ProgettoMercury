@@ -1,6 +1,7 @@
 package com.mercury.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -19,40 +20,51 @@ public class ServletMail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		RequestDispatcher disp;
-		 Utente u ;
-		 
-		 if(request.getParameter("form").equals("registrazioneUtente")) //campo hidden di RegistrazioneEnte.jsp
+		Utente u ;
+
+		if(request.getParameter("form").equals("registrazioneUtente")) //campo hidden di RegistrazioneEnte.jsp
 		{	
 			String messaggio=null;
 			UtenteImp ui = new UtenteImp();
 			u=new Utente();
 			u.setEmailUtente(request.getParameter("emailUtente"));	
-			u.setIdCadenza(Integer.parseInt(request.getParameter("idCadenza")));
-			u.setIdComune(request.getParameter("idComune"));
-			
-			boolean trovato = ei.trovaEnte(ente);
+
+
+			boolean trovato = ui.trovaUtente(u.getEmailUtente());
 			if(trovato==true)
 			{	
-				messaggio = " Impossibile registrarti, il nome o l'email sono gia' presenti nel database";
-				disp=request.getRequestDispatcher("view/RegistrazioneEnte.jsp");	
+				u.setIdCadenza(Integer.parseInt(request.getParameter("idCadenza")));
+				u.setIdComune(request.getParameter("idComune"));
+				messaggio = " Impossibile registrarti alla newsletter, l'email e' gia' presenti nel database";
+				disp=request.getRequestDispatcher("view/registrazioneUtente.jsp");	
 				request.setAttribute("giaEsiste", messaggio);
 				disp.forward(request, response);
 			} 
 			else 
 			{
-				messaggio= "richiesta di registrazione effettuata, attendi email di conferma"; // alert!!
-				ei.addEnte(ente);
-				disp=request.getRequestDispatcher("HomePage.jsp");	
-				request.setAttribute("inAttesa", messaggio);
-				disp.forward(request, response);
+				messaggio= "registrazione effettuata"; // alert!!
+				ArrayList <Integer> lista = new ArrayList<Integer>();		
+				for(int i = 0 ; i<lista.size() ; i++) 
+				{
+					lista.add(Integer.parseInt(request.getParameter("idPreferenza"+i)));
+				}
+				try 
+				{
+					ui.addUtente(u.getEmailUtente(), u.getIdCadenza(), u.getIdComune(), lista);
+					disp=request.getRequestDispatcher("HomePage.jsp");	
+					request.setAttribute("inserito", messaggio);
+					disp.forward(request, response);
+				} 
+				catch (SQLException e) 
+				{
+					e.printStackTrace();
+				}
+
 			}
-		
-		
-		
+
+		}
+
 	}
-
 }
-
-//String emailUtente, int idCadenza, String idComune, ArrayList<Integer> preferenze
