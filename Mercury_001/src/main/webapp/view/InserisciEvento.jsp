@@ -4,9 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Inserisci un nuovo evento</title>
 </head>
 <body>
+<form action='../ServletEnte' method='post'>
+<input type='text' name='nomeEvento'>
+<input type='text' name='descEvento'>
+<input type='date' name='dataInizio'>
+<input type='date' name='dataFine'>
+<select name='tipoEvento'>
+	<option>cacca</option>
+	<option>pipi</option>
 
+</select>
+</form>
 </body>
 </html>

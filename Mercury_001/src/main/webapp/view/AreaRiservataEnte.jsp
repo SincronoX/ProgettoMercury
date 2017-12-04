@@ -47,7 +47,6 @@
 <% 
 MercuryImp m = new MercuryImp(); 
 ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
-//EnteImp ei=(EnteImp)request.getAttribute("ente"); 
 //Ente e = (Ente)request.getAttribute("ente"); 
 //String mailEnte = e.getEmailEnte();
 EnteImp ei = new EnteImp();
