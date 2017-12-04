@@ -29,10 +29,10 @@ public class ServletAdmin extends HttpServlet {
 			admin.setEmailAdmin(request.getParameter("email"));
 			admin.setPswAdmin(request.getParameter("password"));
 			
-			String emailAdmin = admin.getEmailAdmin();
-			String pswAdmin = admin.getPswAdmin();
+			//String emailAdmin = admin.getEmailAdmin();
+			//String pswAdmin = admin.getPswAdmin();
 
-			boolean esisteAdmin = AmministratoreImp.trovaAdmin(emailAdmin, pswAdmin);
+			boolean esisteAdmin = AmministratoreImp.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
 
 			if (esisteAdmin) {
 
