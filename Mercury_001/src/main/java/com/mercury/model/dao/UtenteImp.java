@@ -107,7 +107,7 @@ public class UtenteImp implements UtenteUtil {
 	public boolean trovaUtente(String email) {
 		boolean x = false ;
 		Connection conn = DAO.getConnection();		
-		String query="select * from utente u where u.emailUtente = "+email +";" ;
+		String query="select * from utente u where u.emailUtente = '"+email +"';" ;
 		ResultSet rs;
 		try {
 			rs = DAO.execute_Query(conn, query );
