@@ -16,7 +16,7 @@ public class ProvinciaImp implements ProvinciaUtil{
 	{
 		if (conn==null)
 		{
-			conn=DAO.getConnection();
+			conn=DAO.getConnection(); 
 		}
 		
 		Provincia x = new Provincia ();
