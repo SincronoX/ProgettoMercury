@@ -17,7 +17,7 @@
 			<!-----start-logo--------->
 			<div class="logo">
 				<h1><a href="#"><img src="..//img/500.png"/></a></h1>
-				<span><img src="..//img/signal.png"/>Oops! La pagina che stai cercando non è stata trovata</span>
+				<span><img src="..//img/signal.png"/>Oops! Errore interno del server</span>
 			</div>
 			<!-----end-logo--------->
 			<!-----start-search-bar-section--------->
