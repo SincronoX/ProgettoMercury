@@ -100,13 +100,13 @@ body {
 }
 .seach_bar
 {
-	padding:2em;
+	padding:1em;
 }
 .seach_bar p{
 	font-size: 1.5em;
 	color:#fff;
 	font-weight: 300;
-	margin: 2.6em 0em 0.9em 0em;
+	margin: 2em 0em 0.9em 0em;
 }
 .seach_bar span a{
 	font-size: 1em;
