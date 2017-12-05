@@ -67,15 +67,15 @@ function controllo(form) {
 <body>
 <%TipoEventoImp ei = new TipoEventoImp();
 ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
-//Ente e = (Ente)request.getAttribute("ente");
+Ente e = (Ente)request.getAttribute("ente");
 
-//out.print("Benvenuto, " + e.getNomeEnte());
+out.print("Benvenuto, " + e.getNomeEnte());
 
 %>
 <form action='../ServletEnte' method='post' onSubmit='return controllo(this);'>
 <input type="submit" name="nuovoEvento" value="Inserisci"><br><br>
 
-<input type='text' name='nomeEvento' ><br><br>
+<input type='text' name='nomeEvento'><br><br>
 <input type='text' name='descEvento'><br><br>
 <input type='date' name='dataInizio'><br><br>
 <input type='date' name='dataFine'><br><br>
@@ -85,7 +85,7 @@ ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
 		out.print("<option value='"+catEvento.get(i).getIdTipoEvento()+"'>"+catEvento.get(i).getCatEvento()+"</option>");
 	}%>
 </select>
-<input type="hidden" name="" value="">
+<%out.print("<input type='hidden' name='idEnte' value='"+ e.getIdEnte() +"'>"); %>
 </form>
 </body>
 </html>
