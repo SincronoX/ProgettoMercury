@@ -90,8 +90,9 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		//deve stampare la lista degli enti in attesa di approvazione
 		out.print("<p>");
 		out.print("<form action='../ServletAdmin' method='post'>");
-		out.print(entiInAttesa.get(i).getNomeEnte());
+		out.print(entiInAttesa.get(i).getNomeEnte() + " ");
 		out.print(entiInAttesa.get(i).getEmailEnte());
+		out.print("<br>");
 		session.setAttribute("enteInAttesa" + i, entiInAttesa.get(i));
 		out.print("<input type='submit' value='Accetta' name='enteOK' class='btn btn-success'><input type='submit' value='Rifiuta' name='enteOK' class='btn btn-danger'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'>");
 		out.print("</form>");
