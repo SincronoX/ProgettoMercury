@@ -66,13 +66,13 @@ public class MercuryImp implements MercuryUtil{
         
         // controllo sul luogo
         if(RicercaidComune != null) {
-	        query += (" AND idComune = " + RicercaidComune);
+	        query += (" AND idComune = '" + RicercaidComune +"'");
         }
         
         // controllo sulla data
         if(data != null) {
 	        String s = dateToString(data);
-	        query += (" AND dataInizio = " + s);
+	        query += (" AND dataInizio = '" + s +"'");
         }
         
         

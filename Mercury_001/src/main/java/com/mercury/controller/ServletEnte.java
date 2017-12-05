@@ -38,19 +38,19 @@ public class ServletEnte extends HttpServlet {
 		RequestDispatcher req=null;
 		try{	    
 
-			Ente ente = new Ente();
+			
 			EnteImp enteimp = new EnteImp();
 			
 			if(tipoForm.equals("Aggiungi")) {
+				String email = request.getParameter("email");
 				Ente e = new Ente();
-				e = (Ente)request.getAttribute("ente");
-				request.setAttribute("ente", ente);
+				e = enteimp.getEnteByEmail(email);
+				request.setAttribute("ente", e);
 				req=request.getRequestDispatcher("view/InserisciEvento.jsp");
 				req.forward(request, response);
 			}
 			else if(tipoForm.equals("Modifica"))
 			{
-				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
 				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
 				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
@@ -60,7 +60,6 @@ public class ServletEnte extends HttpServlet {
 			}
 			else if(tipoForm.equals("Elimina"))
 			{
-				out=response.getWriter();
 				EventoPrevisto ep = new EventoPrevisto();
 				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
 				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
@@ -68,7 +67,13 @@ public class ServletEnte extends HttpServlet {
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
-			else if(newEvento.equals("Inserisci"))
+			else if(newEvento.equals("Inserisci")) {
+				String idEnte= request.getParameter("idEnte");
+				EventoPrevisto e = (EventoPrevisto) request.getAttribute("evento");
+				enteimp.inserisciEvento(e,idEnte);
+				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
+				req.forward(request, response);				
+			}
 		} 
 		
 
