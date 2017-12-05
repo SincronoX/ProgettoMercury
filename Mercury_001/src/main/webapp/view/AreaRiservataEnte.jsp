@@ -46,12 +46,15 @@
 
 
 
-	<h2 class="testoGenerale">Benvenuto,<% out.println(e.getNomeEnte());%></h2>
-	<form action="../ServletLogEnte" method="post" >
+	<h2 class="testoGenerale">Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
+	
+	<form action="../ServletLogEnte" method="post">
 	<input type="submit" value="Logout" name="log" class="btn btn-danger" >
 	</form>
+	<hr>
+	<br>
 	
-	<div id="eventiHome" class="col-md-6" >
+	
 		<% 
 		MercuryImp m = new MercuryImp(); 
 		ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
@@ -60,23 +63,28 @@
 		EnteImp ei = new EnteImp();
 		myEvents = ei.getEventiByEnte("rockinroma@roma.it");
 		%>	
-	</div>
 	
-	<div id="eventiHome" class="col-md-6">
+	
+	<div id="eventiHome" class="col-md-12">
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
-	out.print("<form action='../ServletEnte' method='post'>");	
+	out.print("<form id='formEnte'  class='panel panel-info' action='../ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
+	out.print("<br>");
 	out.print(myEvents.get(i).getDescEvento());
+	out.print("<br>");
+	out.print("Data inizio: ");
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
+	out.print("<br>");
+	out.print("Data fine: ");
 	out.print(m.dateToString(myEvents.get(i).getDataFine()));
 	session.setAttribute("eventi" + i, myEvents.get(i));
-	out.print("<input type='submit' value='Modifica' name='modEv' class='btn btn-primary' ><input type='submit' value='Elimina' name='modEv' class='btn btn-danger' ><input  type='hidden' name='numEv' value='"+i+"'>");
+	out.print("<input type='submit' value='Modifica' name='modEv' id='butEnte' class='btn btn-primary' ><input type='submit' value='Elimina' name='modEv' id='butEnte' class='btn btn-danger' ><input  type='hidden' name='numEv' value='"+i+"'>");
 	out.print("</form>");
 	}
 	%>
 	</div>
-	
+	<div class= col-md-10></div>
 	<form action="../ServletEnte" method="post">
 	<input type="submit" value="Aggiungi" name="modEv" class="btn btn-success">
 	</form>

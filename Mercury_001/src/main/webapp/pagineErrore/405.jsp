@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>500 error page</title>
+<title>405 error page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 		<div class="content">
 			<!-----start-logo--------->
 			<div class="logo">
-				<h1><a href="#"><img src="..//img/500.png"/></a></h1>
+				<h1><a href="#"><img src="..//img/405Logo.png"/></a></h1>
 				<span><img src="..//img/signal.png"/>Oops! Errore interno del server</span>
 			</div>
 			<!-----end-logo--------->
