@@ -46,22 +46,31 @@ public class MercuryImp implements MercuryUtil{
         Statement st = conn.createStatement();
         
 
-        String query="SELECT * FROM mercury.eventoprevisto where checked=1";
+        String query="SELECT * FROM mercury.eventoPrevisto where checked=1";
         
         // controllo sui tipi
         TipoEventoImp tei = new TipoEventoImp();
         ArrayList<TipoEvento> listaTipiNonScelti = tei.getEventoCatAll();
         int n = listaTipiNonScelti.size();
-        int i, j;
+        int i;//, j, k=0;
+        
+        System.out.println(tipi.size());
+        
+        for(i=0; i<tipi.size(); i++) {
+        	listaTipiNonScelti.remove(tipi.get(i));
+        }
+        /*
         for(i=0; i<n; i++) {
         	for(j=0; j<tipi.size(); j++) {
-        		if(confrontoTipo(listaTipiNonScelti.get(i), tipi.get(j))) {
+        		if(confrontoTipo(listaTipiNonScelti.get(i+k), tipi.get(j))) {
         			listaTipiNonScelti.remove(i);
+        			k--;
         		}
         	}
-        }
+        }*/
+        
         for(i=0; i<listaTipiNonScelti.size(); i++) {
-        	query += (" AND idTipoEvento != "+listaTipiNonScelti.get(i));
+        	query += (" AND idTipoEvento != "+listaTipiNonScelti.get(i).getIdTipoEvento());
         }
         
         // controllo sul luogo
@@ -77,6 +86,7 @@ public class MercuryImp implements MercuryUtil{
         
         
         // esegui query
+        System.out.println(query);
         ResultSet rs = st.executeQuery(query);
         
         

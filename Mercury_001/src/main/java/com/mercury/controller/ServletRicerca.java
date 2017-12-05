@@ -35,7 +35,7 @@ public class ServletRicerca extends HttpServlet {
 	private Calendar stringToData(String s) {
 		String[] aux = s.split("-");
 		int anno = Integer.parseInt(aux[0]);
-		int mese = Integer.parseInt(aux[1]); 
+		int mese = Integer.parseInt(aux[1])-1; 
 		int giorno = Integer.parseInt(aux[2]);
 		Calendar ret = new GregorianCalendar(anno, mese, giorno);
 		return ret;
@@ -50,6 +50,7 @@ public class ServletRicerca extends HttpServlet {
 		TipoEvento att = new TipoEvento();
 		TipoEventoImp tipi = new TipoEventoImp();
 		ArrayList<TipoEvento> t = tipi.getEventoCatAll();
+		
 		if(request.getParameter("tipo1") == null) {
 			att = tipi.getTipoEventoById(1); 
 			t.remove(att);
@@ -67,12 +68,7 @@ public class ServletRicerca extends HttpServlet {
 			t.remove(att);
 		}
 		
-		String comune = 	request.getParameter("comune");
-		String provincia = 	request.getParameter("provincia");
-		String regione =	request.getParameter("regione");
-		
-		ComuneImp comImp= new ComuneImp();
-		String idComune = comImp.getIdComune(regione, provincia, comune);
+		String comune = request.getParameter("comune");
 		
 		String data = request.getParameter("data");
 		Calendar d = stringToData(data);
@@ -80,7 +76,7 @@ public class ServletRicerca extends HttpServlet {
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
 		try {
-			ret = m.getRicerca(t, idComune, d);
+			ret = m.getRicerca(t, comune, d);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

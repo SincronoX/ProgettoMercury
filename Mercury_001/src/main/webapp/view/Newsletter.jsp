@@ -28,7 +28,7 @@ SELECT idTipoEvento, catEvento from mercury.tipoevento
 	$(document).ready(function() {
 		$("#regioni").change(
 				function(event) {
-					var regione = $("select#regioni").val();
+					var region e = $("select#regioni").val();
 					$.get("../ServletLuogo", {
 						idRegione : regione
 					}, function(response) {
@@ -110,7 +110,7 @@ SELECT idTipoEvento, catEvento from mercury.tipoevento
 		<table>
 			<td>
 				<p class="testoGenerale">
-					Seleziona regione: <select id="regioni"  name="regioni"  >
+					Seleziona regione: <select id="regioni"  name="regione"  >
 					<option  label="Selezionare" selected="selected"/>
 						<c:forEach var="r" items="${rs.rows }">
 							<option value=<c:out value="${r.idRegione}" /> />
@@ -122,7 +122,7 @@ SELECT idTipoEvento, catEvento from mercury.tipoevento
 
 			<td>
 				<p class="testoGenerale">
-					Seleziona provincia: <select id="province" name="province" >
+					Seleziona provincia: <select id="province" name="provincia" >
 						
 					</select>
 				</p>
@@ -130,7 +130,7 @@ SELECT idTipoEvento, catEvento from mercury.tipoevento
 
 			<td>
 				<p class="testoGenerale">
-					Seleziona comune: <select id="comuni" name="idComune" >
+					Seleziona comune: <select id="comuni" name="comune" >
 						
 					</select>
 				</p>

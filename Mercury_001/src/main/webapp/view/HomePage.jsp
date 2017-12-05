@@ -110,7 +110,7 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 	    <span id="campiricerca">
 		
 				<label>Regione<br>
-					<select id="regioni"  name="regioni"  >
+					<select id="regioni"  name="regione"  >
 					<option  label="Selezionare" selected="selected"/>
 						<c:forEach var="r" items="${rs.rows }">
 							<option value=<c:out value="${r.idRegione}" /> />
@@ -123,7 +123,7 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 		<span id="campiricerca">	
 			
 				<label>Provincia<br>
-					<select name ="province" id ="province" placeholder="Provincia">562156162</select>
+					<select name ="provincia" id ="province" placeholder="Provincia">562156162</select>
 				</label>
 				<br>
 		</span>
@@ -131,7 +131,7 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 		<span id="campiricerca">
 			
 				<label>Comune <br>
-					<select name="comuni" id ="comuni">	</select>
+					<select name="comune" id ="comuni">	</select>
 				</label>
 			<label>Scegli data
 				<input type="date" name="data">
