@@ -29,7 +29,6 @@ background-size: cover;
 	font-size: 18px;
 	background-color:#F5F5F5;
 	margin-bottom:50px;
-	opacity
 	
 }
 
@@ -46,12 +45,13 @@ background-size: cover;
 	width: 50px;
 }
  #navbar{
- 	color:purple;
- 	font-size:20px;
+ 	color:silver;
+ 	font-size:18px;
  }
 
+
 #home{
-	font-sixe:20px;
+	font-size:20px;
 }
 
 .titoloEvento{
@@ -82,7 +82,7 @@ background-size: cover;
 }
 
 .testoGenerale{
-	color:white;
+	color:blue;
 	
 }
 

@@ -27,7 +27,7 @@ public class AmministratoreImp  implements AmministratoreUtil {
 	protected String mittente = "corso.java@sincrono.it(AUT)";
 	private final String user="corso.java@sincrono.it";
 	private final String psw ="c0rs0.java";
-
+///
 
 	public boolean trovaAdmin(String email , String psw){
 		Connection conn = DAO.getConnection();		
