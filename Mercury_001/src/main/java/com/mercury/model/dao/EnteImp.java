@@ -101,7 +101,7 @@ public class EnteImp implements EnteUtil {
 		}
 	}
 	
-	public void inserisciEvento (EventoPrevisto e) {
+	public void inserisciEvento (EventoPrevisto e,String idEnte) {
 		Connection conn = DAO.getConnection();
 		MercuryImp m = new MercuryImp();
 		String queryAddEvento = "insert into eventoprevisto (nomeEvento,dataInizio,dataFine,descrizione,checked, idEnte, idTipoEvento, idComune) values (?,?,?,?,?,?,?,?)";
@@ -113,7 +113,7 @@ public class EnteImp implements EnteUtil {
 			psAddEvento.setString(3, m.dateToString(e.getDataFine()));
 			psAddEvento.setString(4, e.getDescEvento());
 			psAddEvento.setBoolean(5, false);
-			psAddEvento.setInt(6, e.getIdEnte());
+			psAddEvento.setString(6, idEnte);
 			psAddEvento.setInt(7, e.getIdTipoEvento());
 			psAddEvento.setString(8, e.getIdComune());
 			psAddEvento.executeUpdate();

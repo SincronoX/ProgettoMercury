@@ -46,7 +46,7 @@ public class ServletLogEnte extends HttpServlet {
 		}
 
 		else 
-			response.sendRedirect("Errore.jsp"); //error page
+			response.sendRedirect("LoginEnte.jsp"); 
 		}
 		if(pagina.equals("logout")) {
 			 HttpSession session = request.getSession(false);
