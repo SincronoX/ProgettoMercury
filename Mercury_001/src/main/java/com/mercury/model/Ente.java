@@ -16,10 +16,6 @@ public class Ente {
 		return nomeEnte;
 	}
 	
-	public void setIdEnte(int idEnte) {
-		this.idEnte = idEnte;
-	}
-
 	public void setNomeEnte(String nomeEnte) {
 		this.nomeEnte = nomeEnte;
 	}
