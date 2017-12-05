@@ -129,15 +129,17 @@
     	<error-code>404</error-code>
     	<location>/paginaErrore/404.jsp</location>
  	</error-page>
-<<<<<<< HEAD
  	
  	<error-page>
     	<error-code>500</error-code>
     	<location>/paginaErrore/500.jsp</location>
   	</error-page>
   	
-  	
-=======
->>>>>>> 9daa9a3fb5a5788e5224f2b26e794a967a26858d
+  	 <!-- Metodo servlet non supportato -->
+  	<error-page>
+    		<error-code>503</error-code>
+   		 <location>/paginaErrore/500.jsp</location>
+	</error-page>
+
   
 </web-app>
