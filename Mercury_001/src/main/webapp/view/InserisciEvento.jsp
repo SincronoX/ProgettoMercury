@@ -66,10 +66,13 @@ function controllo(form) {
 </head>
 <body>
 <%TipoEventoImp ei = new TipoEventoImp();
-ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
-Ente e = (Ente)request.getAttribute("ente");
 
-out.print("Benvenuto, " + e.getNomeEnte());
+ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
+
+Ente e = (Ente)request.getAttribute("ente");
+String nomeEnte = "Napoli Eventi";
+//String nomeEnte = e.getNomeEnte();
+out.print("Benvenuto, " + nomeEnte);
 
 %>
 <form action='../ServletEnte' method='post' onSubmit='return controllo(this);'>
@@ -85,7 +88,7 @@ out.print("Benvenuto, " + e.getNomeEnte());
 		out.print("<option value='"+catEvento.get(i).getIdTipoEvento()+"'>"+catEvento.get(i).getCatEvento()+"</option>");
 	}%>
 </select>
-<%out.print("<input type='hidden' name='idEnte' value='"+ e.getIdEnte() +"'>"); %>
+<%//out.print("<input type='hidden' name='idEnte' value='"+ e.getIdEnte() +"'>"); %>
 </form>
 </body>
 </html>
