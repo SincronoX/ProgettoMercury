@@ -68,7 +68,7 @@
 	<div id="eventiHome" class="col-md-12">
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
-	out.print("<form class='formEnte' action='../ServletEnte' method='post'>");	
+	out.print("<form id='formEnte'  class='panel panel-info' action='../ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
 	out.print(myEvents.get(i).getDescEvento());
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
