@@ -71,12 +71,6 @@
 		<description></description>
 		<servlet-class>com.mercury.controller.ServletLogAdmin</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>ServletLogEnte</servlet-name>
-		<display-name>ServletLogEnte</display-name>
-		<description></description>
-		<servlet-class>com.mercury.controller.ServletLogEnte</servlet-class>
-	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>ServletLogin</servlet-name>
@@ -118,11 +112,6 @@
 		<servlet-name>ServletLogAdmin</servlet-name>
 		<url-pattern>/ServletLogAdmin</url-pattern>
 	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>ServletLogEnte</servlet-name>
-		<url-pattern>/ServletLogEnte</url-pattern>
-	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>ServletStart</welcome-file>
@@ -140,6 +129,7 @@
     	<error-code>404</error-code>
     	<location>/paginaErrore/404.jsp</location>
  	</error-page>
+<<<<<<< HEAD
  	
  	<error-page>
     	<error-code>500</error-code>
@@ -147,5 +137,7 @@
   	</error-page>
   	
   	
+=======
+>>>>>>> 9daa9a3fb5a5788e5224f2b26e794a967a26858d
   
 </web-app>

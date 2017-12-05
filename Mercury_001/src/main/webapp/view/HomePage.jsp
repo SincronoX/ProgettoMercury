@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 
-
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,20 +50,10 @@
 		<!--inizio siderbar-->
 		<div class="col-md-3"></div>
 		<div id="sidebar" class="col-md-6">
-		<sql:query var="rs1" dataSource="jdbc/superenalotto">
-select nomeEvento, dataInizio, dataFine, descrizione, nomeComune from (select * from eventoprevisto e order by dataInizio desc limit 3) = q1 , comune  where comune.idComune=q1.idComune  order by q1.dataInizio asc;
-</sql:query>
-				<h2 class="benvenuto">Benevenuti in Mercury</h2>
-				<p>
-					<c:forEach var="bb" items="${rs1.rows}">
-						<c:out value="${bb.nomeEvento}"></c:out>
-						<c:out value="${bb.dataInizio}"></c:out>
-						<c:out value="${bb.dataFine}"></c:out>
-						<c:out value="${bb.descrizione}"></c:out>
-						<c:out value="${bb.nomeComune}"></c:out>
-					</c:forEach>
-				</p>
-			</div>
+			<h2 class="benvenuto">Benevenuti in Mercury</h2>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
+			euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		</div>
 		<!--Fine siderbar -->
 		
 
