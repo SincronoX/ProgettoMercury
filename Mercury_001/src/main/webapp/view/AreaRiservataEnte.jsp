@@ -22,47 +22,53 @@
 <div class="row"><!--INIZIO CLASSE ROW-->
 
 		
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <img class="fotoMercury" src="mercury.png">
-    </div>
+<!-- INIZIO NAVBAR -->				
+	 <nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <img id="fotoMercury" src="../img/nuovoLogo1.png">
+	    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Newsletter</a></li>
-        <li><a href="#">Eventi</a></li>
-        <li><a href="#">Chi Siamo</a></li>
-        <li><a href="#">Area Riservata</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav" id="navbar">
+	        <li class="active"><a onclick="location.href='HomePage.jsp'">Home <span class="sr-only">(current)</span></a></li>
+	        <li><a onclick="location.href='Newsletter.jsp'">Newsletter</a></li>
+	        <li><a  onclick="location.href='RisultatoRicerca.jsp'" >Eventi</a></li>
+	        <li><a onclick="location.href='LoginEnte.jsp'" href="#">Area Riservata</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-- FINE NAVBAR -->	
 
 
-<div id="eventiHome" class="col-md-6" >
-<% 
-MercuryImp m = new MercuryImp(); 
-ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
-Ente e = (Ente)request.getAttribute("ente"); 
-String mailEnte = e.getEmailEnte();
-EnteImp ei = new EnteImp();
-myEvents = ei.getEventiByEnte(mailEnte);
-%>
-</div>
 
-	<h2>Benvenuto,<% out.println(e.getNomeEnte());%></h2>
-	<form action="../ServletLogEnte" method="post">
-	<input type="submit" value="Logout" name="log">
-	</form>
+
+	<h2 class="testoGenerale">Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
 	
-	<div id="eventiHome" class="col-md-6">
+	<form action="../ServletLogEnte" method="post">
+	<input type="submit" value="Logout" name="log" class="btn btn-danger" >
+	</form>
+	<hr>
+	<br>
+	
+	
+		<% 
+		MercuryImp m = new MercuryImp(); 
+		ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
+		//Ente e = (Ente)request.getAttribute("ente"); 
+		//String mailEnte = e.getEmailEnte();
+		EnteImp ei = new EnteImp();
+		myEvents = ei.getEventiByEnte("rockinroma@roma.it");
+		%>	
+	
+	
+	<div id="eventiHome" class="col-md-12">
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
-	out.print("<form action='../ServletEnte' method='post'>");	
+	out.print("<form id='formEnte'  class='panel panel-info' action='../ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
 	out.print("<br>");
 	out.print(myEvents.get(i).getDescEvento());
@@ -73,14 +79,14 @@ myEvents = ei.getEventiByEnte(mailEnte);
 	out.print("Data fine: ");
 	out.print(m.dateToString(myEvents.get(i).getDataFine()));
 	session.setAttribute("eventi" + i, myEvents.get(i));
-	out.print("<input type='submit' value='Modifica' name='modEv'><input type='submit' value='Elimina' name='modEv'><input  type='hidden' name='numEv' value='"+i+"'>");
+	out.print("<input type='submit' value='Modifica' name='modEv' id='butEnte' class='btn btn-primary' ><input type='submit' value='Elimina' name='modEv' id='butEnte' class='btn btn-danger' ><input  type='hidden' name='numEv' value='"+i+"'>");
 	out.print("</form>");
 	}
 	%>
 	</div>
-	
+	<div class= col-md-10></div>
 	<form action="../ServletEnte" method="post">
-	<input type="submit" value="Aggiungi" name="modEv">
+	<input type="submit" value="Aggiungi" name="modEv" class="btn btn-success">
 	</form>
 
 </div>

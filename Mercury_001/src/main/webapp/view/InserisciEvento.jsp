@@ -21,13 +21,10 @@ SELECT idRegione, nomeRegione from mercury.regione
 </head>
 <body>
 <%TipoEventoImp ei = new TipoEventoImp();
-
 ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
-
 Ente e = (Ente)request.getAttribute("ente");
-String nomeEnte = "Napoli Eventi";
-//String nomeEnte = e.getNomeEnte();
-out.print("Benvenuto, " + nomeEnte);
+
+out.print("Benvenuto, " + e.getNomeEnte());
 
 %>
 <form action='../ServletEnte' method='post' onSubmit='return controllo(this);'>
@@ -43,6 +40,7 @@ out.print("Benvenuto, " + nomeEnte);
 		out.print("<option value='"+catEvento.get(i).getIdTipoEvento()+"'>"+catEvento.get(i).getCatEvento()+"</option>");
 	}%>
 </select>
+<<<<<<< HEAD
 
 <p class="testoGenerale">
 Seleziona regione: <select id="regioni"  name="regioni"  >
@@ -56,6 +54,9 @@ Seleziona regione: <select id="regioni"  name="regioni"  >
 
 <%//out.print("<input type='hidden' name='idEnte' value='"+ e.getIdEnte() +"'>"); %>
 <input type="reset" value="Annulla">
+=======
+<%out.print("<input type='hidden' name='idEnte' value='"+ e.getIdEnte() +"'>"); %>
+>>>>>>> 25fa4aa7a12405cd6ffe92d518cc1cd4685ac4d1
 </form>
 </body>
 </html>
