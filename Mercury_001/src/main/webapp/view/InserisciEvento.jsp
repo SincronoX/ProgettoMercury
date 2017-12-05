@@ -27,20 +27,20 @@ function controllo(form) {
 	 var dataIn = new Date(form.dataInizio.value);
 	 var dataFin = new Date(form.dataFine.value);
 	if((a >= dataIn.getDate() && today.getMonth() >= dataIn.getMonth()) && today.getYear() >= dataIn.getYear()){
-		alert("buuu");
+		alert("Errore.");
 		return false;
 	}
 	else if(dataIn.getMonth() < today.getMonth() && dataIn.getYear() < today.getYear()) {
-		alert("buuu");
+		alert("Errore.");
 		return false;
 	}
 	else if(dataIn.getYear() < today.getYear()) {
-		alert("buuu");
+		alert("Errore.");
 		return false;
 	}
 	
 	if(dataFin < dataIn) {
-		alert("buuuuuuuuuuuuuuuuuuuuuuuu");
+		alert("Inserire una data di fine valida");
 		return false;
 	}
 	
@@ -85,6 +85,7 @@ ArrayList<TipoEvento> catEvento =  ei.getEventoCatAll();
 		out.print("<option value='"+catEvento.get(i).getIdTipoEvento()+"'>"+catEvento.get(i).getCatEvento()+"</option>");
 	}%>
 </select>
+<input type="hidden" name="" value="">
 </form>
 </body>
 </html>
