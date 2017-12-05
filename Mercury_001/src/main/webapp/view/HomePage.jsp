@@ -1,22 +1,26 @@
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-    
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="..//css/Style.css">
 <!-- Fine collegamento css bootstrap -->
-<sql:query var="concerto" dataSource="jdbc/mercury">
-<!--select eventoPrevisto.nomeEvento,eventoPrevisto.dataInizio,eventoPrev from eventoPrevisto where idTipoEvento=2-->
+
+
+<sql:query var="rs" dataSource="jdbc/mercury">
+select idRegione, nomeRegione from mercury.regione order by nomeRegione
 </sql:query>
-
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../js/newsletter.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HOMEPAGE</title>
 
 </head>
@@ -50,6 +54,14 @@
 		<!--inizio siderbar-->
 		<div class="col-md-3"></div>
 		<div id="sidebar" class="col-md-6">
+
+		
+				<h2 class="benvenuto">Benevenuti in Mercury</h2>
+				<p>
+					cioooaoaooao
+				</p>
+			</div>
+
 			<h2 class="benvenuto">Benevenuti in Mercury</h2>
 			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 			euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -92,28 +104,34 @@
 
 		<!-- inizio campi ricerca -->
 		<div class="col-md-3" id="post">
-
+		<form action="../ServletRicerca" method="post">
 		<h3 class="titoloEvento">Ricerca Evento</h3>
 		<div>
 	    <span id="campiricerca">
 		
-				<label>Regione
-					<input type="" name="regione" placeholder="Scegli Regione">
+				<label>Regione<br>
+					<select id="regioni"  name="regioni"  >
+					<option  label="Selezionare" selected="selected"/>
+						<c:forEach var="r" items="${rs.rows }">
+							<option value=<c:out value="${r.idRegione}" /> />
+							<c:out value="${r.nomeRegione}" />
+						</c:forEach>
+					</select>
 				</label>
 		</span>
 
 		<span id="campiricerca">	
 			
-				<label>Provincia
-					<input type="" name="provincia" placeholder="Scegli Provincia">
+				<label>Provincia<br>
+					<select name ="province" id ="province" placeholder="Provincia">562156162</select>
 				</label>
-			
+				<br>
 		</span>
 		
 		<span id="campiricerca">
 			
-				<label>Comune
-					<input type="" name="comune" placeholder="Scegli comune">
+				<label>Comune <br>
+					<select name="comuni" id ="comuni">	</select>
 				</label>
 			<label>Scegli data
 				<input type="date" name="data">
@@ -122,13 +140,14 @@
 		
 		<span id="campiricerca">
 			<label>TipoEvento </label>
+			<br>
 			
-			<form action="../ServletRicerca">
+			
 			  <input type="checkbox" name="tipo1" value="Teatro">Teatro</input>
 			  <input type="checkbox" name="tipo2" value="Concerto">Concerto</input>
-			  <input type="checkbox" name="tipo3" value="Film">Film</input>
+			  <br><input type="checkbox" style="padding-right:30px;" name="tipo3" value="Film">Film</input>        
 			  <input type="checkbox" name="tipo4" value="Mostra">Mostra</input>
-			 	<button type="submit" class="btn btn-success">Cerca</button>	
+			 	<br><br><button type="submit" class="btn btn-success">Cerca</button>	
 			
 			</form>
 		</span>
