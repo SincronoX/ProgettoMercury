@@ -25,7 +25,8 @@
 
 	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
 	<div class="row"><!--INIZIO CLASSE ROW-->
-					
+	
+	<!-- INIZIO NAVBAR -->				
 	 <nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,15 +37,15 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav" id="navbar">
-	        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">Newsletter</a></li>
-	        <li><a href="#">Eventi</a></li>
-	        <li><a href="#">Chi Siamo</a></li>
-	        <li><a href="#">Area Riservata</a></li>
+	        <li class="active"><a onclick="location.href='HomePage.jsp'">Home <span class="sr-only">(current)</span></a></li>
+	        <li><a onclick="location.href='Newsletter.jsp'">Newsletter</a></li>
+	        <li><a  onclick="location.href='RisultatoRicerca.jsp'" >Eventi</a></li>
+	        <li><a onclick="location.href='LoginEnte.jsp'" href="#">Area Riservata</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	<!-- FINE NAVBAR -->	
 
 		<!--inizio siderbar-->
 		<div class="col-md-3"></div>
