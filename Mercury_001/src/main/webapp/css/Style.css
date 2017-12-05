@@ -88,6 +88,14 @@ background-size: cover;
 	color:black;
 }
 
+.formEnte{
+	padding:inherit;
+}
+
+#butEnte{
+	float:right;
+	margin:10px;
+}
 
 
 
