@@ -23,11 +23,11 @@ public class EnteImp implements EnteUtil {
 		MercuryImp m = new MercuryImp();
 		ArrayList<EventoPrevisto> eventi = new ArrayList<EventoPrevisto>();
 		Connection conn=DAO.getConnection();
-		String query="select * from eventoprevisto join ente on eventoprevisto.idEnte = ente.idEnte where emailEnte='"+emailEnte+"'";
+		String query="select * from eventoprevisto join ente on eventoprevisto.idEnte = ente.idEnte where emailEnte=?";
 		PreparedStatement psEventi=null;
 		try {
 			psEventi = conn.prepareStatement(query);
-			//psEventi.setString(1,emailEnte);
+			psEventi.setString(1,emailEnte);
 			ResultSet rst=psEventi.executeQuery();
 			while(rst.next()) {
 				e = new EventoPrevisto();
@@ -257,6 +257,7 @@ public class EnteImp implements EnteUtil {
 	public boolean controlloLoginEnte (String email, String psw) {
 		boolean trovato = false;
 		Connection conn=DAO.getConnection();
+		Ente en = new Ente();
 		String query="select * from ente where emailEnte = ? and pswEnte = ?";
 		PreparedStatement psControlloLoginEnte=null;
 		try {
@@ -277,14 +278,14 @@ public class EnteImp implements EnteUtil {
 	public Ente getEnteByEmail(String email) {
 	Ente e = new Ente();
 	Connection conn=DAO.getConnection();
-	String query="select * from ente where emailEnte='"+email+"'";
+	String query="select * from ente where emailEnte=?";
 	PreparedStatement psEm=null;
 	try {
 		psEm = conn.prepareStatement(query);
-		//psEm.setString(1,email);
+		psEm.setString(1,email);
 		ResultSet rst=psEm.executeQuery();
-		if(rst.first()) {
-			e.setIdEnte(rst.getInt("idEnte"));
+		while(rst.first()) {
+			
 			e.setNomeEnte(rst.getString("nomeEnte"));
 			e.setEmailEnte(rst.getString("emailEnte"));
 			e.setPswEnte(rst.getString("pswEnte"));
