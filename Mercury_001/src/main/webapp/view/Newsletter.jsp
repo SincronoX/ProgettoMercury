@@ -9,10 +9,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.sql.*"%>
 <sql:query var="rs" dataSource="jdbc/mercury">
-SELECT idRegione, nomeRegione from mercury.regione 
+SELECT idRegione, nomeRegione from mercury.regione order by nomeRegione
 </sql:query>
 <sql:query var="tipo" dataSource="jdbc/mercury">
-SELECT idTipoEvento, catEvento from mercury.tipoevento
+SELECT idTipoEvento, catEvento from mercury.tipoevento 
 </sql:query>
 <html>
 <head>
