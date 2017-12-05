@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mercury.model.dao.EventoInPassato;
 import com.mercury.model.dao.InvioNewsLetterGio;
 import com.mercury.model.dao.InvioNewsLetterMens;
 import com.mercury.model.dao.InvioNewsLetterSett;
@@ -26,17 +27,20 @@ public class ServletStart extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		  InvioNewsLetterGio gio   = new InvioNewsLetterGio();
-		  gio.start();
+		EventoInPassato eve = new EventoInPassato();
+		eve.start();
+		
+		InvioNewsLetterGio gio   = new InvioNewsLetterGio();
+		gio.start();
 		  
-		  InvioNewsLetterSett sett = new InvioNewsLetterSett();
-		  sett.start();
+		InvioNewsLetterSett sett = new InvioNewsLetterSett();
+		sett.start();
 		  
-		  InvioNewsLetterMens mens = new InvioNewsLetterMens();
-		  mens.start(); 
+		InvioNewsLetterMens mens = new InvioNewsLetterMens();
+		mens.start(); 
 
-		  RequestDispatcher disp=request.getRequestDispatcher("/index.jsp");
-		  disp.forward(request,response);
+		RequestDispatcher disp=request.getRequestDispatcher("/index.jsp");
+		disp.forward(request,response);
 		
 	}
 

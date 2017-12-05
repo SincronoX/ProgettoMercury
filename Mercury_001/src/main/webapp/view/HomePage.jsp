@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 
-    
-    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,10 +30,10 @@
 
 	<div class="container"> <!--INIZIO CLASSE CONTAINER-->
 	<div class="row"><!--INIZIO CLASSE ROW-->
-					
-	  <nav class="navbar navbar-inverse">
+	
+	<!-- INIZIO NAVBAR -->				
+	 <nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
-	  
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <img id="fotoMercury" src="../img/nuovoLogo1.png">
@@ -36,27 +41,34 @@
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a id="home">Home <span class="sr-only">(current)</span></a></li>
-	        <li><a onclick href="#" id="navbar">Newsletter</a></li>
-	        <li><a href="#" id="navbar">Eventi</a></li>
-	        <li><a href="#" id="navbar">Chi Siamo</a></li>
-	        <li><a href="#" id="navbar">Area Riservata</a></li>
-	        
+	      <ul class="nav navbar-nav" id="navbar">
+	        <li class="active"><a onclick="location.href='HomePage.jsp'">Home <span class="sr-only">(current)</span></a></li>
+	        <li><a onclick="location.href='Newsletter.jsp'">Newsletter</a></li>
+	        <li><a  onclick="location.href='RisultatoRicerca.jsp'" >Eventi</a></li>
+	        <li><a onclick="location.href='LoginEnte.jsp'" href="#">Area Riservata</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-
-
+	<!-- FINE NAVBAR -->	
 
 		<!--inizio siderbar-->
 		<div class="col-md-3"></div>
 		<div id="sidebar" class="col-md-6">
-			<h2 class="benvenuto">Benevenuti in Mercury</h2>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-			euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-		</div>
+		<sql:query var="rs1" dataSource="jdbc/superenalotto">
+select nomeEvento, dataInizio, dataFine, descrizione, nomeComune from (select * from eventoprevisto e order by dataInizio desc limit 3) = q1 , comune  where comune.idComune=q1.idComune  order by q1.dataInizio asc;
+</sql:query>
+				<h2 class="benvenuto">Benevenuti in Mercury</h2>
+				<p>
+					<c:forEach var="bb" items="${rs1.rows}">
+						<c:out value="${bb.nomeEvento}"></c:out>
+						<c:out value="${bb.dataInizio}"></c:out>
+						<c:out value="${bb.dataFine}"></c:out>
+						<c:out value="${bb.descrizione}"></c:out>
+						<c:out value="${bb.nomeComune}"></c:out>
+					</c:forEach>
+				</p>
+			</div>
 		<!--Fine siderbar -->
 		
 
@@ -66,8 +78,9 @@
 
 				<div class="panel panel-info">
 				  <h3 class="titoloEvento">ciao</h3>
+				  
 				  <hr class="panel panel-info">
-				  <p class="testoEventi"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+				  <p class="testoEventi">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 				</div>
 
 				<div class="panel panel-info">

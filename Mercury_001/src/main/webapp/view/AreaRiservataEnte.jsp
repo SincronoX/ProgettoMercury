@@ -47,14 +47,14 @@
 <% 
 MercuryImp m = new MercuryImp(); 
 ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
-//Ente e = (Ente)request.getAttribute("ente"); 
-//String mailEnte = e.getEmailEnte();
+Ente e = (Ente)request.getAttribute("ente"); 
+String mailEnte = e.getEmailEnte();
 EnteImp ei = new EnteImp();
-myEvents = ei.getEventiByEnte("rockinroma@roma.it");
+myEvents = ei.getEventiByEnte(mailEnte);
 %>
 </div>
 
-	<h2>Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
+	<h2>Benvenuto,<% out.println(e.getNomeEnte());%></h2>
 	<form action="../ServletLogEnte" method="post">
 	<input type="submit" value="Logout" name="log">
 	</form>
