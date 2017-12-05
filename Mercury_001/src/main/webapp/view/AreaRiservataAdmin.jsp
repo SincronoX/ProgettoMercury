@@ -57,7 +57,11 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
 	<h2 class="testoGenerale">Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
+	
+	<form class=logoutform action="../ServletLogAdmin" method="post">
 	<input type='submit' value='LogOut' name ='log'>
+	<input type="hidden" name="form" value="LogOutAdmin">
+	</form>
 	
 	<div class="col-md-1"></div>
 <div id="eventiHome" class="col-md-4">
