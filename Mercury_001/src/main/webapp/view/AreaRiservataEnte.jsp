@@ -46,7 +46,7 @@
 
 
 
-	<h2>Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
+	<h2 class="testoGenerale">Benvenuto,<% out.println(e.getNomeEnte());%></h2>
 	<form action="../ServletLogEnte" method="post" >
 	<input type="submit" value="Logout" name="log" class="btn btn-danger" >
 	</form>
@@ -71,14 +71,14 @@
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
 	out.print(m.dateToString(myEvents.get(i).getDataFine()));
 	session.setAttribute("eventi" + i, myEvents.get(i));
-	out.print("<input type='submit' value='Modifica' name='modEv'><input type='submit' value='Elimina' name='modEv'><input  type='hidden' name='numEv' value='"+i+"'>");
+	out.print("<input type='submit' value='Modifica' name='modEv' class='btn btn-primary' ><input type='submit' value='Elimina' name='modEv' class='btn btn-danger' ><input  type='hidden' name='numEv' value='"+i+"'>");
 	out.print("</form>");
 	}
 	%>
 	</div>
 	
 	<form action="../ServletEnte" method="post">
-	<input type="submit" value="Aggiungi" name="modEv">
+	<input type="submit" value="Aggiungi" name="modEv" class="btn btn-success">
 	</form>
 
 </div>
