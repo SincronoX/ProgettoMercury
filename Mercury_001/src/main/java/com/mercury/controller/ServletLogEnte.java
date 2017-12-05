@@ -25,28 +25,28 @@ public class ServletLogEnte extends HttpServlet {
 		String pagina = request.getParameter("log");
 		RequestDispatcher req=null;
 		Ente ente = new Ente();
-		String email = request.getParameter("emailEnte");
-		String psw = request.getParameter("pswEnte");
 		EnteImp enteimp = new EnteImp();
 		if(pagina.equals("login")) {
-		boolean esisteEnte = enteimp.controlloLoginEnte(email, psw);
+		boolean esisteEnte = enteimp.controlloLoginEnte(ente.getEmailEnte(),ente.getPswEnte());
 		if (esisteEnte) {
 
 			/*HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); */
 			
-			ente = enteimp.getEnteByEmail(email);
+			String emailEnte = request.getParameter("emailEnte");
+			ente = enteimp.getEnteByEmail(emailEnte);
 			HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); 
+			response.sendRedirect("view/AreaRiservataEnte.jsp");
 
 
-			req=request.getRequestDispatcher("/view/AreaRiservataEnte.jsp");	
+			req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");	
 			request.setAttribute("ente", ente);
 			req.forward(request, response);      		
 		}
 
 		else 
-			response.sendRedirect("view/LoginEnte.jsp"); 
+			response.sendRedirect("LoginEnte.jsp"); 
 		}
 		if(pagina.equals("logout")) {
 			 HttpSession session = request.getSession(false);
@@ -58,6 +58,7 @@ public class ServletLogEnte extends HttpServlet {
 		        }
 		        request.getRequestDispatcher("HomePage.jsp").forward(request,response);
 		}
+		doGet(request, response);
 	}
 
 }
