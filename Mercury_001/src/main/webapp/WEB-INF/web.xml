@@ -135,6 +135,7 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 	
+	<!-- Gestione errori -->
 	<error-page>
     	<error-code>404</error-code>
     	<location>/paginaErrore/404.jsp</location>
@@ -144,5 +145,7 @@
     	<error-code>500</error-code>
     	<location>/paginaErrore/500.jsp</location>
   	</error-page>
+  	
+  	
   
 </web-app>
