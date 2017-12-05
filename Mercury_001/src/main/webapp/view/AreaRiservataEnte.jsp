@@ -45,7 +45,7 @@
 
 
 
-
+	<% Ente e = new Ente(); %>
 	<h2 class="testoGenerale">Benvenuto,<% out.println(e.getNomeEnte());%></h2>
 	<form action="../ServletLogEnte" method="post" >
 	<input type="submit" value="Logout" name="log" class="btn btn-danger" >
