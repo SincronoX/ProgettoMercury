@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,14 +50,6 @@
 		<!--inizio siderbar-->
 		<div class="col-md-3"></div>
 		<div id="sidebar" class="col-md-6">
-
-		
-				<h2 class="benvenuto">Benevenuti in Mercury</h2>
-				<p>
-					cioooaoaooao
-				</p>
-			</div>
-
 			<h2 class="benvenuto">Benevenuti in Mercury</h2>
 			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 			euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>

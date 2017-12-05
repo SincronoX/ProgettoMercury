@@ -26,7 +26,7 @@ a{text-decoration:none;}
 .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
-img{max-width:100%;}
+img{max-width:250px;}
 /*end reset*/
 /*-----light-font----*/
 @font-face {
@@ -52,19 +52,21 @@ img{max-width:100%;}
     font-style: normal;
 }
 body {
-	background:url(..//img/bg.jpg) no-repeat 100%;
+	background:url(../img/bg.jpg) no-repeat 100%;
 	background-size: 100%;
 	font-family: 'open_sanslight';
 	font-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 /**-----start-wrap---------**/
 .wrap
 {
 	width:70%;
-	margin:5.2% auto 4% auto;
+	margin: 0 auto;
 }
 /**-----start-logo--------**/
 .logo
@@ -72,6 +74,7 @@ body {
 	padding: 1em;
 	text-align: center;
 	padding: 1% 1% 5% 1%;
+	margin-top: 15px;
 }
 .logo h1{
 	display: block;
@@ -86,17 +89,21 @@ body {
 	height: 40px;
 	vertical-align:bottom;
 	margin: 0px 10px;
+	margin-top: 10px;
 }
 /**-----end-logo---------**/
 /**-----start-search-bar-section------**/
 .buttom
 {
-	background:url(..//img/bg2.png) no-repeat 100% 0%;
+	background:url(../img/bg2.png) no-repeat 100% 0%;
 	background-size: 100%;
 	text-align: center;
-	vertical-align: middle;
+	vertical-align: center;
 	margin: 0 auto;
-	width: 556px;
+	margin-top: 0;
+	margin-bottom: 50px;
+	width: 435px;
+	height: 172px;
 }
 .seach_bar
 {
@@ -152,7 +159,7 @@ body {
 .search_box form input[type="submit"] {
 	border: none;
 	cursor: pointer;
-	background: url(..//img/search.png) no-repeat 0px 1px;
+	background: url(../img/search.png) no-repeat 0px 1px;
 	position: absolute;
 	right: 0;
 	width: 34px;
@@ -187,7 +194,7 @@ body {
 	width: 80%;
 }	
 .logo img {
-	width: 315px;
+	width: 235px;
 }
 }
 @media only screen and (max-width: 640px)
@@ -258,5 +265,6 @@ vertical-align: middle;
 }
 .copy_right {
 	padding: 2em 0px 0px 0px;
+	height: 50px;
 }
-}
+}}
