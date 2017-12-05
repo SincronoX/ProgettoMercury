@@ -64,8 +64,13 @@ myEvents = ei.getEventiByEnte(mailEnte);
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
 	out.print("<form action='../ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
+	out.print("<br>");
 	out.print(myEvents.get(i).getDescEvento());
+	out.print("<br>");
+	out.print("Data inizio: ");
 	out.print(m.dateToString(myEvents.get(i).getDataInizio()));
+	out.print("<br>");
+	out.print("Data fine: ");
 	out.print(m.dateToString(myEvents.get(i).getDataFine()));
 	session.setAttribute("eventi" + i, myEvents.get(i));
 	out.print("<input type='submit' value='Modifica' name='modEv'><input type='submit' value='Elimina' name='modEv'><input  type='hidden' name='numEv' value='"+i+"'>");
