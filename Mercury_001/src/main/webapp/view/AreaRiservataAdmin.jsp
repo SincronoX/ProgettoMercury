@@ -55,8 +55,9 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 %>    
 <%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
-	<h2 class="testoGenerale">Benvenuto,<% //out.println(a.getEmailAdmin());%></h2>
-
+	<h2 class="testoGenerale">Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
+	<input type='submit' value='LogOut' name ='log'>
+	
 	<div class="col-md-1"></div>
 <div id="eventiHome" class="col-md-4">
 	<h3>Eventi da approvare</h3> 
@@ -71,8 +72,7 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
 		session.setAttribute("evento" + i, eventiNotCheck.get(i));
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<br><input type='submit' value='Accetta' name ='checkOK' class='btn btn-success'><input type='submit' value='Ban' name='checkOK' class='btn btn-danger'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
-
+		out.print("<br><input type='submit' class='' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
 		out.print("</p>");  
 	}
 	%>
@@ -92,7 +92,8 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
 		session.setAttribute("enteInAttesa" + i, entiInAttesa.get(i));
-		out.print("<input type='submit' value='Accetta' name='enteOK' class='btn btn-success'><input type='submit' value='Rifiuta' name='enteOK' class='btn btn-danger'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'></form>");
+		out.print("<input type='submit' value='Accetta' name='enteOK' class='btn btn-success'><input type='submit' value='Rifiuta' name='enteOK' class='btn btn-danger'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'>");
+		out.print("</form>");
 		out.print("</p>");
 	}%>
 	</div>
