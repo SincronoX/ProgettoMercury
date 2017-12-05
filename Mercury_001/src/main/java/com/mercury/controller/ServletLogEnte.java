@@ -1,6 +1,8 @@
 package com.mercury.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,24 +19,30 @@ public class ServletLogEnte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
 		String pagina = request.getParameter("log");
-=======
-		String pagina = request.getParameter("submit");
->>>>>>> 775f3dac22bf7fe03c062c6fc68f6074e446598c
+		RequestDispatcher req=null;
 		Ente ente = new Ente();
 		EnteImp enteimp = new EnteImp();
 		if(pagina.equals("login")) {
 		boolean esisteEnte = enteimp.controlloLoginEnte(ente.getEmailEnte(),ente.getPswEnte());
 		if (esisteEnte) {
 
+			/*HttpSession session = request.getSession(true);	    
+			session.setAttribute("currentSessionUser",ente); */
+			
+			String emailEnte = request.getParameter("emailEnte");
+			ente = enteimp.getEnteByEmail(emailEnte);
 			HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); 
-			response.sendRedirect("AreaRiservataEnte.jsp"); //logged-in page      		
+			response.sendRedirect("view/AreaRiservataEnte.jsp");
+
+
+			req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");	
+			request.setAttribute("ente", ente);
+			req.forward(request, response);      		
 		}
 
 		else 

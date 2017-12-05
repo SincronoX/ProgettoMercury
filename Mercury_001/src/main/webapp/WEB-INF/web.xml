@@ -59,6 +59,19 @@
 		<description></description>
 		<servlet-class>com.mercury.controller.ServletLuogo</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ServletLoginAdminOk</servlet-name>
+		<display-name>ServletLoginAdminOk</display-name>
+		<description></description>
+		<servlet-class>com.mercury.controller.ServletLoginAdminOk</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletLogAdmin</servlet-name>
+		<display-name>ServletLogAdmin</display-name>
+		<description></description>
+		<servlet-class>com.mercury.controller.ServletLogAdmin</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>ServletLogin</servlet-name>
 		<url-pattern>/ServletLogin</url-pattern>
@@ -95,7 +108,11 @@
 		<servlet-name>ServletLuogo</servlet-name>
 		<url-pattern>/ServletLuogo</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>ServletLogAdmin</servlet-name>
+		<url-pattern>/ServletLogAdmin</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>ServletStart</welcome-file>
 	</welcome-file-list>

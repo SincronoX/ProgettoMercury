@@ -25,7 +25,7 @@ public class ComuneImp implements ComuneUtil {
 		if(conn==null) conn=DAO.getConnection();
         Statement st = conn.createStatement();
         
-        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = '"+id+"'");
+        ResultSet rs = st.executeQuery("SELECT * FROM mercury.eventoprevisto where idComune = '"+id+"';");
         
         Comune nuovo = new Comune();
         
@@ -55,8 +55,10 @@ public class ComuneImp implements ComuneUtil {
 		}
 		
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("select * from mercury.comune c where c.idProvincia = '"+id+"'");				
+
+		ResultSet rs = st.executeQuery("select * from mercury.comune c where c.idProvincia = '"+id+"';");				
 		ArrayList<Comune> list = new ArrayList<Comune>();
+
 		
 		try
 		{

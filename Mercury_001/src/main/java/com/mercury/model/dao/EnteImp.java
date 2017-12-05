@@ -267,9 +267,36 @@ public class EnteImp implements EnteUtil {
 		}
 		return trovato;
 	}
+	public Ente getEnteByEmail(String email) {
+	Ente e = new Ente();
+	Connection conn=DAO.getConnection();
+	String query="select * from ente where emailEnte=?";
+	PreparedStatement psEm=null;
+	try {
+		psEm = conn.prepareStatement(query);
+		psEm.setString(1,email);
+		ResultSet rst=psEm.executeQuery();
+		while(rst.first()) {
+			
+			e.setNomeEnte(rst.getString("nomeEnte"));
+			e.setEmailEnte(rst.getString("emailEnte"));
+			e.setPswEnte(rst.getString("pswEnte"));
+			e.setStatus(rst.getString("status"));
+			e.setnBan(rst.getInt("nBan"));
+		}
+	}
+	catch(SQLException exc)
+	{
+		exc.printStackTrace();
+	}
+					
+	return e;
+	
+	}
 		
 		
 	}
+
 	
 	
 	

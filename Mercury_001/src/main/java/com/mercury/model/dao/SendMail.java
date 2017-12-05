@@ -18,8 +18,8 @@ import com.mercury.model.dao.SmtpAutenticazione;
 
 public class SendMail {
 	Connection conn = null;
-	String host = "smtp.sincrono.it";
-    String mittente = "corso.java@sincrono.it(AUT)";
+	private final String host = "smtp.sincrono.it";
+    private final String mittente = "corso.java@sincrono.it(AUT)";
 	String oggetto = "";
 	private final String user="corso.java@sincrono.it";
 	private final String psw ="c0rs0.java";
