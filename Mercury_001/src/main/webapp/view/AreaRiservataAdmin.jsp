@@ -71,7 +71,11 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
 		session.setAttribute("evento" + i, eventiNotCheck.get(i));
 		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
+<<<<<<< HEAD
+		out.print("<br><input type='submit' class='' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
+=======
 		out.print("<br><input type='submit' value='Accetta' name ='checkOK' class='btn btn-success'><input type='submit' value='Ban' name='checkOK' class='btn btn-danger'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
+>>>>>>> 2ae823a6c7bc994504dd75c4c2acb0bba9c4059b
 
 		out.print("</p>");  
 	}
