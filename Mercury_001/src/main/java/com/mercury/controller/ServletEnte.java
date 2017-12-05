@@ -32,10 +32,11 @@ public class ServletEnte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out=null;
+		
 		String tipoForm = request.getParameter("modEv");
 		String newEvento = request.getParameter("nuovoEvento");
 		RequestDispatcher req=null;
+		
 		try{	    
 
 			
@@ -59,7 +60,7 @@ public class ServletEnte extends HttpServlet {
 				req.forward(request, response);
 			}
 			else if(tipoForm.equals("Elimina"))
-			{
+			{ 
 				EventoPrevisto ep = new EventoPrevisto();
 				int numEvento =  Integer.parseInt(request.getParameter("numEv"));
 				ep = (EventoPrevisto) request.getAttribute("evento"+numEvento);
@@ -67,13 +68,14 @@ public class ServletEnte extends HttpServlet {
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");				
 				req.forward(request, response);
 			}
-			else if(newEvento.equals("Inserisci")) {
+			else if(newEvento.equals("Inserisci")) {				
 				String idEnte= request.getParameter("idEnte");
 				EventoPrevisto e = (EventoPrevisto) request.getAttribute("evento");
 				enteimp.inserisciEvento(e,idEnte);
 				req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");
 				req.forward(request, response);				
 			}
+			
 		} 
 		
 
