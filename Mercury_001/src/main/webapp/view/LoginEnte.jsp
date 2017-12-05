@@ -33,13 +33,13 @@
 </nav>
 
 <div class="form1">
-	<form class=loginform action="ServletLogEnte.java">
-		<input class=input type="text" placeholder="Email" name="emailEnte" required>
-		<input class=input type="password" placeholder="Password" name="pswEnte" required>
-		<button class=loginbtn type="submit" value="login" name="log">Login</button>
+	<form action='../ServletLogEnte' method='post'>
+		<input class="input" type="text" placeholder="Email" name="emailEnte" required>
+		<input class="input" type="password" placeholder="Password" name="pswEnte" required>
+		<button class="loginbtn" type="submit" value="login" name="log">Login</button>
 	</form>
-	<form class=registraform action="RegistrazioneEnte.jsp">
-		<input class=registrabtn type="submit" value="Registrati"/>
+	<form class="registraform" action="RegistrazioneEnte.jsp">
+		<input class="registrabtn" type="submit" value="Registrati"/>
 	</form>
 </div>
 </div>
