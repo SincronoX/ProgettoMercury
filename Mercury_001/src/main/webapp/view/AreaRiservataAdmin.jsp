@@ -49,15 +49,20 @@
 
 <%MercuryImp m = new MercuryImp(); 
 EnteImp ei = new EnteImp();%> 
-<%ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
+<%
+ArrayList<EventoPrevisto> eventiNotCheck = m.getEventiNotCheck();
 
 ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
-
 %>    
-<%Amministratore a=(Amministratore)request.getAttribute("Admin"); %>
 
-	<h2 class="testoGenerale">Benvenuto, <% //out.println(a.getEmailAdmin());%></h2>
-	<input type='submit' value='LogOut' name ='log'>
+<%Amministratore a=(Amministratore)session.getAttribute("sessioneAmm"); %>
+
+	<h2 class="testoGenerale">Benvenuto, <% out.print(a.getEmailAdmin());%></h2>
+	
+	<form class="logoutform" name="form" value="LogOutAdmin" action="ServletLogAdmin" method="post">
+	<input type="submit" name ="form" value="LogOut" >
+	
+	</form>
 	
 	<div class="col-md-1"></div>
 <div id="eventiHome" class="col-md-4">
@@ -66,14 +71,17 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 	<%
 	for(int i = 0; i < eventiNotCheck.size(); i++) {
 		out.print("<p>");
-		out.print("<form action='../ServletAdmin' method='post'>");
+		out.print("<form action='ServletAdmin' method='post'>");
 		out.print(eventiNotCheck.get(i).getNomeEvento());
 		out.print(eventiNotCheck.get(i).getDescEvento());
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataInizio()));
 		out.print(m.dateToString(eventiNotCheck.get(i).getDataFine()));
 		session.setAttribute("evento" + i, eventiNotCheck.get(i));
-		session.setAttribute("check", eventiNotCheck.get(i).isCheck());
-		out.print("<br><input type='submit' class='' value='Accetta' name ='checkOK'><input type='submit' value='Ban' name='checkOK'><br><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='numEv' value='"+i+"'></form>");
+		session.setAttribute("check" + i, eventiNotCheck.get(i).isCheck());
+		out.print("<br><input type='submit' class='' value='Accetta' name ='checkOK'>"+
+									"<input type='submit' value='Ban' name='checkOK'><br>"+
+		"<input type='hidden' name='form' value='checkEventi'>"+
+		"<input  type='hidden' name='numEv' value='"+i+"'></form>");
 		out.print("</p>");  
 	}
 	%>
@@ -89,12 +97,20 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 	for(int i = 0; i < entiInAttesa.size(); i++) {
 		//deve stampare la lista degli enti in attesa di approvazione
 		out.print("<p>");
-		out.print("<form action='../ServletAdmin' method='post'>");
-		out.print(entiInAttesa.get(i).getNomeEnte() + " ");
+		out.print("<form action='ServletAdmin' method='post'>");
+		out.print(entiInAttesa.get(i).getNomeEnte());
 		out.print(entiInAttesa.get(i).getEmailEnte());
-		out.print("<br>");
 		session.setAttribute("enteInAttesa" + i, entiInAttesa.get(i));
-		out.print("<input type='submit' value='Accetta' name='enteOK' class='btn btn-success'><input type='submit' value='Rifiuta' name='enteOK' class='btn btn-danger'><br><input type='hidden' name='eia' value='AR'><input  type='hidden' name='pagina' value='AR'><input  type='hidden' name='entInAtt' value='"+i+"'>");
+		
+		out.print("<input type='submit' value='Accetta' name='enteOK' class='btn btn-success'>"+
+		"<input type='submit' value='Rifiuta' 			name='enteOK' class='btn btn-danger'>				<br> "+
+		" <input type='hidden' name='form' value='entiInAttesa'>  "+
+		"<input  type='hidden' name='pagina' value='AR'>  "+
+		"<input  type='hidden' name='entInAtt' value='"+i+"'>");
+		
+		
+		
+		
 		out.print("</form>");
 		out.print("</p>");
 	}%>
@@ -108,7 +124,9 @@ ArrayList<Ente> entiInAttesa = ei.getEntiInAttesa();
 </body>
  <!--INIZO SCRIPT BOOTSTRAP -->
  	<script type="text/javascript" src="..//js/app.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+   crossorigin="anonymous"></script>
 <!--FINE SCRIPT BOOTSTRAP -->	
    
 

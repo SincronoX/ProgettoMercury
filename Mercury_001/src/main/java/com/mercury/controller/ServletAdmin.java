@@ -1,6 +1,10 @@
 package com.mercury.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,64 +12,85 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mercury.model.Amministratore;
+import com.mercury.model.Ente;
+import com.mercury.model.EventoPrevisto;
 import com.mercury.model.dao.AmministratoreImp;
+import com.mercury.model.dao.EnteImp;
+import com.mercury.model.dao.MercuryImp;
 
-/**
- * Servlet implementation class ServletAdmin
- */
+
 public class ServletAdmin extends HttpServlet {
-	
+
 	private static final long serialVersionUID = 1L;
 
-	public ServletAdmin() {
-		super();
-	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		try{	    
-
-			Amministratore admin = new Amministratore();
-			admin.setEmailAdmin(request.getParameter("email"));
-			admin.setPswAdmin(request.getParameter("password"));
+		RequestDispatcher disp;
+		Ente ente ;
+		HttpSession ss=request.getSession();
+		MercuryImp m = new MercuryImp(); 
+		EnteImp ei = new EnteImp();
+		AmministratoreImp ai = new AmministratoreImp();
+		
+		int numEnte = Integer.parseInt(request.getParameter("enteInAtt"));
+		System.out.println(numEnte);
+		int numEv = Integer.parseInt(request.getParameter("numEv"));
+		String chedevoFare = request.getParameter("enteOK"); //accetta , rifiuta
+		String chedevoFare1 = request.getParameter("checkOK"); //accetta , ban
+		String messaggio = null;
+		EventoPrevisto ep = new EventoPrevisto();
+		if(chedevoFare.equals("Accetta")) {
+			ente=(Ente)ss.getAttribute("enteInAttesa0");//+numEnte);
+			System.out.println("accetta"+ente.getNomeEnte());
+			ai.InvioMailAbilitaEnte(ente);
+			messaggio="ente accettato";
 			
-			//String emailAdmin = admin.getEmailAdmin();
-			//String pswAdmin = admin.getPswAdmin();
-			AmministratoreImp ai = new AmministratoreImp();
-			boolean esisteAdmin = ai.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
- //HHHJ
-			if (esisteAdmin) {
-
-				HttpSession session = request.getSession(true);	    
-				session.setAttribute("currentSessionUser",admin); 
-				response.sendRedirect("AreaRiservataAdmin.jsp"); //logged-in page , mando l'admin nella sua area riservata.     		
-			}
-
-			else 
-				response.sendRedirect("Errore.jsp"); //error page , amministratore non registrato!
-		} 
-
-		catch (Throwable theException){
-
-			System.out.println(theException); 
 		}
+		else if(chedevoFare.equals("Rifiuta")) 
+		{
+			//System.out.println("rifiuta"+((Ente)ss.getAttribute("enteInAttesa"+numEvento)).getNomeEnte());
+			
+			ente=(Ente)ss.getAttribute("enteInAttesa"+numEnte);
+			ente.setEmailEnte("dorianshurdhi@hotmail.it");
+			ai.InvioMailDeclinaEnte(ente);
+			messaggio="ente rifiutato";
+		}
+		else if(chedevoFare1.equals("Accetta")) //evento ok
+		{
+			ep.setCheck(true);
+			messaggio="evento controllato";
+		}
+		else if(chedevoFare1.equals("Ban")) //bane evento
+		{
+			ep=(EventoPrevisto)ss.getAttribute("evento"+numEv);
+			ep.setCheck(true);
+			ente = ei.getEnteById(ep.getIdEnte());
+			ai.mailBanEvento(ente);
+		}
+		
+		disp=request.getRequestDispatcher("view/AreaRiservataAdmin.jsp");	
+		disp.forward(request, response);
 	}
-	
-	
-	//prova
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Expires", "0");
-        
-        HttpSession session = request.getSession();
-        if (session == null) {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
-            return;
-        }
-        session.removeAttribute("admin");
-        session.invalidate();
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
-    }
 }
+
+
+/*
+
+			ente.setEmailEnte(request.getParameter("emailEnte"));
+			ei.trovaEnte(ente);
+			if(trovato==true)
+			{	
+				String messaggio = " Impossibile registrarti, il nome o l'email sono gia' presenti nel database";
+				disp=request.getRequestDispatcher("view/RegistrazioneEnte.jsp");	
+				request.setAttribute("giaEsiste", messaggio);
+				disp.forward(request, response);
+			} 
+			else 
+			{
+				messaggio= "richiesta di registrazione effettuata, attendi email di conferma"; // alert!!
+				ei.addEnte(ente);
+				disp=request.getRequestDispatcher("HomePage.jsp");	
+				request.setAttribute("inAttesa", messaggio);
+				disp.forward(request, response);
+			}*/
