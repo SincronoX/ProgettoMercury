@@ -12,6 +12,10 @@ public class Ente {
 		return idEnte;
 	}
 	
+	public void setIdEnte(int idEnte) {
+		this.idEnte = idEnte;
+	}
+	
 	public String getNomeEnte() {
 		return nomeEnte;
 	}
