@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import com.mercury.model.dao.DAO;
 import com.mercury.model.Ente;
@@ -13,6 +15,15 @@ import com.mercury.model.EventoPrevisto;
 import com.mercury.model.dao.MercuryImp;
 
 public class EnteImp implements EnteUtil {
+	
+	public Calendar stringToDate(String s) {
+		String[] aux = s.split(" - ");
+		int anno = Integer.parseInt(aux[0]);
+		int mese = Integer.parseInt(aux[1]) - 1; 
+		int giorno = Integer.parseInt(aux[2]);
+		Calendar ret = new GregorianCalendar(anno, mese, giorno);
+		return ret;
+	}
 	
 	public ArrayList<EventoPrevisto> getEventiByEnte (String emailEnte){  //emailEnte verrà definito in servlet 
 		String nomeEvento = null;
@@ -27,14 +38,13 @@ public class EnteImp implements EnteUtil {
 		PreparedStatement psEventi=null;
 		try {
 			psEventi = conn.prepareStatement(query);
-			//psEventi.setString(1,emailEnte);
 			ResultSet rst=psEventi.executeQuery();
 			while(rst.next()) {
 				e = new EventoPrevisto();
 				nomeEvento = rst.getString("nomeEvento");
 				descrizione = rst.getString("descrizione");
-				dataInizio = m.stringToDate(rst.getString("dataInizio"));
-				dataFine = m.stringToDate(rst.getString("dataFine"));
+				dataInizio = stringToDate(rst.getString("dataInizio"));
+				dataFine = stringToDate(rst.getString("dataFine"));
 				e.setNomeEvento(nomeEvento);
 				e.setDescEvento(descrizione);
 				e.setDataInizio(dataInizio);	
@@ -56,9 +66,9 @@ public class EnteImp implements EnteUtil {
 	public boolean trovaEnte (Ente en) {
 		boolean trovato = false;
 		Connection conn=DAO.getConnection();
-		String query="select * from ente where nomeEnte = ? or emailEnte = ?";
 		String nome = en.getNomeEnte();
 		String email = en.getEmailEnte();
+		String query="select * from ente where nomeEnte = '"+nome+"' or emailEnte = '"+email+"'";
 		PreparedStatement psTrovaEnte=null;
 		try {
 			psTrovaEnte = conn.prepareStatement(query);
@@ -85,13 +95,13 @@ public class EnteImp implements EnteUtil {
 		}
 		String pass = builder.toString();
 		Connection conn=DAO.getConnection();
-		String queryAddEnte="insert into ente (nomeEnte,emailEnte,pswEnte,status,nBan) values (?,?,?,?,?)";
+		String nome = en.getNomeEnte();
+		String email= en.getEmailEnte();
+		
+		String queryAddEnte="insert into ente (nomeEnte,emailEnte,pswEnte,status,nBan) values ('"+nome+"','"+email+"','"+pass+"','attesa',0)";
 		PreparedStatement psAddEnte=null;
 		try {
 			psAddEnte = conn.prepareStatement(queryAddEnte);
-			psAddEnte.setString(1, en.getNomeEnte());
-			psAddEnte.setString(2, en.getEmailEnte());
-			psAddEnte.setString(3, pass);
 			psAddEnte.setString(4, "attesa");
 			psAddEnte.setInt(5, 0);
 			psAddEnte.executeUpdate();
@@ -101,22 +111,21 @@ public class EnteImp implements EnteUtil {
 		}
 	}
 	
-	public void inserisciEvento (EventoPrevisto e,String idEnte) {
+	public void inserisciEvento (EventoPrevisto e, int idEnte) {
 		Connection conn = DAO.getConnection();
 		MercuryImp m = new MercuryImp();
-		String queryAddEvento = "insert into eventoprevisto (nomeEvento,dataInizio,dataFine,descrizione,checked, idEnte, idTipoEvento, idComune) values (?,?,?,?,?,?,?,?)";
-		PreparedStatement psAddEvento = null;
+		String nomeEvento= e.getNomeEvento();
+		String dataInizio= m.dateToString(e.getDataInizio());
+		String dataFine= m.dateToString(e.getDataFine());
+		String descEvento= e.getDescEvento();
+		int TipoEvento= e.getIdTipoEvento();		
+		String idComune= e.getIdComune();		
+		System.out.println("ente "+idEnte);
+		String queryAddEvento = "insert into mercury.eventoprevisto (nomeEvento, dataInizio,dataFine,descrizione,checked, idEnte, idTipoEvento, idComune) values ('"+nomeEvento+"','"+dataInizio+"','"+dataFine+"','"+descEvento+"',0,"+idEnte+","+TipoEvento+",'"+idComune+"')";
+		Statement psAddEvento = null;
 		try {
-			psAddEvento = conn.prepareStatement(queryAddEvento);
-			psAddEvento.setString(1, e.getNomeEvento());
-			psAddEvento.setString(2, m.dateToString(e.getDataInizio()));
-			psAddEvento.setString(3, m.dateToString(e.getDataFine()));
-			psAddEvento.setString(4, e.getDescEvento());
-			psAddEvento.setBoolean(5, false);
-			psAddEvento.setString(6, idEnte);
-			psAddEvento.setInt(7, e.getIdTipoEvento());
-			psAddEvento.setString(8, e.getIdComune());
-			psAddEvento.executeUpdate();
+			psAddEvento = conn.createStatement();		
+			psAddEvento.executeUpdate(queryAddEvento);
 		}
 		catch(SQLException exc){
 			exc.printStackTrace();
@@ -126,18 +135,17 @@ public class EnteImp implements EnteUtil {
 	public void modificaEvento (EventoPrevisto e) {
 		Connection conn = DAO.getConnection();
 		MercuryImp m = new MercuryImp();
-		String queryModificaEvento = "update eventoprevisto set nomeEvento = ? , dataInizio = ? , dataFine = ? , descrizione = ? , checked = ?, idTipoEvento = ?, idComune = ? where idEvento = ?";
+		String nomeEvento= e.getNomeEvento();
+		String dataInizio= m.dateToString(e.getDataInizio());
+		String dataFine= m.dateToString(e.getDataFine());
+		String descEvento= e.getDescEvento();
+		int tipoEvento= e.getIdTipoEvento();
+		String idComune= e.getIdComune();
+		int idEvento= e.getIdEvento();
+		String queryModificaEvento = "update eventoprevisto set nomeEvento = '"+nomeEvento+"' , dataInizio = '"+dataInizio+"' , dataFine = '"+dataFine+"' , descrizione = '"+descEvento+"' , checked = 'false', idTipoEvento = '"+tipoEvento+"', idComune = "+idComune+" where idEvento = "+idEvento;
 		PreparedStatement psModificaEvento = null;
 		try {
-			psModificaEvento = conn.prepareStatement(queryModificaEvento);
-			psModificaEvento.setString(1, e.getNomeEvento());
-			psModificaEvento.setString(2, m.dateToString(e.getDataInizio()));
-			psModificaEvento.setString(3, m.dateToString(e.getDataFine()));
-			psModificaEvento.setString(4, e.getDescEvento());
-			psModificaEvento.setBoolean(5, false);
-			psModificaEvento.setInt(6, e.getIdTipoEvento());
-			psModificaEvento.setString(7, e.getIdComune());
-			psModificaEvento.setInt(8, e.getIdEvento());
+			psModificaEvento = conn.prepareStatement(queryModificaEvento);		
 			psModificaEvento.executeUpdate();
 		}
 		catch(SQLException exc) {
@@ -149,9 +157,9 @@ public class EnteImp implements EnteUtil {
 		Connection conn = DAO.getConnection();
 		MercuryImp m = new MercuryImp();
 		EventoPrevisto ep = new EventoPrevisto();
-		String queryCopiaEvento = " select * from eventoprevisto where idEvento = "+e.getIdEvento();
+		String queryCopiaEvento = "select * from eventoprevisto where idEvento = "+e.getIdEvento();
 		String queryAddEvento = "insert into eventonascosto (nomeEvento,dataInizio,dataFine,descrizione,checked, idEnte, idTipoEvento, idComune) values (";
-		String queryEliminaEvento = "Delete * from eventoprevisto where idEvento = "+e.getIdEvento();
+		String queryEliminaEvento = "Delete from eventoprevisto where idEvento = "+e.getIdEvento();
 		PreparedStatement psCopiaEvento = null;
 		PreparedStatement psAddEvento = null;
 		PreparedStatement psEliminaEvento = null;
@@ -179,16 +187,7 @@ public class EnteImp implements EnteUtil {
 				queryAddEvento += (e.getIdEnte()+", ");
 				queryAddEvento += (e.getIdTipoEvento()+", ");
 				queryAddEvento += ("'"+e.getIdComune()+"')");
-				
-				
-				//psAddEvento.setString(1, ep.getNomeEvento());
-				//psAddEvento.setString(2, m.dateToString(ep.getDataInizio()));
-				//psAddEvento.setString(3, m.dateToString(ep.getDataFine()));
-				//psAddEvento.setString(4, ep.getDescEvento());
-				//psAddEvento.setBoolean(5, true);
-				//psAddEvento.setInt(6, e.getIdEnte());
-				//psAddEvento.setInt(7, e.getIdTipoEvento());
-				//psAddEvento.setString(8, e.getIdComune());
+
 				psAddEvento = conn.prepareStatement(queryAddEvento);
 
 				psAddEvento.executeUpdate();
@@ -204,11 +203,10 @@ public class EnteImp implements EnteUtil {
 	public Ente getEnteById(int id) {
 		Ente e = new Ente();
 		Connection conn=DAO.getConnection();
-		String query="select * from ente where idEnte=?";
+		String query="select * from ente where idEnte="+id; 
 		PreparedStatement psId=null;
 		try {
 			psId = conn.prepareStatement(query);
-			psId.setInt(1,id);
 			ResultSet rst=psId.executeQuery();
 			while(rst.first()) {
 				
@@ -232,11 +230,10 @@ public class EnteImp implements EnteUtil {
 		ArrayList<Ente> enti = new ArrayList<Ente>();
 		Ente e= null;
 		Connection conn=DAO.getConnection();
-		String query="select * from ente where status=?";
+		String query="select * from ente where status='attesa'";
 		PreparedStatement psEntiInAttesa=null;
 		try {
 			psEntiInAttesa = conn.prepareStatement(query);
-			psEntiInAttesa.setString(1,"attesa");
 			ResultSet rst=psEntiInAttesa.executeQuery();
 			while(rst.next()) {
 				e = new Ente();
@@ -262,12 +259,10 @@ public class EnteImp implements EnteUtil {
 	public boolean controlloLoginEnte (String email, String psw) {
 		boolean trovato = false;
 		Connection conn=DAO.getConnection();
-		String query="select * from ente where emailEnte = ? and pswEnte = ?";
+		String query="select * from ente where emailEnte = '"+email+"' and pswEnte = '"+psw+"'";
 		PreparedStatement psControlloLoginEnte=null;
 		try {
 			psControlloLoginEnte = conn.prepareStatement(query);
-			psControlloLoginEnte.setString(1, email);
-			psControlloLoginEnte.setString(2, psw);
 			ResultSet rst=psControlloLoginEnte.executeQuery();
 			if(rst.first()) {
 				trovato = true;
@@ -286,10 +281,9 @@ public class EnteImp implements EnteUtil {
 	PreparedStatement psEm=null;
 	try {
 		psEm = conn.prepareStatement(query);
-		//psEm.setString(1,email);
 		ResultSet rst=psEm.executeQuery();
 		if(rst.first()) {
-			e.setIdEnte(rst.getInt("idEnte"));
+			e.setIdEnte(Integer.parseInt(rst.getString("idEnte")));
 			e.setNomeEnte(rst.getString("nomeEnte"));
 			e.setEmailEnte(rst.getString("emailEnte"));
 			e.setPswEnte(rst.getString("pswEnte"));

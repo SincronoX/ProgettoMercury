@@ -11,7 +11,7 @@ function giorniNelMese(mese) {
 		return 30;
 }
 
-function controllo(form) {
+function controlloBello(form) {
 	var today = new Date();
 	var nGio = giorniNelMese(today.getMonth());
 	var a = (today.getDate()+7) % nGio;
@@ -49,7 +49,7 @@ function controllo(form) {
 	      return false;
 	}
 	 
-	 return false;
+	 return true;
 	 
 	
 }

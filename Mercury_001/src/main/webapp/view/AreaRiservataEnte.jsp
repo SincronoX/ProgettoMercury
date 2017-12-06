@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="..//css/Style.css">
+<link rel="stylesheet" type="text/css" href="css/Style.css">
 <title>Area Riservata Ente</title>
 </head>
 <body>
@@ -43,32 +43,28 @@
 	</nav>
 	<!-- FINE NAVBAR -->	
 
+	<% 
+		MercuryImp m = new MercuryImp(); 
+		ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
+		Ente e = (Ente)request.getAttribute("ente"); 
+		String mailEnte = e.getEmailEnte();
+		EnteImp ei = new EnteImp();
+		myEvents = ei.getEventiByEnte(mailEnte);
+	%>	
+	
 
 
-
-	<h2 class="testoGenerale">Benvenuto,<% //out.println(e.getNomeEnte());%></h2>
+	<h2 class="testoGenerale">Benvenuto,<% out.println(" "+e.getNomeEnte());%></h2>
 	
 	<form action="../ServletLogEnte" method="post">
 	<input type="submit" value="Logout" name="log" class="btn btn-danger" >
 	</form>
 	<hr>
 	<br>
-	
-	
-		<% 
-		MercuryImp m = new MercuryImp(); 
-		ArrayList<EventoPrevisto> myEvents = new ArrayList<EventoPrevisto>();
-		//Ente e = (Ente)request.getAttribute("ente"); 
-		//String mailEnte = e.getEmailEnte();
-		EnteImp ei = new EnteImp();
-		myEvents = ei.getEventiByEnte("rockinroma@roma.it");
-		%>	
-	
-	
 	<div id="eventiHome" class="col-md-12">
 	<%
 	for(int i = 0; i < myEvents.size(); i++) { //lista degli eventi dell'ente
-	out.print("<form id='formEnte'  class='panel panel-info' action='../ServletEnte' method='post'>");	
+	out.print("<form id='formEnte'  class='panel panel-info' action='ServletEnte' method='post'>");	
 	out.print(myEvents.get(i).getNomeEvento());
 	out.print("<br>");
 	out.print(myEvents.get(i).getDescEvento());
@@ -85,7 +81,8 @@
 	%>
 	</div>
 	<div class= col-md-10></div>
-	<form action="../ServletEnte" method="post">
+	<form action="ServletEnte" method="post">
+	<input type="hidden" value="<% out.print(e.getEmailEnte()); %>" name="email">
 	<input type="submit" value="Aggiungi" name="modEv" class="btn btn-success">
 	</form>
 

@@ -34,21 +34,22 @@ public class ServletLogEnte extends HttpServlet {
 
 			/*HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); */
-			
 			ente = enteimp.getEnteByEmail(email);
+
 			HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); 
 
 
-			req=request.getRequestDispatcher("/view/AreaRiservataEnte.jsp");	
+			req=request.getRequestDispatcher("view/AreaRiservataEnte.jsp");	
 			request.setAttribute("ente", ente);
 			req.forward(request, response);      		
+			
 		}
 
 		else 
 			response.sendRedirect("view/LoginEnte.jsp"); 
 		}
-		if(pagina.equals("logout")) {
+		if(pagina.equals("Logout")) {
 			 HttpSession session = request.getSession(false);
 
 		        if(session!=null){

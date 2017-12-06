@@ -19,7 +19,7 @@ $(document).ready(function() {
 	$("#regioni").change(
 			function(event) {
 				var regione = $("select#regioni").val();
-				$.get("../ServletLuogo", {
+				$.get("ServletLuogo", {
 					idRegione : regione
 				}, function(response) {
 					var select = $("#province");
@@ -39,7 +39,7 @@ $(document).ready(function() {
 	$("#province").change(
 			function(event) {
 				var provincia = $("select#province").val();
-				$.get("../ServletLuogo", {
+				$.get("ServletLuogo", {
 					idProvincia : provincia
 				}, function(response) {
 					var select = $("#comuni");
