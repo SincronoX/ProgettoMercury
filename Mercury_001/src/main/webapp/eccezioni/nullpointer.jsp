@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+Oops! Errore interno del server
 
 </body>
 </html>

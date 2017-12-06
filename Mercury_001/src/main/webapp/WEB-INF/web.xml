@@ -135,6 +135,7 @@
 		<res-auth>Container</res-auth>
 	</resource-ref>
 	
+	<!-- GESTIONE ERRORI -->
 	<error-page>
     	<error-code>404</error-code>
     	<location>/paginaErrore/404.jsp</location>
@@ -150,6 +151,7 @@
     	<location>/paginaErrore/405.jsp</location>
   	</error-page>
   	
+  	<!-- GESTIONE ECCEZIONI -->
   	<error-page>
   		<exception-type>java.sql.Exception</exception-type>
   		<location>/eccezioni/sql.jsp</location>
