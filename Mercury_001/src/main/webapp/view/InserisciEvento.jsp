@@ -41,7 +41,6 @@ Selezionare il tipo di evento:
 		out.print("<option value='"+catEvento.get(i).getIdTipoEvento()+"'>"+catEvento.get(i).getCatEvento()+"</option>");
 	}%>
 </select>
-<<<<<<< HEAD
 
 <p class="testoGenerale">
 Seleziona regione: <select id="regioni"  name="regioni"  >
