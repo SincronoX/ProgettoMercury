@@ -32,14 +32,7 @@ public class ServletLogEnte extends HttpServlet {
 
 			/*HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); */
-<<<<<<< HEAD
-			ente = enteimp.getEnteByEmail(email);
 
-=======
-			
-			String emailEnte = request.getParameter("emailEnte");
-			ente = enteimp.getEnteByEmail(emailEnte);
->>>>>>> 14ea08966074920330779020ac1e3e74a4fbe913
 			HttpSession session = request.getSession(true);	    
 			session.setAttribute("currentSessionUser",ente); 
 			response.sendRedirect("view/AreaRiservataEnte.jsp");
