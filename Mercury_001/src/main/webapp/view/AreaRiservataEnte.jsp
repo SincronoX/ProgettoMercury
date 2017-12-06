@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 <title>Area Riservata Ente</title>
 </head>
-<body>
+<body> 
 
 <div id="sfondo"></div> 
 
