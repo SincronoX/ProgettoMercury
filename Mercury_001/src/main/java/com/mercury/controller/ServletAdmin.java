@@ -33,7 +33,7 @@ public class ServletAdmin extends HttpServlet {
 			//String pswAdmin = admin.getPswAdmin();
 			AmministratoreImp ai = new AmministratoreImp();
 			boolean esisteAdmin = ai.trovaAdmin(admin.getEmailAdmin(),admin.getPswAdmin());
-
+ //HHH
 			if (esisteAdmin) {
 
 				HttpSession session = request.getSession(true);	    
