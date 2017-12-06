@@ -10,6 +10,7 @@
 <link href="..//css/styleErrore404.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
+
 	<!-----start-wrap--------->
 	<div class="wrap">
 		<!-----start-content--------->
