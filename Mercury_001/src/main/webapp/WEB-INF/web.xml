@@ -149,6 +149,16 @@
     	<error-code>405</error-code>
     	<location>/paginaErrore/405.jsp</location>
   	</error-page>
+  	
+  	<error-page>
+  		<exception-type>java.sql.Exception</exception-type>
+  		<location>/eccezioni/sql.jsp</location>
+  	</error-page>
+ 	
+  	<error-page>
+   		<exception-type>java.lang.NullPointerException</exception-type>
+   		<location>/eccezioni/nullpointer.jsp</location>
+  	</error-page>
  
 
 </web-app>
