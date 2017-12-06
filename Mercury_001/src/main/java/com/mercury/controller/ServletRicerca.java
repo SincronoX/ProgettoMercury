@@ -51,27 +51,42 @@ public class ServletRicerca extends HttpServlet {
 		TipoEventoImp tipi = new TipoEventoImp();
 		ArrayList<TipoEvento> t = tipi.getEventoCatAll();
 		
-		if(request.getParameter("tipo1") == null) {
+		int k=0;
+		
+		if(request.getParameter("tipo1") != null) {
 			att = tipi.getTipoEventoById(1); 
-			t.remove(att);
+			t.remove(0);
+			k--;
 		}
-		if(request.getParameter("tipo2") == null) {
+		if(request.getParameter("tipo2") != null) {
 			att = tipi.getTipoEventoById(2);
-			t.remove(att);
+			t.remove(1+k);
+			k--;
+
 		} 
-		if(request.getParameter("tipo3") == null) {
+		if(request.getParameter("tipo3") != null) {
 			att = tipi.getTipoEventoById(3);
-			t.remove(att);
+			t.remove(2+k);
+			k--;
 		}
-		if(request.getParameter("tipo4") == null) {
-			att = tipi.getTipoEventoById(4);
-			t.remove(att);
+		if(request.getParameter("tipo4") != null) {
+			att = tipi.getTipoEventoById(4);			
+			t.remove(3+k);
+			k--;
 		}
+		if(request.getParameter("tipo5") != null) {
+			att = tipi.getTipoEventoById(5);			
+			t.remove(4+k);
+			k--;
+		}
+		
 		
 		String comune = request.getParameter("comune");
 		
 		String data = request.getParameter("data");
-		Calendar d = stringToData(data);
+		Calendar d = null;
+		if(!data.equals(""))
+			d = stringToData(data);
 		
 		ArrayList<EventoPrevisto> ret = new ArrayList<EventoPrevisto>();
 		
@@ -80,12 +95,11 @@ public class ServletRicerca extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}		
 		
-		RequestDispatcher disp=request.getRequestDispatcher("/RisultatoRicerca.jsp");
+		RequestDispatcher disp=request.getRequestDispatcher("/view/RisultatoRicerca.jsp");
 		request.setAttribute("risultatoRicerca", ret);
 		disp.forward(request,response);
-	
 		
 	}
 

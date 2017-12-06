@@ -23,6 +23,18 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HOMEPAGE</title>
 
+<script type="text/javascript">
+	function controlloTipo(form) {
+		if(form.tipo1.checked || form.tipo2.checked || form.tipo3.checked || form.tipo4.checked || form.tipo5.checked){
+			return true;
+		}
+		else{
+			alert("inserisci almeno un tipo");
+			return false;
+		}
+	}
+</script>
+
 </head>
 <body>
 <div id="sfondo"></div> 
@@ -104,7 +116,8 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 
 		<!-- inizio campi ricerca -->
 		<div class="col-md-3" id="post">
-		<form action="../ServletRicerca" method="post">
+		
+		<form action="../ServletRicerca" method="post" onsubmit="return controlloTipo(this);">
 		<h3 class="titoloEvento">Ricerca Evento</h3>
 		<div>
 	    <span id="campiricerca">
@@ -143,10 +156,11 @@ select idRegione, nomeRegione from mercury.regione order by nomeRegione
 			<br>
 			
 			
-			  <input type="checkbox" name="tipo1" value="Teatro">Teatro</input>
-			  <input type="checkbox" name="tipo2" value="Concerto">Concerto</input>
-			  <br><input type="checkbox" style="padding-right:30px;" name="tipo3" value="Film">Film</input>        
+			  <input type="checkbox" name="tipo1" value="Concerto">Concerto</input>
+			  <br><input type="checkbox" style="padding-right:30px;" name="tipo2" value="Film">Film</input>        
+			  <input type="checkbox" name="tipo3" value="Teatro">Teatro</input>
 			  <input type="checkbox" name="tipo4" value="Mostra">Mostra</input>
+			  <input type="checkbox" name="tipo5" value="Altro">Altro</input>
 			 	<br><br><button type="submit" class="btn btn-success">Cerca</button>	
 			
 			</form>
