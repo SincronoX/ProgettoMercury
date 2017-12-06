@@ -11,9 +11,7 @@
 <sql:query var="rs" dataSource="jdbc/mercury">
 SELECT idRegione, nomeRegione from mercury.regione 
 </sql:query>
-<sql:query var="tipo" dataSource="jdbc/mercury">
-SELECT idTipoEvento, catEvento from mercury.tipoevento
-</sql:query>
+
 <html>
 <head>
 <!--COLLEGAMENTO AL CSS BOOTSTRAP-->
