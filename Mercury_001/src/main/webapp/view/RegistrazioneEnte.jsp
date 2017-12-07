@@ -37,7 +37,6 @@
 <form class=loginform action="ServletReg.java">
 	<input class=input type="text" placeholder="Nome" name="nomeEnte" required>
 	<input class=input type="email" placeholder="Email" name="emailEnte" required>
-	<input class=input type="password" placeholder="Password" name="pswEnte" required/>
 	<button class=registrabtn type="submit">Registrati</button>
 </form>
 </div>
