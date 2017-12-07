@@ -28,8 +28,8 @@
 			<li><a href="#">Chi Siamo</a></li>
 			<li><a href="#">Area Riservata</a></li>
 	</ul>
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
+</div><!--/.navbar-collapse -->
+</div><!--/.container-fluid -->
 </nav>
 
 <!-- Input form -->
